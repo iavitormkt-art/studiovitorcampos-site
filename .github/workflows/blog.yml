@@ -1,0 +1,30 @@
+# Gera o blog todo dia às 9h de Brasília, para os artigos agendados (data no
+# futuro em posts/) entrarem no ar sozinhos. Também roda quando um artigo é enviado.
+name: Blog
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  push:
+    branches: [main]
+    paths: ["posts/**", "blog.py", "assets/blog.css"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python blog.py
+      - name: Enviar páginas geradas
+        run: |
+          git config user.name "robo-blog"
+          git config user.email "robo-blog@users.noreply.github.com"
+          git add blog feed.xml sitemap.xml robots.txt
+          git diff --cached --quiet || (git commit -m "Blog: páginas atualizadas" && git push)

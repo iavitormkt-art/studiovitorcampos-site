@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://studiovitorcampos.com.br/sitemap.xml

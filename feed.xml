@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Blog do Studio Vitor Campos</title>
+  <link>https://studiovitorcampos.com.br/blog/</link>
+  <description>Marketing para quem tem um negócio de verdade.</description>
+  <language>pt-BR</language>
+  <item>
+    <title>Conteúdo profissional e alguém de verdade cuidando: como funciona o Marketing Essencial</title>
+    <link>https://studiovitorcampos.com.br/blog/como-funciona-o-marketing-essencial/</link>
+    <guid>https://studiovitorcampos.com.br/blog/como-funciona-o-marketing-essencial/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 -0300</pubDate>
+    <description>Posts, reels e stories com design profissional e vídeo de filmmaker, atendimento automático e resultados no celular. Veja como funciona a gestão de Instagram e Facebook do Studio Vitor Campos.</description>
+  </item>
+  <item>
+    <title>O básico bem feito funciona: por que a constância vende mais que a trend</title>
+    <link>https://studiovitorcampos.com.br/blog/constancia-de-postagens-o-basico-bem-feito-funciona/</link>
+    <guid>https://studiovitorcampos.com.br/blog/constancia-de-postagens-o-basico-bem-feito-funciona/</guid>
+    <pubDate>Sun, 25 Oct 2026 09:00:00 -0300</pubDate>
+    <description>Postar toda semana e responder todo cliente traz mais vendas para o comércio local do que correr atrás de viral. Entenda por que a constância nas redes sociais faz diferença.</description>
+  </item>
+</channel>
+</rss>
