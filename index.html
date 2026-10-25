@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Vitor Campos · Marketing Essencial</title>
+<meta name="description" content="Gestão de Instagram e Facebook com conteúdo profissional, design, vídeo e acompanhamento diário. Solicite um diagnóstico gratuito dos seus perfis.">
+<meta property="og:title" content="Studio Vitor Campos · Marketing Essencial">
+<meta property="og:description" content="Conteúdo profissional para a sua marca, com alguém de verdade cuidando de tudo. Diagnóstico gratuito dos seus perfis.">
+<meta name="theme-color" content="#003346">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --petroleo: #003346;
+    --petroleo-escuro: #021c26;
+    --ciano: #00fff9;
+    --ciano-texto: #0a8fa3;
+    --coral: #ff6a3d;
+    --manteiga: #ffc94d;
+    --creme: #f3ede2;
+    --branco: #ffffff;
+    --texto: #0b2430;
+    --cinza: #5a6e77;
+    --linha: #dde8ec;
+    --raio: 22px;
+    --largura: 1180px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Montserrat", system-ui, sans-serif; color: var(--texto); background: var(--branco); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .container { width: min(var(--largura), 100% - 32px); margin-inline: auto; }
+  .logo { width: 38px; height: 38px; flex-shrink: 0; }
+
+  /* ---------------------------------------------------------------- topo */
+  .topo { position: sticky; top: 0; z-index: 20; background: rgba(0, 51, 70, .92); backdrop-filter: blur(10px); color: var(--branco); }
+  .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .marca small { display: block; font-size: 11px; font-weight: 500; letter-spacing: 3px; line-height: 1; }
+  .marca strong { display: block; font-size: 17px; font-weight: 800; letter-spacing: .3px; line-height: 1.2; }
+  .menu { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
+  .menu a { text-decoration: none; opacity: .85; }
+  .menu a:hover { opacity: 1; color: var(--ciano); }
+  .botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 99px; padding: 14px 26px; font: 700 16px "Montserrat", sans-serif; text-decoration: none; cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .botao:hover { transform: translateY(-2px); }
+  .botao-ciano { background: var(--ciano); color: var(--petroleo); box-shadow: 0 10px 30px rgba(0, 255, 249, .25); }
+  .botao-coral { background: var(--coral); color: var(--branco); box-shadow: 0 10px 30px rgba(255, 106, 61, .3); }
+  .botao-contorno { background: transparent; color: var(--petroleo); border: 2px solid var(--petroleo); }
+  .topo .botao { padding: 10px 20px; font-size: 14px; }
+
+  /* ---------------------------------------------------------------- banner */
+  .banner { position: relative; overflow: hidden; color: var(--branco); background: radial-gradient(120% 90% at 85% 10%, #0a5a73 0%, var(--petroleo) 45%, var(--petroleo-escuro) 100%); padding: 72px 0 96px; }
+  .banner::before { content: ""; position: absolute; width: 520px; height: 520px; right: -160px; bottom: -220px; border-radius: 50%; border: 70px solid rgba(0, 255, 249, .08); }
+  .banner::after { content: ""; position: absolute; width: 220px; height: 220px; left: -80px; top: 60px; border-radius: 50%; background: rgba(255, 106, 61, .14); filter: blur(10px); }
+  .banner .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+  .selo { display: inline-block; background: rgba(0, 255, 249, .12); color: var(--ciano); border: 1px solid rgba(0, 255, 249, .35); font-size: 13px; font-weight: 700; letter-spacing: 3px; padding: 8px 16px; border-radius: 99px; text-transform: uppercase; }
+  .banner h1 { font-size: clamp(36px, 5.2vw, 64px); font-weight: 900; line-height: 1.04; letter-spacing: -1.5px; margin: 22px 0 22px; }
+  .banner h1 em { font-style: normal; color: var(--ciano); }
+  .banner p.apoio { font-size: 19px; color: #b9d3db; max-width: 560px; }
+  .lista-check { list-style: none; margin: 28px 0 0; display: grid; gap: 12px; }
+  .lista-check li { display: flex; gap: 12px; align-items: flex-start; font-weight: 600; font-size: 16px; }
+  .lista-check li::before { content: ""; flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--ciano) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23003346' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
+
+  /* ---------------------------------------------------------------- formulário de diagnóstico */
+  .cartao-form { background: var(--branco); color: var(--texto); border-radius: 26px; padding: 32px; box-shadow: 0 40px 80px rgba(0, 0, 0, .35); }
+  .cartao-form h2 { font-size: 24px; font-weight: 800; letter-spacing: -.3px; line-height: 1.2; }
+  .cartao-form .sub { color: var(--cinza); font-size: 14px; margin-top: 6px; }
+  .progresso { height: 8px; border-radius: 99px; background: var(--linha); margin: 22px 0 6px; overflow: hidden; }
+  .progresso span { display: block; height: 100%; width: 50%; background: linear-gradient(90deg, var(--ciano-texto), var(--ciano)); border-radius: 99px; transition: width .3s; }
+  .etapa-txt { font-size: 13px; color: var(--cinza); font-weight: 600; }
+  .campos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .campo { display: flex; flex-direction: column; gap: 6px; }
+  .campo.inteiro { grid-column: 1 / -1; }
+  .campo label { font-size: 13px; font-weight: 700; }
+  .campo label span { font-weight: 500; color: var(--cinza); }
+  .campo input, .campo select { font: 500 15px "Montserrat", sans-serif; color: var(--texto); border: 1.5px solid var(--linha); border-radius: 12px; padding: 12px 14px; background: #f8fbfc; outline: none; transition: border-color .15s; width: 100%; }
+  .campo input:focus, .campo select:focus { border-color: var(--ciano-texto); background: var(--branco); }
+  .opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opcoes label { cursor: pointer; }
+  .opcoes input { position: absolute; opacity: 0; pointer-events: none; }
+  .opcoes span { display: inline-block; font-size: 13px; font-weight: 600; border: 1.5px solid var(--linha); border-radius: 99px; padding: 8px 14px; transition: all .15s; }
+  .opcoes input:checked + span { background: var(--petroleo); border-color: var(--petroleo); color: var(--ciano); }
+  .acoes-form { display: flex; gap: 10px; margin-top: 22px; }
+  .acoes-form .botao { flex: 1; }
+  .botao-voltar { background: #eef4f6; color: var(--petroleo); flex: 0 0 auto !important; }
+  .garantia { margin-top: 14px; font-size: 12.5px; color: var(--cinza); text-align: center; }
+  .erro { color: #c0392b; font-size: 13px; font-weight: 600; margin-top: 10px; display: none; }
+  .etapa[hidden] { display: none; }
+
+  /* ---------------------------------------------------------------- seções */
+  section { padding: 96px 0; }
+  .titulo-secao { max-width: 760px; margin-bottom: 48px; }
+  .titulo-secao .selo { background: rgba(10, 143, 163, .1); color: var(--ciano-texto); border-color: rgba(10, 143, 163, .3); }
+  .titulo-secao h2 { font-size: clamp(30px, 3.8vw, 46px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; margin-top: 16px; }
+  .titulo-secao p { color: var(--cinza); font-size: 18px; margin-top: 14px; }
+  .centro { text-align: center; margin-inline: auto; }
+
+  .grade-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grade-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .item { background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); padding: 28px; transition: transform .2s, box-shadow .2s; }
+  .item:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 51, 70, .08); }
+  .item h3 { font-size: 19px; font-weight: 800; margin: 18px 0 8px; }
+  .item p { color: var(--cinza); font-size: 15px; }
+  .icone { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--petroleo); }
+  .icone svg { width: 26px; height: 26px; stroke: var(--ciano); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* diagnóstico */
+  .s-diagnostico { background: var(--creme); }
+
+  /* manifesto */
+  .manifesto { background: var(--manteiga); color: var(--petroleo); overflow: hidden; }
+  .manifesto-antes { font-size: 20px; font-weight: 600; opacity: .8; }
+  .manifesto h2 { font-size: clamp(64px, 12vw, 168px); font-weight: 900; line-height: .86; letter-spacing: -.05em; margin: 18px 0 48px; }
+  .manifesto h2 em { font-style: normal; color: var(--coral); }
+  .manifesto-lados { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; border-top: 3px solid var(--petroleo); padding-top: 28px; }
+  .manifesto-lados b { font-size: 19px; font-weight: 800; }
+  .manifesto-lados p { margin-top: 6px; font-size: 15px; }
+  @media (max-width: 760px) { .manifesto-lados { grid-template-columns: 1fr; } }
+
+  /* o que inclui */
+  .inclui { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .bloco { border-radius: var(--raio); padding: 30px; min-height: 250px; display: flex; flex-direction: column; justify-content: space-between; }
+  .bloco h3 { font-size: 22px; font-weight: 800; line-height: 1.15; }
+  .bloco p { font-size: 15px; margin-top: 10px; }
+  .bloco .num { font-size: 56px; font-weight: 900; line-height: 1; letter-spacing: -2px; opacity: .9; }
+  .b-petroleo { background: var(--petroleo); color: var(--branco); }
+  .b-petroleo .num { color: var(--ciano); }
+  .b-petroleo p { color: #b9d3db; }
+  .b-coral { background: var(--coral); color: var(--branco); }
+  .b-manteiga { background: var(--manteiga); color: var(--petroleo); }
+  .b-ciano { background: var(--ciano); color: var(--petroleo); }
+  .bonus { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2px; background: var(--petroleo); color: var(--ciano); padding: 5px 10px; border-radius: 99px; margin-bottom: 12px; }
+
+  /* como funciona */
+  .s-como { background: var(--petroleo); color: var(--branco); position: relative; overflow: hidden; }
+  .s-como .titulo-secao p { color: #b9d3db; }
+  .s-como .titulo-secao .selo { background: rgba(0, 255, 249, .12); color: var(--ciano); border-color: rgba(0, 255, 249, .35); }
+  .passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: passo; }
+  .passo { background: rgba(255, 255, 255, .05); border: 1px solid rgba(0, 255, 249, .18); border-radius: var(--raio); padding: 28px; }
+  .passo::before { counter-increment: passo; content: "0" counter(passo); display: block; font-size: 15px; font-weight: 800; color: var(--ciano); letter-spacing: 2px; margin-bottom: 14px; }
+  .passo h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+  .passo p { color: #b9d3db; font-size: 15px; }
+  .ia-humano { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .papel { border-radius: var(--raio); padding: 28px 30px; }
+  .papel h4 { font-size: 22px; font-weight: 800; }
+  .papel small { display: block; font-size: 13px; font-weight: 600; opacity: .75; margin-bottom: 14px; }
+  .papel ul { list-style: none; display: grid; gap: 8px; font-weight: 600; }
+  .papel li::before { content: "•  "; }
+  .papel-ia { background: rgba(0, 255, 249, .1); border: 1px solid rgba(0, 255, 249, .3); }
+  .papel-ia li::before { color: var(--ciano); }
+  .papel-vitor { background: var(--coral); color: var(--petroleo); }
+  .manuscrito { font-size: 15px; font-weight: 700; margin-top: 18px; color: var(--ciano); letter-spacing: .3px; }
+
+  /* app */
+  .celular { width: 300px; margin-inline: auto; background: #0b1418; border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px rgba(0, 51, 70, .3); }
+  .tela { background: #eef4f6; border-radius: 34px; overflow: hidden; height: 600px; }
+  .tela-topo { background: var(--petroleo); color: var(--ciano); display: flex; align-items: center; gap: 8px; padding: 36px 18px 14px; font-size: 13px; font-weight: 700; }
+  .tela-topo svg { width: 22px; height: 22px; }
+  .abas { display: flex; margin: 14px 14px 0; background: var(--branco); border-radius: 12px; padding: 4px; font-size: 12px; font-weight: 700; color: var(--cinza); }
+  .abas span { flex: 1; text-align: center; padding: 7px 0; border-radius: 9px; }
+  .abas .ativa { background: var(--ciano-texto); color: var(--branco); }
+  .numeros { display: grid; gap: 10px; padding: 14px; }
+  .num-cartao { background: var(--branco); border-radius: 16px; padding: 12px 14px; }
+  .num-cartao small { font-size: 12px; color: var(--cinza); font-weight: 600; }
+  .num-cartao div { display: flex; justify-content: space-between; align-items: baseline; }
+  .num-cartao b { font-size: 30px; font-weight: 800; letter-spacing: -1px; }
+  .num-cartao i { font-style: normal; font-size: 12px; font-weight: 700; color: #2b8a3e; }
+  .nota-gestor { margin: 0 14px; background: var(--petroleo); color: var(--branco); border-radius: 16px; padding: 12px 14px; font-size: 12px; }
+  .nota-gestor b { color: var(--ciano); display: block; margin-bottom: 4px; }
+  .ilustrativa { text-align: center; font-size: 12px; color: var(--cinza); margin-top: 14px; letter-spacing: 1px; }
+
+  /* planos */
+  .s-planos { background: #f6f9fa; }
+  .planos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: stretch; }
+  .plano { background: var(--branco); border: 1px solid var(--linha); border-radius: 26px; padding: 30px 24px; display: flex; flex-direction: column; }
+  .plano .para { font-size: 14px; opacity: .7; margin-top: 4px; }
+  .plano .dia { font-size: 13px; font-weight: 700; color: var(--ciano-texto); }
+  .plano.destaque .dia { color: var(--ciano); }
+  .plano .implantacao { font-size: 13px; opacity: .7; margin-bottom: 14px; }
+  .plano.destaque { background: var(--petroleo); color: var(--branco); border: 0; transform: scale(1.03); box-shadow: 0 30px 60px rgba(0, 51, 70, .25); }
+  .plano h3 { font-size: 22px; font-weight: 800; }
+  .plano .tag { align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: 2px; background: var(--ciano); color: var(--petroleo); padding: 5px 12px; border-radius: 99px; margin-bottom: 14px; }
+  .preco { font-size: 46px; font-weight: 900; letter-spacing: -1.5px; margin: 14px 0 4px; }
+  .preco small { font-size: 16px; font-weight: 600; letter-spacing: 0; opacity: .7; }
+  .plano ul { list-style: none; display: grid; gap: 10px; margin: 22px 0 28px; flex: 1; font-size: 15px; }
+  .plano li { display: flex; gap: 10px; }
+  .plano li::before { content: "✓"; font-weight: 800; color: var(--ciano-texto); }
+  .plano.destaque li::before { color: var(--ciano); }
+  .plano li.nao { opacity: .45; }
+  .plano li.nao::before { content: "–"; }
+  .nota-planos { text-align: center; color: var(--cinza); font-size: 14px; margin-top: 28px; }
+  .contratos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+  .contrato { background: var(--branco); border: 1px solid var(--linha); border-radius: 22px; padding: 24px; }
+  .contrato.melhor { border: 2px solid var(--ciano-texto); }
+  .contrato small { font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--ciano-texto); }
+  .contrato h3 { font-size: 20px; font-weight: 800; margin: 6px 0 8px; }
+  .contrato p { color: var(--cinza); font-size: 15px; }
+
+  /* ajuste expresso */
+  .s-expresso { background: var(--petroleo); color: var(--branco); }
+  .s-expresso .titulo-secao p { color: #b9d3db; }
+  .prazos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .prazo { background: rgba(255, 255, 255, .06); border: 1px solid rgba(0, 255, 249, .25); border-radius: 24px; padding: 28px 24px; }
+  .prazo b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -1.5px; color: var(--ciano); line-height: 1; }
+  .prazo h3 { font-size: 19px; font-weight: 800; margin: 14px 0 8px; }
+  .prazo p { color: #b9d3db; font-size: 15px; }
+  .prazo.urgente { background: var(--coral); border: 0; color: var(--petroleo); }
+  .prazo.urgente b { color: var(--petroleo); }
+  .prazo.urgente p { color: var(--petroleo); opacity: .85; }
+  .nota-expresso { text-align: center; color: #9fb9c1; font-size: 14px; margin-top: 24px; }
+
+  /* sobre */
+  .foto-vitor { aspect-ratio: 4 / 5; border-radius: 30px; background: linear-gradient(160deg, var(--petroleo), var(--petroleo-escuro)); display: grid; place-items: center; color: rgba(0, 255, 249, .5); font-weight: 700; position: relative; overflow: hidden; }
+  .foto-vitor svg { width: 46%; opacity: .5; }
+  .foto-vitor .legenda { position: absolute; bottom: 18px; left: 18px; right: 18px; font-size: 13px; color: #b9d3db; text-align: center; }
+  .sobre p { color: var(--cinza); font-size: 17px; margin-top: 16px; }
+  .sobre h2 { font-size: clamp(30px, 3.8vw, 44px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; margin-top: 16px; }
+
+  /* perguntas */
+  .perguntas { max-width: 820px; margin-inline: auto; display: grid; gap: 12px; }
+  details { border: 1px solid var(--linha); border-radius: 18px; padding: 20px 24px; background: var(--branco); }
+  summary { font-weight: 700; font-size: 17px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 24px; line-height: 1; color: var(--ciano-texto); }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--cinza); margin-top: 12px; }
+
+  /* chamada final */
+  .chamada { background: var(--coral); color: var(--branco); text-align: center; border-radius: 34px; padding: 64px 32px; position: relative; overflow: hidden; }
+  .chamada h2 { font-size: clamp(30px, 4vw, 50px); font-weight: 900; line-height: 1.05; letter-spacing: -1px; }
+  .chamada p { font-size: 18px; margin: 16px auto 30px; max-width: 600px; }
+  .chamada .botao { background: var(--petroleo); color: var(--ciano); }
+
+  /* rodapé */
+  footer { background: var(--petroleo-escuro); color: #9fb9c1; padding: 48px 0; font-size: 14px; margin-top: 96px; }
+  footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
+  footer .marca { color: var(--branco); }
+  footer nav { display: flex; gap: 20px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ciano); }
+
+  .whats-flutuante { position: fixed; right: 20px; bottom: 20px; z-index: 30; width: 60px; height: 60px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 12px 30px rgba(0, 0, 0, .25); transition: transform .15s; }
+  .whats-flutuante:hover { transform: scale(1.08); }
+  .whats-flutuante svg { width: 32px; height: 32px; fill: var(--branco); }
+
+  /* ---------------------------------------------------------------- celular */
+  @media (max-width: 1180px) {
+    .planos { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 960px) {
+    .menu a:not(.botao) { display: none; }
+    .contratos, .prazos { grid-template-columns: 1fr; }
+    .banner { padding: 48px 0 72px; }
+    .banner .container, .grade-2 { grid-template-columns: 1fr; gap: 40px; }
+    .grade-3 { grid-template-columns: 1fr; }
+    .inclui, .passos { grid-template-columns: 1fr 1fr; }
+    .ia-humano { grid-template-columns: 1fr; }
+    .plano.destaque { transform: none; }
+    section { padding: 72px 0; }
+  }
+  @media (max-width: 560px) {
+    .topo .container { height: 64px; }
+    .marca small { display: none; }
+    .marca strong { font-size: 15px; }
+    .topo .botao { padding: 9px 14px; font-size: 13px; }
+    .campos { grid-template-columns: 1fr; }
+    .cartao-form { padding: 24px 20px; }
+    .inclui, .passos, .planos { grid-template-columns: 1fr; }
+    .bloco { min-height: 0; gap: 18px; }
+    .chamada { padding: 48px 22px; border-radius: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Logo VC (mesmo traço das peças do Remotion) -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="vc" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="51" r="44"/><path d="M7 29 L30 93 L74 8"/><path d="M90 26 A31 31 0 1 0 82 85"/></g></symbol>
+  <symbol id="whats" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="container">
+    <a class="marca" href="#">
+      <svg class="logo" style="color:var(--ciano)"><use href="#vc"/></svg>
+      <span><small>STUDIO</small><strong>VITOR CAMPOS</strong></span>
+    </a>
+    <nav class="menu">
+      <a href="#inclui">O que inclui</a>
+      <a href="#como">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#perguntas">Dúvidas</a>
+      <a class="botao botao-ciano" href="#diagnostico">Diagnóstico grátis</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ---------------------------------------------------------------- banner + formulário -->
+<section class="banner" id="diagnostico">
+  <div class="container">
+    <div>
+      <span class="selo">Marketing Essencial</span>
+      <h1>Conteúdo <em>profissional</em> para a sua marca. E alguém de verdade cuidando de tudo.</h1>
+      <p class="apoio">Posts, carrosséis, reels e stories com design profissional e vídeos de filmmaker, atendimento automático nas suas redes e um app para você acompanhar os resultados todos os dias.</p>
+      <ul class="lista-check">
+        <li>Instagram e Facebook no padrão da sua marca</li>
+        <li>Nenhum cliente sem resposta, nem fora do horário</li>
+        <li>Transparência diária: você vê tudo o que foi feito</li>
+      </ul>
+    </div>
+
+    <form class="cartao-form" id="form-diagnostico" novalidate>
+      <h2>Solicite um diagnóstico gratuito</h2>
+      <p class="sub">Analisamos o seu Instagram, Facebook e site e mostramos onde você está perdendo clientes.</p>
+      <div class="progresso"><span id="barra"></span></div>
+      <div class="etapa-txt" id="etapa-txt">Etapa 1 de 2</div>
+
+      <div class="etapa" data-etapa="1">
+        <div class="campos">
+          <div class="campo"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required></div>
+          <div class="campo"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization" required></div>
+          <div class="campo"><label for="instagram">Instagram</label><input id="instagram" name="instagram" placeholder="@suaempresa" required></div>
+          <div class="campo"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="(61) 90000-0000" required></div>
+          <div class="campo inteiro"><label for="site">Site ou página do Facebook <span>(opcional)</span></label><input id="site" name="site" placeholder="www.suaempresa.com.br"></div>
+        </div>
+        <div class="erro" id="erro1">Preencha nome, empresa, Instagram e WhatsApp para continuar.</div>
+        <div class="acoes-form"><button class="botao botao-coral" type="button" id="avancar">Próximo</button></div>
+      </div>
+
+      <div class="etapa" data-etapa="2" hidden>
+        <div class="campos">
+          <div class="campo"><label for="segmento">Segmento</label>
+            <select id="segmento" name="segmento">
+              <option>Alimentação</option><option>Beleza e estética</option><option>Saúde</option><option>Moda</option>
+              <option>Serviços</option><option>Varejo</option><option>Automotivo</option><option>Outro</option>
+            </select>
+          </div>
+          <div class="campo"><label for="cidade">Cidade</label><input id="cidade" name="cidade" autocomplete="address-level2" placeholder="Brasília"></div>
+          <div class="campo inteiro"><label>O que mais te incomoda hoje? <span>(marque quantos quiser)</span></label>
+            <div class="opcoes">
+              <label><input type="checkbox" name="dor" value="Não tenho tempo de postar"><span>Não tenho tempo de postar</span></label>
+              <label><input type="checkbox" name="dor" value="As artes não ficam profissionais"><span>As artes não ficam profissionais</span></label>
+              <label><input type="checkbox" name="dor" value="Mensagens ficam sem resposta"><span>Mensagens ficam sem resposta</span></label>
+              <label><input type="checkbox" name="dor" value="Não sei se dá resultado"><span>Não sei se dá resultado</span></label>
+              <label><input type="checkbox" name="dor" value="Meu site está fora do ar ou desatualizado"><span>Site fora do ar</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="acoes-form">
+          <button class="botao botao-voltar" type="button" id="voltar">Voltar</button>
+          <button class="botao botao-coral" type="submit">Quero meu diagnóstico</button>
+        </div>
+      </div>
+      <p class="garantia">Grátis e sem compromisso. Você recebe o resultado pelo WhatsApp.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- o que o diagnóstico verifica -->
+<section class="s-diagnostico">
+  <div class="container">
+    <div class="titulo-secao">
+      <span class="selo">Diagnóstico gratuito</span>
+      <h2>Olhamos o seu perfil como o seu cliente olha</h2>
+      <p>Sem pedir senha nem acesso às suas contas. Você recebe uma nota de 0 a 10 em cada ponto e o que fazer para melhorar.</p>
+    </div>
+    <div class="grade-3">
+      <div class="item"><div class="icone"><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5.5A8.5 8.5 0 1 1 21 12z"/></svg></div><h3>Resposta nas mensagens</h3><p>Mandamos uma mensagem como cliente e medimos se alguém responde, em quanto tempo e se existe resposta automática.</p></div>
+      <div class="item"><div class="icone"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>Comentários sem resposta</h3><p>Contamos quantas perguntas de clientes ficaram sem resposta nos seus últimos posts.</p></div>
+      <div class="item"><div class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Site e link da bio</h3><p>Conferimos se o site está no ar e se o link leva direto ao WhatsApp, cardápio ou catálogo.</p></div>
+      <div class="item"><div class="icone"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Frequência de posts</h3><p>Vemos a data do último post e quantas vezes por semana a sua marca aparece.</p></div>
+      <div class="item"><div class="icone"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.5"/><circle cx="15.5" cy="10" r="1.5"/><path d="M8 15c2.5 2 5.5 2 8 0"/></svg></div><h3>Identidade visual</h3><p>Avaliamos se as peças seguem um padrão de cores, fontes e estilo que faz a marca ser lembrada.</p></div>
+      <div class="item"><div class="icone"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 6.3L21 9l-5 4.4L17.5 20 12 16.6 6.5 20 8 13.4 3 9l6.4-.7z"/></svg></div><h3>Destaques e Facebook</h3><p>Checamos destaques, horário, contato e se a página do Facebook está ativa e configurada.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- manifesto (DNA: o básico bem feito funciona) -->
+<section class="manifesto">
+  <div class="container">
+    <p class="manifesto-antes">Enquanto muita marca corre atrás da próxima trend…</p>
+    <h2>O básico<br><em>bem feito</em><br>funciona.</h2>
+    <div class="manifesto-lados">
+      <div><b>Sem loucura mirabolante</b><p>Conteúdo que conversa com o seu cliente, não com o algoritmo do momento.</p></div>
+      <div><b>Sem cliente abandonado</b><p>Cada comentário e cada pergunta têm resposta. Cada um é uma venda.</p></div>
+      <div><b>Com constância</b><p>A sua marca aparecendo toda semana, no padrão, sem sumir por meses.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- o que inclui -->
+<section id="inclui">
+  <div class="container">
+    <div class="titulo-secao">
+      <span class="selo">O que inclui</span>
+      <h2>Feito por quem faz isso de verdade</h2>
+      <p>Design profissional e vídeos de filmmaker com equipamento de alta qualidade, no padrão da sua marca.</p>
+    </div>
+    <div class="inclui">
+      <div class="bloco b-petroleo"><div class="num">01</div><div><h3>Conteúdo profissional</h3><p>Posts, carrosséis, reels e stories criados no padrão da sua marca e publicados no dia e horário certos.</p></div></div>
+      <div class="bloco b-coral"><div class="num">02</div><div><h3>Design e vídeo</h3><p>Peças com design profissional e vídeos gravados e editados por filmmaker.</p></div></div>
+      <div class="bloco b-manteiga"><div class="num">03</div><div><h3>Atendimento automático</h3><p>Respostas, perguntas frequentes e mensagem de ausência configuradas no Instagram e no Facebook.</p></div></div>
+      <div class="bloco b-ciano"><div class="num">04</div><div><span class="bonus">BÔNUS</span><h3>App de acompanhamento</h3><p>Seguidores, alcance e o que foi feito, todos os dias, direto no seu celular.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- como funciona -->
+<section class="s-como" id="como">
+  <div class="container">
+    <div class="titulo-secao">
+      <span class="selo">Como funciona</span>
+      <h2>A IA faz o trabalho pesado. Eu cuido da sua marca.</h2>
+      <p>A tecnologia agiliza a produção e a agenda. Cada post passa pelo meu olhar antes de ir ao ar.</p>
+    </div>
+    <div class="passos">
+      <div class="passo"><h3>Diagnóstico</h3><p>Analiso o seu perfil e mostro onde você está perdendo clientes.</p></div>
+      <div class="passo"><h3>Planejamento</h3><p>Monto o calendário do mês com você, de acordo com o seu negócio e as suas datas.</p></div>
+      <div class="passo"><h3>Criação e publicação</h3><p>Produzo as peças, você aprova e eu publico nos melhores horários.</p></div>
+      <div class="passo"><h3>Acompanhamento</h3><p>Você vê os resultados no app todos os dias e recebe o relatório do mês.</p></div>
+    </div>
+    <div class="ia-humano">
+      <div class="papel papel-ia"><h4>IA</h4><small>minha assistente</small><ul><li>Organiza o calendário</li><li>Agenda as publicações</li><li>Separa os comentários</li></ul></div>
+      <div class="papel papel-vitor"><h4>Vitor Campos</h4><small>seu gestor</small><ul><li>Cria e revisa cada peça</li><li>Cuida do tom da sua marca</li><li>Conversa com você</li></ul></div>
+    </div>
+    <p class="manuscrito">Nada no piloto automático.</p>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- app -->
+<section>
+  <div class="container grade-2">
+    <div>
+      <div class="celular">
+        <div class="tela">
+          <div class="tela-topo"><svg><use href="#vc"/></svg>Marketing Essencial</div>
+          <div class="abas"><span>Hoje</span><span class="ativa">Semana</span><span>Mês</span></div>
+          <div class="numeros">
+            <div class="num-cartao"><small>Seguidores</small><div><b>12.480</b><i>+86 na semana</i></div></div>
+            <div class="num-cartao"><small>Alcance</small><div><b>9.312</b><i>▲ 18%</i></div></div>
+            <div class="num-cartao"><small>Cliques no link</small><div><b>143</b><i>▲ 22%</i></div></div>
+          </div>
+          <div class="nota-gestor"><b>O que foi feito hoje</b>Publiquei o carrossel da promoção e respondi 6 comentários. Amanhã: reels dos bastidores.</div>
+        </div>
+      </div>
+      <p class="ilustrativa">IMAGEM ILUSTRATIVA</p>
+    </div>
+    <div class="titulo-secao" style="margin:0">
+      <span class="selo">Bônus</span>
+      <h2>Você acompanha tudo, todos os dias</h2>
+      <p>Nada de esperar o relatório do fim do mês. No app você vê seguidores, alcance, cliques e o que foi feito, no Instagram e no Facebook, separados ou juntos.</p>
+      <ul class="lista-check" style="color:var(--texto)">
+        <li>Números de hoje, da semana e do mês</li>
+        <li>Anotações do gestor: o que foi feito e os próximos passos</li>
+        <li>Funciona no celular, sem instalar nada da loja</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- ajuste expresso -->
+<section class="s-expresso">
+  <div class="container">
+    <div class="titulo-secao centro">
+      <span class="selo">Ajuste Expresso</span>
+      <h2>Fechou de última hora? Mudou o horário? A gente resolve rápido.</h2>
+      <p>Imprevisto acontece. Você manda pelo WhatsApp e a sua página avisa os clientes, em todos os planos.</p>
+    </div>
+    <div class="prazos">
+      <div class="prazo urgente">
+        <b>2 h</b>
+        <h3>Comunicado de extrema urgência</h3>
+        <p>Fechamento inesperado, falta de energia, problema no delivery: o aviso vai ao ar em até 2 horas.</p>
+      </div>
+      <div class="prazo">
+        <b>24 h</b>
+        <h3>Comunicado urgente</h3>
+        <p>Mudança de horário, falta de um produto, aviso de última hora: post ou story pronto em até 24 horas.</p>
+      </div>
+      <div class="prazo">
+        <b>24 h</b>
+        <h3>Ajuste nas automações</h3>
+        <p>"Dia tal não vamos abrir", horário de feriado, mensagem de data comemorativa: atualizado em até 24 horas, sem limite de pedidos.</p>
+      </div>
+    </div>
+    <p class="nota-expresso">Prazos contados em horário comercial. A quantidade de comunicados por mês depende do plano.</p>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- planos -->
+<section class="s-planos" id="planos">
+  <div class="container">
+    <div class="titulo-secao centro">
+      <span class="selo">Planos</span>
+      <h2>Escolha o ritmo da sua marca</h2>
+      <p>Todos os planos incluem diagnóstico, planejamento, publicação, relatório, atendimento automático e Ajuste Expresso.</p>
+    </div>
+    <!-- Ancoragem: do mais caro para o mais barato, com o Essencial+ em destaque -->
+    <div class="planos">
+      <div class="plano">
+        <h3>Completo</h3>
+        <p class="para">Para quem quer vídeo e campanhas</p>
+        <div class="preco">R$ 1.597<small>/mês</small></div>
+        <span class="dia">cerca de R$ 53 por dia</span>
+        <ul>
+          <li>4 a 5 posts no feed por semana</li>
+          <li>4 reels por mês</li>
+          <li>Stories semanais</li>
+          <li>1 campanha sazonal por mês</li>
+          <li>Monitoramento diário de mensagens e comentários</li>
+          <li>4 comunicados urgentes por mês</li>
+          <li>Tudo do Essencial+</li>
+        </ul>
+        <p class="implantacao">Implantação: R$ 497 (grátis a partir de 6 meses)</p>
+        <a class="botao botao-contorno" href="#diagnostico">Pedir diagnóstico</a>
+      </div>
+      <div class="plano destaque">
+        <span class="tag">MAIS ESCOLHIDO</span>
+        <h3>Essencial+</h3>
+        <p class="para">O equilíbrio ideal para o comércio local</p>
+        <div class="preco">R$ 1.197<small>/mês</small></div>
+        <span class="dia">cerca de R$ 40 por dia</span>
+        <ul>
+          <li>4 a 5 posts no feed por semana</li>
+          <li>2 reels por mês</li>
+          <li>Stories semanais</li>
+          <li>Monitoramento diário de mensagens e comentários</li>
+          <li>4 comunicados urgentes por mês</li>
+          <li>Tudo do Essencial</li>
+        </ul>
+        <p class="implantacao">Implantação: R$ 497 (grátis a partir de 6 meses)</p>
+        <a class="botao botao-ciano" href="#diagnostico">Pedir diagnóstico</a>
+      </div>
+      <div class="plano">
+        <h3>Essencial</h3>
+        <p class="para">Marca profissional e constância</p>
+        <div class="preco">R$ 797<small>/mês</small></div>
+        <span class="dia">cerca de R$ 27 por dia</span>
+        <ul>
+          <li>3 posts no feed por semana</li>
+          <li>Peças exclusivas no padrão da marca</li>
+          <li>Atendimento automático da Meta</li>
+          <li>Comente e receba no direct</li>
+          <li>App de acompanhamento</li>
+          <li>Ajustes nos cardápios</li>
+          <li>2 comunicados urgentes por mês</li>
+          <li class="nao">Reels e stories</li>
+        </ul>
+        <p class="implantacao">Implantação: R$ 497 (grátis a partir de 6 meses)</p>
+        <a class="botao botao-contorno" href="#diagnostico">Pedir diagnóstico</a>
+      </div>
+      <div class="plano">
+        <h3>Presença</h3>
+        <p class="para">O básico funcionando para o pequeno negócio</p>
+        <div class="preco">R$ 397<small>/mês</small></div>
+        <span class="dia">cerca de R$ 13 por dia</span>
+        <ul>
+          <li>2 posts no feed por semana</li>
+          <li>Modelos prontos com as suas cores e o seu logo</li>
+          <li>Atendimento automático da Meta</li>
+          <li>Relatório mensal simples</li>
+          <li>1 comunicado urgente por mês</li>
+          <li class="nao">Peças exclusivas</li>
+          <li class="nao">App de acompanhamento</li>
+        </ul>
+        <p class="implantacao">Implantação: R$ 297 (grátis a partir de 6 meses)</p>
+        <a class="botao botao-contorno" href="#diagnostico">Pedir diagnóstico</a>
+      </div>
+    </div>
+
+    <div class="contratos">
+      <div class="contrato">
+        <small>3 MESES</small>
+        <h3>Contrato mínimo</h3>
+        <p>Mensalidade do plano, mais a implantação cobrada uma vez, junto com o primeiro mês.</p>
+      </div>
+      <div class="contrato melhor">
+        <small>6 MESES</small>
+        <h3>Implantação grátis</h3>
+        <p>Você economiza até R$ 497 e já começa com tudo configurado.</p>
+      </div>
+      <div class="contrato">
+        <small>12 MESES</small>
+        <h3>Implantação grátis + bônus</h3>
+        <p>Além da implantação, a primeira captação de fotos e vídeos no local é por nossa conta.</p>
+      </div>
+    </div>
+    <p class="nota-planos">Não inclui tráfego pago, atendimento de pedidos nem criação de logotipo. Outras captações no local são contratadas à parte.</p>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- sobre -->
+<section>
+  <div class="container grade-2 sobre">
+    <div class="foto-vitor"><svg style="color:var(--ciano)"><use href="#vc"/></svg><span class="legenda">[foto do Vitor]</span></div>
+    <div>
+      <span class="selo" style="background:rgba(10,143,163,.1);color:var(--ciano-texto);border-color:rgba(10,143,163,.3)">Quem cuida da sua marca</span>
+      <h2>Prazer, eu sou o Vitor</h2>
+      <p>Sou formado em marketing, filmmaker e instrutor de marketing e design. Há anos ajudo empresas a se comunicarem melhor, com peças bonitas e, principalmente, que vendem.</p>
+      <p>No Marketing Essencial, junto o olhar de quem cria com a agilidade da tecnologia. Você tem um time de comunicação completo, com uma pessoa só para conversar.</p>
+      <p style="margin-top:28px"><a class="botao botao-coral" href="#diagnostico">Quero o diagnóstico gratuito</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- dúvidas -->
+<section class="s-diagnostico" id="perguntas">
+  <div class="container">
+    <div class="titulo-secao centro"><span class="selo">Dúvidas</span><h2>Perguntas frequentes</h2></div>
+    <div class="perguntas">
+      <details open><summary>O diagnóstico é mesmo gratuito?</summary><p>Sim. Analisamos o seu perfil de fora, como um cliente veria, sem pedir senha nem acesso. Você recebe o resultado pelo WhatsApp e decide se quer seguir.</p></details>
+      <details><summary>Qual é o tempo mínimo de contrato?</summary><p>3 meses, que é o tempo para a sua marca ganhar constância e os resultados aparecerem. No contrato de 6 meses a implantação sai de graça, e no de 12 meses você ganha também a primeira captação de fotos e vídeos no local.</p></details>
+      <details><summary>E se eu precisar de um aviso de última hora?</summary><p>É para isso que existe o Ajuste Expresso. Comunicados de extrema urgência vão ao ar em até 2 horas, e mudanças nas respostas automáticas, como "dia tal não vamos abrir", são feitas em até 24 horas.</p></details>
+      <details><summary>Quem aprova o que vai ser postado?</summary><p>Você. Todo mês eu apresento o calendário e as peças, e nada vai ao ar sem a sua aprovação.</p></details>
+      <details><summary>Vocês atendem fora de Brasília?</summary><p>Sim. O Studio é 100% digital, então atendemos empresas de todo o Brasil. Captação de vídeo no local é combinada à parte.</p></details>
+      <details><summary>O que é o atendimento automático?</summary><p>São respostas automáticas, perguntas frequentes e mensagem de ausência nas ferramentas gratuitas da própria Meta, para nenhum cliente ficar sem retorno.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <div class="container">
+    <div class="chamada">
+      <h2>Descubra onde o seu perfil está perdendo clientes</h2>
+      <p>Leva menos de 1 minuto para pedir. O diagnóstico é gratuito e sem compromisso.</p>
+      <a class="botao" href="#diagnostico">Solicitar diagnóstico gratuito</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a class="marca" href="#">
+      <svg class="logo" style="color:var(--ciano)"><use href="#vc"/></svg>
+      <span><small>STUDIO</small><strong>VITOR CAMPOS</strong></span>
+    </a>
+    <nav>
+      <a href="https://www.instagram.com/vitorcamposmkt/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/vitorcamposmkt" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://wa.me/5561992163078" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <span>Atendimento 100% digital · © 2026 Studio Vitor Campos</span>
+  </div>
+</footer>
+
+<a class="whats-flutuante" href="https://wa.me/5561992163078" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#whats"/></svg></a>
+
+<script>
+  // Formulário em 2 etapas: sem servidor, o pedido vai pronto para o WhatsApp do Studio
+  const WHATS = "5561992163078";
+  const form = document.getElementById("form-diagnostico");
+  const etapas = form.querySelectorAll(".etapa");
+  const barra = document.getElementById("barra");
+  const etapaTxt = document.getElementById("etapa-txt");
+
+  function irPara(n) {
+    etapas.forEach((e) => (e.hidden = e.dataset.etapa != n));
+    barra.style.width = n === 1 ? "50%" : "100%";
+    etapaTxt.textContent = `Etapa ${n} de 2`;
+  }
+
+  document.getElementById("avancar").addEventListener("click", () => {
+    const ok = ["nome", "empresa", "instagram", "whatsapp"].every((id) => form[id].value.trim());
+    document.getElementById("erro1").style.display = ok ? "none" : "block";
+    if (ok) irPara(2);
+  });
+  document.getElementById("voltar").addEventListener("click", () => irPara(1));
+
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const v = (id) => form[id].value.trim();
+    const dores = [...form.querySelectorAll("input[name=dor]:checked")].map((c) => c.value);
+    const texto = [
+      "Olá, Vitor! Quero o diagnóstico gratuito do Marketing Essencial.",
+      "",
+      `Nome: ${v("nome")}`,
+      `Empresa: ${v("empresa")}`,
+      `Instagram: ${v("instagram")}`,
+      v("site") && `Site/Facebook: ${v("site")}`,
+      `Segmento: ${v("segmento")}`,
+      v("cidade") && `Cidade: ${v("cidade")}`,
+      dores.length && `O que me incomoda: ${dores.join(", ")}`,
+    ].filter(Boolean).join("\n");
+    window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
+  });
+</script>
+</body>
+</html>
