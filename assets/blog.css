@@ -45,6 +45,7 @@ a { color: inherit; }
 .lista .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
 .cartao-post { display: flex; flex-direction: column; gap: 10px; text-decoration: none; background: var(--branco); border: 1px solid var(--linha); border-radius: 24px; padding: 28px; transition: transform .15s, box-shadow .15s; }
 .cartao-post:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(0, 51, 70, .12); }
+.cartao-post img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 16px; margin-bottom: 8px; }
 .cartao-post h2 { font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: -.3px; }
 .cartao-post p { color: var(--cinza); font-size: 15px; }
 .cartao-post .ler { margin-top: auto; font-weight: 700; color: var(--ciano-texto); font-size: 15px; }
@@ -56,6 +57,7 @@ a { color: inherit; }
 .voltar { display: inline-block; font-size: 14px; font-weight: 700; color: var(--ciano-texto); text-decoration: none; margin-bottom: 28px; }
 .artigo h1 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; margin: 12px 0 16px; }
 .linha-fina { font-size: 20px; color: var(--cinza); line-height: 1.5; padding-bottom: 28px; border-bottom: 1px solid var(--linha); }
+.artigo .capa { width: 100%; height: auto; aspect-ratio: 1200 / 630; border-radius: 22px; margin-top: 28px; box-shadow: 0 24px 50px rgba(0, 51, 70, .15); }
 .texto { font-size: 18px; line-height: 1.75; }
 .texto > * + * { margin-top: 20px; }
 .texto h2 { font-size: 27px; font-weight: 800; line-height: 1.2; letter-spacing: -.4px; margin-top: 44px; }

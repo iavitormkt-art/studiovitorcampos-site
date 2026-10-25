@@ -5,9 +5,15 @@ Cada artigo é um arquivo posts/AAAA-MM-DD-slug.md com um cabeçalho simples:
     ---
     titulo: Título do artigo
     descricao: Resumo de uma ou duas frases (aparece no Google)
+    capa: foto.jpg   (uma foto em posts/imagens/)
     ---
     Texto em Markdown: ## subtítulo, **negrito**, *itálico*, [link](url),
     listas com "- " ou "1. " e citações com "> ".
+
+A capa é só imagem, sem texto: a foto de "capa:" recortada em 1200x630 (pode
+ser de banco de imagens, como o Unsplash). Sem foto, entra um fundo provisório
+com o logo. A capa aparece na lista, no topo do artigo e quando o link é
+compartilhado no WhatsApp e nas redes.
 
 Artigos com data no futuro ficam guardados e só entram no ar no dia
 (o robô .github/workflows/blog.yml roda todo dia às 9h de Brasília).
@@ -20,10 +26,15 @@ import datetime as dt
 import html
 import json
 import re
+import math
 import shutil
 from pathlib import Path
 
+from PIL import Image, ImageDraw, ImageOps
+
 RAIZ = Path(__file__).resolve().parent
+PETROLEO, PETROLEO_ESCURO, AZUL_CLARO = (0, 51, 70), (2, 28, 38), (10, 90, 115)
+CIANO = (0, 255, 249)
 SITE = "https://studiovitorcampos.com.br"
 WHATS = "https://wa.me/5561992163078?text=Ol%C3%A1!%20Vim%20pelo%20blog%20e%20quero%20saber%20mais%20sobre%20o%20Marketing%20Essencial."
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
@@ -109,11 +120,47 @@ def ler_post(arquivo):
     return {
         "titulo": meta["titulo"],
         "descricao": meta["descricao"],
+        "capa": meta.get("capa"),
         "data": dt.date.fromisoformat(nome[1]),
         "slug": nome[2],
         "html": markdown(corpo),
         "minutos": max(1, round(palavras / 200)),
     }
+
+
+# ---------------------------------------------------------------- capas
+
+def logo(d, x, y, tam, cor):
+    """O VC do Studio (mesmo traço do favicon), desenhado numa caixa tam x tam."""
+    k, w = tam / 100, max(2, round(5 * tam / 100))
+    p = lambda a, b: (x + a * k, y + b * k)
+    d.ellipse([p(6, 7), p(94, 95)], outline=cor, width=w)
+    d.line([p(7, 29), p(30, 93), p(74, 8)], fill=cor, width=w, joint="curve")
+    cx, cy, r = 78.34, 54.46, 31
+    d.arc([p(cx - r, cy - r), p(cx + r, cy + r)], 83.2, 292.3, fill=cor, width=w)
+
+
+def gerar_capa(p, destino):
+    """Capa 1200x630 só com imagem, sem texto: a foto do artigo, recortada.
+    Sem foto, um fundo provisório nas cores do Studio com o logo."""
+    W, H = 1200, 630
+    if p["capa"]:
+        foto = Image.open(RAIZ / "posts" / "imagens" / p["capa"]).convert("RGB")
+        img = ImageOps.fit(foto, (W, H), Image.LANCZOS)
+    else:
+        S = 2  # desenha em dobro e reduz, para as bordas ficarem lisas
+        pequeno = Image.new("RGB", (120, 63))
+        px = pequeno.load()
+        for yy in range(63):
+            for xx in range(120):
+                t = min(1, math.hypot((xx - 102) / 120, (yy - 6) / 63) / 1.05)
+                a, b, u = (AZUL_CLARO, PETROLEO, t / .45) if t < .45 else (PETROLEO, PETROLEO_ESCURO, (t - .45) / .55)
+                px[xx, yy] = tuple(round(a[i] + (b[i] - a[i]) * u) for i in range(3))
+        img = pequeno.resize((W * S, H * S), Image.BICUBIC)
+        d = ImageDraw.Draw(img)
+        logo(d, (W * S - 180 * S) // 2, (H * S - 180 * S) // 2, 180 * S, CIANO)
+        img = img.resize((W, H), Image.LANCZOS)
+    img.save(destino, "JPEG", quality=86, optimize=True, progressive=True)
 
 
 # ---------------------------------------------------------------- páginas
@@ -152,8 +199,13 @@ CHAMADA = """<aside class="chamada">
 </aside>"""
 
 
-def pagina(titulo, descricao, url, corpo, extra_head=""):
+def pagina(titulo, descricao, url, corpo, extra_head="", imagem=None):
     t, d = html.escape(titulo), html.escape(descricao)
+    if imagem:
+        extra_head = (f'<meta property="og:image" content="{imagem}">\n'
+                      '<meta property="og:image:width" content="1200">\n'
+                      '<meta property="og:image:height" content="630">\n'
+                      '<meta name="twitter:card" content="summary_large_image">\n') + extra_head
     return f"""<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -187,7 +239,7 @@ def pagina_post(p):
     url = f"{SITE}/blog/{p['slug']}/"
     ld = {
         "@context": "https://schema.org", "@type": "BlogPosting",
-        "headline": p["titulo"], "description": p["descricao"],
+        "headline": p["titulo"], "description": p["descricao"], "image": f"{url}capa.jpg",
         "datePublished": p["data"].isoformat(), "url": url, "inLanguage": "pt-BR",
         "author": {"@type": "Person", "name": "Vitor Campos"},
         "publisher": {"@type": "Organization", "name": "Studio Vitor Campos", "url": SITE},
@@ -198,6 +250,7 @@ def pagina_post(p):
     <p class="meta">{data_extenso(p['data'])} · {p['minutos']} min de leitura</p>
     <h1>{html.escape(p['titulo'])}</h1>
     <p class="linha-fina">{html.escape(p['descricao'])}</p>
+    <img class="capa" src="capa.jpg" alt="" width="1200" height="630">
     <div class="texto">
 {p['html']}
     </div>
@@ -206,11 +259,12 @@ def pagina_post(p):
   </div>
 </main>"""
     extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n'
-    return pagina(f"{p['titulo']} · Blog Studio Vitor Campos", p["descricao"], url, corpo, extra)
+    return pagina(f"{p['titulo']} · Blog Studio Vitor Campos", p["descricao"], url, corpo, extra, f"{url}capa.jpg")
 
 
 def pagina_lista(posts):
     cartoes = "\n".join(f"""    <a class="cartao-post" href="/blog/{p['slug']}/">
+      <img src="/blog/{p['slug']}/capa.jpg" alt="" width="1200" height="630" loading="lazy">
       <p class="meta">{data_extenso(p['data'])} · {p['minutos']} min</p>
       <h2>{html.escape(p['titulo'])}</h2>
       <p>{html.escape(p['descricao'])}</p>
@@ -266,14 +320,18 @@ def main():
     todos = [ler_post(a) for a in sorted((RAIZ / "posts").glob("*.md"))]
     no_ar = sorted((p for p in todos if p["data"] <= hoje()), key=lambda p: p["data"], reverse=True)
 
+    # atualiza no lugar (o OneDrive trava pastas apagadas e recriadas em seguida)
     pasta = RAIZ / "blog"
-    if pasta.exists():
-        shutil.rmtree(pasta)
-    pasta.mkdir()
+    pasta.mkdir(exist_ok=True)
+    slugs = {p["slug"] for p in no_ar}
+    for antiga in pasta.iterdir():
+        if antiga.is_dir() and antiga.name not in slugs:
+            shutil.rmtree(antiga, ignore_errors=True)
     (pasta / "index.html").write_text(pagina_lista(no_ar), encoding="utf-8")
     for p in no_ar:
-        (pasta / p["slug"]).mkdir()
+        (pasta / p["slug"]).mkdir(exist_ok=True)
         (pasta / p["slug"] / "index.html").write_text(pagina_post(p), encoding="utf-8")
+        gerar_capa(p, pasta / p["slug"] / "capa.jpg")
 
     (RAIZ / "feed.xml").write_text(feed(no_ar), encoding="utf-8")
     (RAIZ / "sitemap.xml").write_text(sitemap(no_ar), encoding="utf-8")

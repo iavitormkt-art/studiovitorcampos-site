@@ -1,5 +1,6 @@
 ---
 titulo: O básico bem feito funciona: por que a constância vende mais que a trend
+capa: planner-celular.jpg
 descricao: Postar toda semana e responder todo cliente traz mais vendas para o comércio local do que correr atrás de viral. Entenda por que a constância nas redes sociais faz diferença.
 ---
 Abra o Instagram de uma empresa qualquer e repare na data do último post. Em muitos perfis de comércio local, a última publicação tem semanas, às vezes meses. Do outro lado, tem marca que vive correndo atrás da próxima trend: dancinha, áudio do momento, desafio. E, no meio disso tudo, tem um cliente que comentou "qual o valor?" e nunca recebeu resposta.

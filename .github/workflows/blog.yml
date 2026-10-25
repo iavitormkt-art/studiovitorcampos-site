@@ -7,7 +7,7 @@ on:
     - cron: "0 12 * * *"
   push:
     branches: [main]
-    paths: ["posts/**", "blog.py", "assets/blog.css"]
+    paths: ["posts/**", "blog.py", "assets/**"]
   workflow_dispatch:
 
 permissions:
@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install pillow
       - run: python blog.py
       - name: Enviar páginas geradas
         run: |

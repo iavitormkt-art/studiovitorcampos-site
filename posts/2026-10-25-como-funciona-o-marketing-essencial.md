@@ -1,5 +1,6 @@
 ---
 titulo: Conteúdo profissional e alguém de verdade cuidando: como funciona o Marketing Essencial
+capa: filmmaker-cafe.jpg
 descricao: Posts, reels e stories com design profissional e vídeo de filmmaker, atendimento automático e resultados no celular. Veja como funciona a gestão de Instagram e Facebook do Studio Vitor Campos.
 ---
 Quem tem um negócio sabe: o Instagram e o Facebook viraram a vitrine da loja. É ali que o cliente descobre o produto, confere se a empresa é séria e manda a primeira mensagem. O problema é que cuidar disso direito dá trabalho, e o dono do negócio já tem coisa demais para resolver.
