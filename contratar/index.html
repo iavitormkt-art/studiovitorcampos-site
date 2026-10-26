@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contratar · Studio Vitor Campos</title>
+<meta name="description" content="Contrate o Marketing Essencial: escolha o plano e o prazo, com garantia de 30 dias.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#003346">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/blog.css">
+<style>
+  .contratar { padding: 48px 0 24px; }
+  .contratar h1 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; margin: 10px 0 10px; }
+  .contratar .sub { color: var(--cinza); font-size: 18px; max-width: 640px; }
+  .grade { display: grid; grid-template-columns: 1.35fr 1fr; gap: 32px; align-items: start; margin-top: 36px; }
+  .passo-titulo { font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--ciano-texto); margin: 0 0 14px; }
+  .opcoes { display: grid; gap: 12px; margin-bottom: 32px; }
+  .opcoes.duas { grid-template-columns: 1fr 1fr; }
+  .opcoes.tres { grid-template-columns: repeat(3, 1fr); }
+  .opcao { position: relative; display: block; cursor: pointer; }
+  .opcao input { position: absolute; opacity: 0; pointer-events: none; }
+  .opcao .caixa { display: block; height: 100%; border: 2px solid var(--linha); border-radius: 18px; padding: 18px 18px 16px; background: var(--branco); transition: border-color .15s, box-shadow .15s; }
+  .opcao input:checked + .caixa { border-color: var(--ciano-texto); box-shadow: 0 12px 30px rgba(10, 143, 163, .15); }
+  .opcao input:focus-visible + .caixa { outline: 3px solid var(--ciano); outline-offset: 2px; }
+  .opcao b { display: block; font-size: 18px; font-weight: 800; }
+  .opcao .valor { display: block; font-size: 22px; font-weight: 900; margin-top: 4px; }
+  .opcao .valor small { font-size: 13px; font-weight: 600; color: var(--cinza); }
+  .opcao .det { display: block; font-size: 13px; color: var(--cinza); margin-top: 6px; line-height: 1.4; }
+  .opcao .tag { position: absolute; top: -10px; right: 14px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; background: var(--ciano); color: var(--petroleo); padding: 4px 10px; border-radius: 99px; }
+  .resumo { position: sticky; top: 96px; background: var(--petroleo); color: var(--branco); border-radius: 26px; padding: 30px 28px; }
+  .resumo h2 { font-size: 22px; font-weight: 900; }
+  .resumo ul { list-style: none; margin: 16px 0; display: grid; gap: 8px; font-size: 14px; color: #cfe3e9; }
+  .resumo li::before { content: "✓  "; color: var(--ciano); font-weight: 800; }
+  .linha-valor { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(255, 255, 255, .12); font-size: 15px; }
+  .linha-valor b { font-size: 17px; }
+  .linha-valor.total b { font-size: 26px; color: var(--ciano); }
+  .garantia { display: flex; gap: 12px; background: rgba(0, 255, 249, .08); border: 1px solid rgba(0, 255, 249, .3); border-radius: 16px; padding: 14px 16px; margin: 16px 0; font-size: 14px; color: #cfe3e9; }
+  .garantia strong { color: var(--branco); display: block; font-size: 15px; }
+  .aceite { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; margin: 16px 0; cursor: pointer; }
+  .aceite input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--ciano); flex-shrink: 0; }
+  .aceite a { color: var(--ciano); font-weight: 700; }
+  .resumo .botao { width: 100%; }
+  .resumo .botao[disabled] { opacity: .45; cursor: not-allowed; transform: none; }
+  .seguro { font-size: 12px; color: #9fb9c1; text-align: center; margin-top: 12px; }
+  @media (max-width: 900px) {
+    .grade { grid-template-columns: 1fr; }
+    .resumo { position: static; }
+  }
+  @media (max-width: 560px) {
+    .opcoes.duas, .opcoes.tres { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="container">
+    <a class="marca" href="/">
+      <svg class="logo" viewBox="0 0 100 100" style="color:var(--ciano)"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="51" r="44"/><path d="M7 29 L30 93 L74 8"/><path d="M90 26 A31 31 0 1 0 82 85"/></g></svg>
+      <span><small>STUDIO</small><strong>VITOR CAMPOS</strong></span>
+    </a>
+    <nav class="menu">
+      <a href="/#planos">Planos</a>
+      <a href="/blog/">Blog</a>
+      <a class="botao botao-ciano" href="/#diagnostico">Diagnóstico grátis</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contratar">
+  <div class="container">
+    <a class="voltar" href="/#planos">← Voltar aos planos</a>
+    <h1>Contratar o Marketing Essencial</h1>
+    <p class="sub">Escolha o plano e o prazo. Se em 30 dias você não gostar, devolvemos a primeira mensalidade.</p>
+
+    <form class="grade" id="form-contratar" novalidate>
+      <div>
+        <p class="passo-titulo">1. Plano</p>
+        <div class="opcoes duas" id="planos"></div>
+        <p class="passo-titulo">2. Prazo do contrato</p>
+        <div class="opcoes tres" id="prazos"></div>
+      </div>
+
+      <aside class="resumo" aria-live="polite">
+        <h2 id="r-plano">Plano</h2>
+        <ul id="r-itens"></ul>
+        <div class="linha-valor"><span>Mensalidade</span><b id="r-mensal"></b></div>
+        <div class="linha-valor"><span>Implantação</span><b id="r-impl"></b></div>
+        <div class="linha-valor total"><span>Primeiro pagamento</span><b id="r-total"></b></div>
+        <div class="garantia">
+          <span aria-hidden="true">🛡️</span>
+          <span><strong>Garantia de 30 dias</strong>Não gostou no primeiro mês? Você cancela e recebe a primeira mensalidade de volta, sem multa.</span>
+        </div>
+        <label class="aceite"><input type="checkbox" id="aceite"><span>Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
+        <button class="botao botao-coral" type="submit" id="pagar" disabled>Ir para o pagamento</button>
+        <p class="seguro" id="r-pagamento">Pagamento seguro por cartão de crédito, Pix ou boleto.</p>
+      </aside>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <span><strong>Studio Vitor Campos</strong> · VC Consultoria em Marketing Ltda · CNPJ 28.048.135/0001-46</span>
+    <nav>
+      <a href="/">Site</a>
+      <a href="/contrato/">Contrato</a>
+      <a href="https://wa.me/5561992163078" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Links de pagamento recorrente (Asaas), um por plano. Vazio: a contratação segue pelo WhatsApp.
+  const LINKS = {
+    "presenca": "",
+    "essencial": "",
+    "essencial-mais": "",
+    "completo": ""
+  };
+  const WHATS = "5561992163078";
+  const CONTRATO = "versão 1 de 25/10/2026";
+
+  const PLANOS = [
+    { id: "completo", nome: "Completo", mensal: 1597, impl: 497, det: "4 a 5 posts por semana, 4 reels, stories e campanha sazonal",
+      itens: ["4 a 5 posts no feed por semana", "4 reels por mês e stories semanais", "1 campanha sazonal por mês", "Monitoramento diário", "4 comunicados urgentes por mês"] },
+    { id: "essencial-mais", nome: "Essencial+", mensal: 1197, impl: 497, tag: "MAIS ESCOLHIDO", det: "4 a 5 posts por semana, 2 reels, stories e monitoramento diário",
+      itens: ["4 a 5 posts no feed por semana", "2 reels por mês e stories semanais", "Monitoramento diário de mensagens e comentários", "4 comunicados urgentes por mês", "App de acompanhamento"] },
+    { id: "essencial", nome: "Essencial", mensal: 797, impl: 497, det: "3 posts por semana, peças exclusivas e app",
+      itens: ["3 posts no feed por semana", "Peças exclusivas no padrão da marca", "Comente e receba no direct", "App de acompanhamento", "2 comunicados urgentes por mês"] },
+    { id: "presenca", nome: "Presença", mensal: 397, impl: 297, det: "2 posts por semana com modelos prontos",
+      itens: ["2 posts no feed por semana", "Modelos prontos com as suas cores e o seu logo", "Atendimento automático da Meta", "Relatório mensal simples", "1 comunicado urgente por mês"] }
+  ];
+  const PRAZOS = [
+    { meses: 3, nome: "3 meses", det: "Implantação cobrada na 2ª mensalidade" },
+    { meses: 6, nome: "6 meses", det: "Implantação grátis", tag: "ECONOMIA" },
+    { meses: 12, nome: "12 meses", det: "Implantação grátis + 1ª captação no local (DF e entorno)" }
+  ];
+
+  const reais = (v) => "R$ " + v.toLocaleString("pt-BR");
+  const $ = (id) => document.getElementById(id);
+
+  function opcao(nome, valor, rotulo, conteudo, tag) {
+    return `<label class="opcao"><input type="radio" name="${nome}" value="${valor}">` +
+      `<span class="caixa">${tag ? `<span class="tag">${tag}</span>` : ""}<b>${rotulo}</b>${conteudo}</span></label>`;
+  }
+  $("planos").innerHTML = PLANOS.map((p) =>
+    opcao("plano", p.id, p.nome, `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">${p.det}</span>`, p.tag)).join("");
+  $("prazos").innerHTML = PRAZOS.map((z) =>
+    opcao("prazo", z.meses, z.nome, `<span class="det">${z.det}</span>`, z.tag)).join("");
+
+  // plano vindo do botão do site (?plano=essencial-mais); padrão: Essencial+ e 6 meses
+  const pedido = new URLSearchParams(location.search).get("plano");
+  const form = $("form-contratar");
+  form.plano.value = PLANOS.some((p) => p.id === pedido) ? pedido : "essencial-mais";
+  form.prazo.value = "6";
+
+  function escolha() {
+    return { p: PLANOS.find((x) => x.id === form.plano.value), z: PRAZOS.find((x) => x.meses == form.prazo.value) };
+  }
+
+  function atualizar() {
+    const { p, z } = escolha();
+    $("r-plano").textContent = `${p.nome} · contrato de ${z.nome}`;
+    $("r-itens").innerHTML = p.itens.map((i) => `<li>${i}</li>`).join("") +
+      (z.meses === 12 ? "<li>Bônus: 1ª captação de fotos e vídeos no local (Brasília/DF e entorno)</li>" : "");
+    $("r-mensal").textContent = reais(p.mensal);
+    $("r-impl").textContent = z.meses === 3 ? `${reais(p.impl)} na 2ª mensalidade` : "grátis";
+    $("r-total").textContent = reais(p.mensal);
+    $("pagar").textContent = LINKS[p.id] ? "Ir para o pagamento" : "Contratar pelo WhatsApp";
+    $("r-pagamento").textContent = LINKS[p.id]
+      ? "Pagamento seguro por cartão de crédito, Pix ou boleto."
+      : "Você combina o pagamento direto comigo pelo WhatsApp.";
+  }
+
+  form.addEventListener("change", (ev) => {
+    if (ev.target.id === "aceite") $("pagar").disabled = !ev.target.checked;
+    else atualizar();
+  });
+
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    if (!$("aceite").checked) return;
+    const { p, z } = escolha();
+    // a página /bem-vindo/ (para onde o Asaas volta depois do pagamento) usa isto para vir preenchida
+    try {
+      localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, contrato: CONTRATO, em: new Date().toISOString() }));
+    } catch (e) {}
+    if (LINKS[p.id]) {
+      window.location.href = LINKS[p.id];
+      return;
+    }
+    const texto = [
+      "Olá, Vitor! Quero contratar o Marketing Essencial.",
+      "",
+      `Plano: ${p.nome} (${reais(p.mensal)}/mês)`,
+      `Prazo: ${z.nome}`,
+      `Implantação: ${z.meses === 3 ? reais(p.impl) + " na 2ª mensalidade" : "grátis"}`,
+      `Li e aceitei o contrato (${CONTRATO}).`
+    ].join("\n");
+    window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
+  });
+
+  atualizar();
+</script>
+</body>
+</html>

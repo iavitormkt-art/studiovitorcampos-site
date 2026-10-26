@@ -68,6 +68,12 @@ a { color: inherit; }
 .texto a { color: var(--ciano-texto); font-weight: 600; }
 .texto strong { font-weight: 700; }
 .texto blockquote { border-left: 5px solid var(--manteiga); background: #fff8e6; border-radius: 0 16px 16px 0; padding: 18px 24px; font-size: 21px; font-weight: 700; line-height: 1.45; }
+.texto hr { border: 0; border-top: 1px solid var(--linha); margin: 44px 0; }
+.texto .tabela { overflow-x: auto; border: 1px solid var(--linha); border-radius: 16px; }
+.texto table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+.texto th, .texto td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--linha); vertical-align: top; }
+.texto th { background: #f3f8fa; font-weight: 800; }
+.texto tr:last-child td { border-bottom: 0; }
 .assinatura { margin-top: 40px; font-size: 14px; font-weight: 600; color: var(--cinza); }
 
 /* chamada para o diagnóstico */

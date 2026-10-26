@@ -73,12 +73,28 @@ def markdown(texto):
             saida.append(f"<{tipo}>{itens}</{tipo}>")
         elif tipo == "quote":
             saida.append(f"<blockquote><p>{inline(' '.join(bloco))}</p></blockquote>")
+        elif tipo == "tabela":
+            linhas = [[c.strip() for c in l.strip("|").split("|")] for l in bloco
+                      if not re.fullmatch(r"[|\s:-]+", l)]
+            cab = "".join(f"<th>{inline(c)}</th>" for c in linhas[0])
+            corpo = "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in l) + "</tr>" for l in linhas[1:])
+            saida.append(f'<div class="tabela"><table><thead><tr>{cab}</tr></thead><tbody>{corpo}</tbody></table></div>')
         bloco, tipo = [], None
 
     for linha in texto.splitlines():
         s = linha.strip()
         if not s:
             fechar()
+            continue
+        if s == "---":
+            fechar()
+            saida.append("<hr>")
+            continue
+        if s.startswith("|"):
+            if tipo != "tabela":
+                fechar()
+                tipo = "tabela"
+            bloco.append(s)
             continue
         m = re.match(r"(#{2,3})\s+(.*)", s)
         if m:
@@ -308,8 +324,27 @@ def feed(posts):
 """
 
 
-def sitemap(posts):
+def pagina_avulsa(arquivo):
+    """Páginas fixas em paginas/<slug>.md (ex.: o contrato), publicadas em /<slug>/."""
+    m = re.match(r"---\s*\n(.*?)\n---\s*\n(.*)", arquivo.read_text(encoding="utf-8"), re.S)
+    meta = {k.strip(): v.strip() for k, v in (l.split(":", 1) for l in m[1].splitlines() if ":" in l)}
+    url = f"{SITE}/{arquivo.stem}/"
+    corpo = f"""<main class="artigo">
+  <div class="container estreito">
+    <a class="voltar" href="/">← Voltar ao site</a>
+    <h1>{html.escape(meta['titulo'])}</h1>
+    <p class="linha-fina">{html.escape(meta['descricao'])}</p>
+    <div class="texto">
+{markdown(m[2])}
+    </div>
+  </div>
+</main>"""
+    return pagina(f"{meta['titulo']} · Studio Vitor Campos", meta["descricao"], url, corpo)
+
+
+def sitemap(posts, avulsas=()):
     urls = [(f"{SITE}/", None), (f"{SITE}/blog/", posts[0]["data"] if posts else None)]
+    urls += [(f"{SITE}/{a}/", None) for a in avulsas]
     urls += [(f"{SITE}/blog/{p['slug']}/", p["data"]) for p in posts]
     linhas = "".join(
         f"\n  <url><loc>{u}</loc>{f'<lastmod>{d.isoformat()}</lastmod>' if d else ''}</url>" for u, d in urls)
@@ -333,8 +368,13 @@ def main():
         (pasta / p["slug"] / "index.html").write_text(pagina_post(p), encoding="utf-8")
         gerar_capa(p, pasta / p["slug"] / "capa.jpg")
 
+    avulsas = sorted((RAIZ / "paginas").glob("*.md"))
+    for a in avulsas:
+        (RAIZ / a.stem).mkdir(exist_ok=True)
+        (RAIZ / a.stem / "index.html").write_text(pagina_avulsa(a), encoding="utf-8")
+
     (RAIZ / "feed.xml").write_text(feed(no_ar), encoding="utf-8")
-    (RAIZ / "sitemap.xml").write_text(sitemap(no_ar), encoding="utf-8")
+    (RAIZ / "sitemap.xml").write_text(sitemap(no_ar, [a.stem for a in avulsas]), encoding="utf-8")
     (RAIZ / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
     agendados = [p for p in todos if p["data"] > hoje()]

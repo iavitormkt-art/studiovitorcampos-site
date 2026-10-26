@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bem-vindo · Studio Vitor Campos</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#003346">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/blog.css">
+<style>
+  .boas-vindas { padding: 48px 0 24px; }
+  .boas-vindas h1 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; margin: 14px 0 10px; }
+  .boas-vindas .sub { color: var(--cinza); font-size: 18px; }
+  .passos-inicio { list-style: none; counter-reset: p; display: grid; gap: 12px; margin: 28px 0 36px; }
+  .passos-inicio li { counter-increment: p; display: flex; gap: 14px; align-items: flex-start; background: #f3f8fa; border-radius: 16px; padding: 16px 18px; }
+  .passos-inicio li::before { content: counter(p); flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--petroleo); color: var(--ciano); font-weight: 900; display: grid; place-items: center; }
+  .passos-inicio b { display: block; }
+  .passos-inicio span { color: var(--cinza); font-size: 15px; }
+  .cartao { border: 1px solid var(--linha); border-radius: 24px; padding: 28px; }
+  .cartao h2 { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+  .cartao > p { color: var(--cinza); font-size: 15px; }
+  .campos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .campo { display: flex; flex-direction: column; gap: 6px; }
+  .campo.inteiro { grid-column: 1 / -1; }
+  .campo label { font-size: 13px; font-weight: 700; }
+  .campo label span { font-weight: 500; color: var(--cinza); }
+  .campo input, .campo select, .campo textarea { font: 500 15px "Montserrat", sans-serif; color: var(--texto); border: 1.5px solid var(--linha); border-radius: 12px; padding: 12px 14px; background: #f8fbfc; width: 100%; }
+  .campo input:focus, .campo select:focus, .campo textarea:focus { outline: none; border-color: var(--ciano-texto); background: var(--branco); }
+  .erro { display: none; color: #c0392b; font-size: 14px; font-weight: 600; margin-top: 12px; }
+  .cartao .botao { margin-top: 20px; }
+  @media (max-width: 560px) { .campos { grid-template-columns: 1fr; } .cartao { padding: 22px 18px; } }
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="container">
+    <a class="marca" href="/">
+      <svg class="logo" viewBox="0 0 100 100" style="color:var(--ciano)"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="51" r="44"/><path d="M7 29 L30 93 L74 8"/><path d="M90 26 A31 31 0 1 0 82 85"/></g></svg>
+      <span><small>STUDIO</small><strong>VITOR CAMPOS</strong></span>
+    </a>
+  </div>
+</header>
+
+<main class="boas-vindas">
+  <div class="container estreito">
+    <span class="meta">Contratação recebida</span>
+    <h1>Bem-vindo ao Marketing Essencial!</h1>
+    <p class="sub">Obrigado pela confiança. Para começar, preencha os dados abaixo. Eles chegam direto no meu WhatsApp.</p>
+
+    <ol class="passos-inicio">
+      <li><div><b>Hoje: seus dados</b><span>Preencha o formulário abaixo e envie pelo WhatsApp.</span></div></li>
+      <li><div><b>Em até 1 dia útil: acesso às redes</b><span>Eu te mando o passo a passo para liberar o acesso ao Meta Business Suite (Instagram e Facebook). É rápido e você não precisa passar senha.</span></div></li>
+      <li><div><b>Na primeira semana: conversa e diagnóstico</b><span>Uma conversa rápida sobre o seu negócio, o diagnóstico completo do perfil e as automações de atendimento no ar.</span></div></li>
+      <li><div><b>Em até 7 dias: calendário do mês</b><span>Você recebe o planejamento para aprovar, e as publicações começam.</span></div></li>
+    </ol>
+
+    <form class="cartao" id="form-inicio" novalidate>
+      <h2>Dados para começar</h2>
+      <p>Usados no contrato, na nota fiscal e na configuração das suas redes.</p>
+      <div class="campos">
+        <div class="campo inteiro"><label for="empresa">Empresa (razão social ou nome)</label><input id="empresa" autocomplete="organization" required></div>
+        <div class="campo"><label for="documento">CNPJ ou CPF</label><input id="documento" inputmode="numeric" required></div>
+        <div class="campo"><label for="responsavel">Seu nome</label><input id="responsavel" autocomplete="name" required></div>
+        <div class="campo"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
+        <div class="campo"><label for="whatsapp">WhatsApp</label><input id="whatsapp" type="tel" autocomplete="tel" placeholder="(61) 90000-0000" required></div>
+        <div class="campo"><label for="instagram">Instagram</label><input id="instagram" placeholder="@suaempresa" required></div>
+        <div class="campo"><label for="facebook">Página do Facebook <span>(opcional)</span></label><input id="facebook"></div>
+        <div class="campo"><label for="plano">Plano</label>
+          <select id="plano"><option value="presenca">Presença</option><option value="essencial">Essencial</option><option value="essencial-mais" selected>Essencial+</option><option value="completo">Completo</option></select>
+        </div>
+        <div class="campo"><label for="prazo">Prazo do contrato</label>
+          <select id="prazo"><option value="3">3 meses</option><option value="6" selected>6 meses</option><option value="12">12 meses</option></select>
+        </div>
+        <div class="campo inteiro"><label for="horario">Melhor dia e horário para a nossa conversa</label><input id="horario" placeholder="Ex.: terça à tarde"></div>
+        <div class="campo inteiro"><label for="obs">Algo que eu precise saber? <span>(opcional)</span></label><textarea id="obs" rows="3" placeholder="Datas importantes, promoções, o que mais te incomoda hoje nas redes..."></textarea></div>
+      </div>
+      <div class="erro" id="erro">Preencha empresa, CNPJ ou CPF, nome, e-mail, WhatsApp e Instagram.</div>
+      <button class="botao botao-coral" type="submit">Enviar pelo WhatsApp</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <span><strong>Studio Vitor Campos</strong> · VC Consultoria em Marketing Ltda · CNPJ 28.048.135/0001-46</span>
+    <nav>
+      <a href="/">Site</a>
+      <a href="/contrato/">Contrato</a>
+      <a href="https://wa.me/5561992163078" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const WHATS = "5561992163078";
+  const NOMES = { "presenca": "Presença", "essencial": "Essencial", "essencial-mais": "Essencial+", "completo": "Completo" };
+  const form = document.getElementById("form-inicio");
+
+  // vem preenchido com o que o cliente escolheu em /contratar/ (ou ?plano= no endereço de retorno)
+  let escolha = {};
+  try { escolha = JSON.parse(localStorage.getItem("contratacao") || "{}"); } catch (e) {}
+  const plano = new URLSearchParams(location.search).get("plano") || escolha.plano;
+  if (NOMES[plano]) form.plano.value = plano;
+  if (escolha.prazo) form.prazo.value = String(escolha.prazo);
+
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const v = (id) => form[id].value.trim();
+    const ok = ["empresa", "documento", "responsavel", "email", "whatsapp", "instagram"].every((id) => v(id));
+    document.getElementById("erro").style.display = ok ? "none" : "block";
+    if (!ok) return;
+    const texto = [
+      "Olá, Vitor! Acabei de contratar o Marketing Essencial.",
+      "",
+      `Empresa: ${v("empresa")}`,
+      `CNPJ/CPF: ${v("documento")}`,
+      `Responsável: ${v("responsavel")}`,
+      `E-mail: ${v("email")}`,
+      `WhatsApp: ${v("whatsapp")}`,
+      `Instagram: ${v("instagram")}`,
+      v("facebook") && `Facebook: ${v("facebook")}`,
+      `Plano: ${NOMES[v("plano")]} · contrato de ${v("prazo")} meses`,
+      v("horario") && `Melhor horário para conversar: ${v("horario")}`,
+      v("obs") && `Observações: ${v("obs")}`,
+      escolha.contrato && `Aceitei o contrato (${escolha.contrato}).`
+    ].filter(Boolean).join("\n");
+    window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
+  });
+</script>
+</body>
+</html>

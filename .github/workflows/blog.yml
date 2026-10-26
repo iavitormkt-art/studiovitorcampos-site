@@ -7,7 +7,7 @@ on:
     - cron: "0 12 * * *"
   push:
     branches: [main]
-    paths: ["posts/**", "blog.py", "assets/**"]
+    paths: ["posts/**", "paginas/**", "blog.py", "assets/**"]
   workflow_dispatch:
 
 permissions:
@@ -27,5 +27,5 @@ jobs:
         run: |
           git config user.name "robo-blog"
           git config user.email "robo-blog@users.noreply.github.com"
-          git add blog feed.xml sitemap.xml robots.txt
+          git add blog contrato feed.xml sitemap.xml robots.txt
           git diff --cached --quiet || (git commit -m "Blog: páginas atualizadas" && git push)
