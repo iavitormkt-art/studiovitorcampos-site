@@ -16,21 +16,36 @@
   .contratar { padding: 48px 0 24px; }
   .contratar h1 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 900; line-height: 1.08; letter-spacing: -1px; margin: 10px 0 10px; }
   .contratar .sub { color: var(--cinza); font-size: 18px; max-width: 640px; }
-  .grade { display: grid; grid-template-columns: 1.35fr 1fr; gap: 32px; align-items: start; margin-top: 36px; }
-  .passo-titulo { font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--ciano-texto); margin: 0 0 14px; }
-  .opcoes { display: grid; gap: 12px; margin-bottom: 32px; }
-  .opcoes.duas { grid-template-columns: 1fr 1fr; }
+  .etapas { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .etapas li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--cinza); background: #f3f8fa; border-radius: 99px; padding: 6px 14px 6px 6px; }
+  .etapas li span { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--linha); color: var(--texto); font-size: 12px; }
+  .etapas li.atual { background: var(--petroleo); color: var(--branco); }
+  .etapas li.atual span { background: var(--ciano); color: var(--petroleo); }
+  .grade { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: start; margin-top: 28px; }
+  .passo-titulo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 900; margin: 0 0 4px; }
+  .passo-titulo .num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--petroleo); color: var(--ciano); font-size: 14px; display: grid; place-items: center; }
+  .passo-titulo .ok { margin-left: auto; font-size: 13px; font-weight: 800; color: var(--verde); visibility: hidden; }
+  .passo.feito .passo-titulo .ok { visibility: visible; }
+  .passo.feito .passo-titulo .num { background: var(--verde); color: var(--branco); }
+  .passo-ajuda { font-size: 14px; color: var(--cinza); margin: 0 0 12px 38px; }
+  .passo-ajuda b { color: var(--coral); }
+  .opcoes { display: grid; gap: 10px; margin-bottom: 26px; }
+  .opcoes.quatro { grid-template-columns: repeat(4, 1fr); }
   .opcoes.tres { grid-template-columns: repeat(3, 1fr); }
   .opcao { position: relative; display: block; cursor: pointer; }
   .opcao input { position: absolute; opacity: 0; pointer-events: none; }
-  .opcao .caixa { display: block; height: 100%; border: 2px solid var(--linha); border-radius: 18px; padding: 18px 18px 16px; background: var(--branco); transition: border-color .15s, box-shadow .15s; }
-  .opcao input:checked + .caixa { border-color: var(--ciano-texto); box-shadow: 0 12px 30px rgba(10, 143, 163, .15); }
+  .opcao .caixa { position: relative; display: block; height: 100%; border: 2px solid var(--linha); border-radius: 14px; padding: 12px 12px 12px 40px; background: var(--branco); transition: border-color .15s, background .15s, box-shadow .15s; }
+  .opcao .caixa::before { content: ""; position: absolute; left: 12px; top: 14px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #b5c6cc; background: var(--branco); box-sizing: border-box; }
+  .opcao:hover .caixa { border-color: #9cc4cf; }
+  .opcao input:checked + .caixa { border-color: var(--verde); background: var(--verde-claro); box-shadow: 0 10px 24px rgba(22, 163, 74, .18); }
+  .opcao input:checked + .caixa::before { border: 5px solid var(--verde); }
   .opcao input:focus-visible + .caixa { outline: 3px solid var(--ciano); outline-offset: 2px; }
-  .opcao b { display: block; font-size: 18px; font-weight: 800; }
-  .opcao .valor { display: block; font-size: 22px; font-weight: 900; margin-top: 4px; }
-  .opcao .valor small { font-size: 13px; font-weight: 600; color: var(--cinza); }
-  .opcao .det { display: block; font-size: 13px; color: var(--cinza); margin-top: 6px; line-height: 1.4; }
-  .opcao .tag { position: absolute; top: -10px; right: 14px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; background: var(--ciano); color: var(--petroleo); padding: 4px 10px; border-radius: 99px; }
+  .opcao b { display: block; font-size: 16px; font-weight: 800; line-height: 1.2; }
+  .opcao .valor { display: block; font-size: 18px; font-weight: 900; margin-top: 2px; }
+  .opcao .valor small { font-size: 12px; font-weight: 600; color: var(--cinza); }
+  .opcao .det { display: block; font-size: 12px; color: var(--cinza); margin-top: 4px; line-height: 1.35; }
+  .opcao .tag { position: absolute; top: -9px; right: 10px; font-size: 9px; font-weight: 800; letter-spacing: 1.2px; background: var(--ciano); color: var(--petroleo); padding: 3px 8px; border-radius: 99px; }
+  :root { --verde: #16a34a; --verde-claro: #ecfdf3; }
   .resumo { position: sticky; top: 96px; background: var(--petroleo); color: var(--branco); border-radius: 26px; padding: 30px 28px; }
   .resumo h2 { font-size: 22px; font-weight: 900; }
   .resumo ul { list-style: none; margin: 16px 0; display: grid; gap: 8px; font-size: 14px; color: #cfe3e9; }
@@ -45,13 +60,21 @@
   .aceite a { color: var(--ciano); font-weight: 700; }
   .resumo .botao { width: 100%; }
   .resumo .botao[disabled] { opacity: .45; cursor: not-allowed; transform: none; }
+  .falta { font-size: 13px; font-weight: 700; color: var(--manteiga); text-align: center; margin: 0 0 10px; }
+  .falta:empty { display: none; }
+  .resumo .vazio-r { color: #9fb9c1; font-size: 14px; margin: 12px 0; }
   .seguro { font-size: 12px; color: #9fb9c1; text-align: center; margin-top: 12px; }
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .grade { grid-template-columns: 1fr; }
     .resumo { position: static; }
   }
-  @media (max-width: 560px) {
-    .opcoes.duas, .opcoes.tres { grid-template-columns: 1fr; }
+  @media (max-width: 640px) {
+    .contratar { padding-top: 28px; }
+    .opcoes.quatro { grid-template-columns: 1fr 1fr; }
+    .opcoes.tres { grid-template-columns: 1fr; }
+    .opcoes.tres b { display: inline; }
+    .opcoes.tres .det { display: inline; margin-left: 6px; }
+    .passo-ajuda { margin-left: 0; }
   }
 </style>
 </head>
@@ -74,18 +97,31 @@
   <div class="container">
     <a class="voltar" href="/#planos">← Voltar aos planos</a>
     <h1>Contratar o Marketing Essencial</h1>
-    <p class="sub">Escolha o plano e o prazo. Se em 30 dias você não gostar, devolvemos a primeira mensalidade.</p>
+    <p class="sub">Etapa 1: escolha o plano e o prazo do contrato. Se em 30 dias você não gostar, devolvemos a primeira mensalidade.</p>
+    <ol class="etapas" aria-label="Etapas da contratação">
+      <li class="atual"><span>1</span>Plano e prazo</li>
+      <li><span>2</span>Contrato</li>
+      <li><span>3</span>Pagamento</li>
+      <li><span>4</span>Seus dados</li>
+    </ol>
 
     <form class="grade" id="form-contratar" novalidate>
       <div>
-        <p class="passo-titulo">1. Plano</p>
-        <div class="opcoes duas" id="planos"></div>
-        <p class="passo-titulo">2. Prazo do contrato</p>
-        <div class="opcoes tres" id="prazos"></div>
+        <div class="passo" id="passo-plano">
+          <p class="passo-titulo"><span class="num">1</span>Escolha o plano <span class="ok">✓ escolhido</span></p>
+          <p class="passo-ajuda">Toque em um plano. <b>Obrigatório.</b></p>
+          <div class="opcoes quatro" id="planos"></div>
+        </div>
+        <div class="passo" id="passo-prazo">
+          <p class="passo-titulo"><span class="num">2</span>Escolha o prazo do contrato <span class="ok">✓ escolhido</span></p>
+          <p class="passo-ajuda">Quanto maior o prazo, mais vantagens. <b>Obrigatório.</b></p>
+          <div class="opcoes tres" id="prazos"></div>
+        </div>
       </div>
 
       <aside class="resumo" aria-live="polite">
-        <h2 id="r-plano">Plano</h2>
+        <h2 id="r-plano">Resumo</h2>
+        <p class="vazio-r" id="r-vazio">Escolha o plano e o prazo para ver o resumo.</p>
         <ul id="r-itens"></ul>
         <div class="linha-valor"><span>Mensalidade</span><b id="r-mensal"></b></div>
         <div class="linha-valor"><span>Implantação</span><b id="r-impl"></b></div>
@@ -94,7 +130,8 @@
           <span aria-hidden="true">🛡️</span>
           <span><strong>Garantia de 30 dias</strong>Não gostou no primeiro mês? Você cancela e recebe a primeira mensalidade de volta, sem multa.</span>
         </div>
-        <label class="aceite"><input type="checkbox" id="aceite"><span>Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
+        <label class="aceite"><input type="checkbox" id="aceite"><span><b>3.</b> Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
+        <p class="falta" id="falta"></p>
         <button class="botao botao-coral" type="submit" id="pagar" disabled>Ir para o pagamento</button>
         <p class="seguro" id="r-pagamento">Pagamento seguro por cartão de crédito, Pix ou boleto.</p>
       </aside>
@@ -122,22 +159,22 @@
     "completo": ""
   };
   const WHATS = "5561992163078";
-  const CONTRATO = "versão 1 de 25/10/2026";
+  const CONTRATO = "versão 2 de 25/10/2026";
 
   const PLANOS = [
-    { id: "completo", nome: "Completo", mensal: 1597, impl: 497, det: "4 a 5 posts por semana, 4 reels, stories e campanha sazonal",
+    { id: "completo", nome: "Completo", mensal: 1597, impl: 497, det: "4 a 5 posts/sem., 4 reels e campanha sazonal",
       itens: ["4 a 5 posts no feed por semana", "4 reels por mês e stories semanais", "1 campanha sazonal por mês", "Monitoramento diário", "4 comunicados urgentes por mês"] },
-    { id: "essencial-mais", nome: "Essencial+", mensal: 1197, impl: 497, tag: "MAIS ESCOLHIDO", det: "4 a 5 posts por semana, 2 reels, stories e monitoramento diário",
+    { id: "essencial-mais", nome: "Essencial+", mensal: 1197, impl: 497, tag: "MAIS ESCOLHIDO", det: "4 a 5 posts/sem., 2 reels e monitoramento",
       itens: ["4 a 5 posts no feed por semana", "2 reels por mês e stories semanais", "Monitoramento diário de mensagens e comentários", "4 comunicados urgentes por mês", "App de acompanhamento"] },
-    { id: "essencial", nome: "Essencial", mensal: 797, impl: 497, det: "3 posts por semana, peças exclusivas e app",
+    { id: "essencial", nome: "Essencial", mensal: 797, impl: 497, det: "3 posts/sem. e peças exclusivas",
       itens: ["3 posts no feed por semana", "Peças exclusivas no padrão da marca", "Comente e receba no direct", "App de acompanhamento", "2 comunicados urgentes por mês"] },
-    { id: "presenca", nome: "Presença", mensal: 397, impl: 297, det: "2 posts por semana com modelos prontos",
+    { id: "presenca", nome: "Presença", mensal: 397, impl: 297, det: "2 posts/sem. com modelos prontos",
       itens: ["2 posts no feed por semana", "Modelos prontos com as suas cores e o seu logo", "Atendimento automático da Meta", "Relatório mensal simples", "1 comunicado urgente por mês"] }
   ];
   const PRAZOS = [
     { meses: 3, nome: "3 meses", det: "Implantação cobrada na 2ª mensalidade" },
     { meses: 6, nome: "6 meses", det: "Implantação grátis", tag: "ECONOMIA" },
-    { meses: 12, nome: "12 meses", det: "Implantação grátis + 1ª captação no local (DF e entorno)" }
+    { meses: 12, nome: "12 meses", det: "Implantação grátis + captação no local (DF)" }
   ];
 
   const reais = (v) => "R$ " + v.toLocaleString("pt-BR");
@@ -152,11 +189,10 @@
   $("prazos").innerHTML = PRAZOS.map((z) =>
     opcao("prazo", z.meses, z.nome, `<span class="det">${z.det}</span>`, z.tag)).join("");
 
-  // plano vindo do botão do site (?plano=essencial-mais); padrão: Essencial+ e 6 meses
+  // o plano clicado no site (?plano=essencial-mais) já vem marcado; o prazo o cliente escolhe
   const pedido = new URLSearchParams(location.search).get("plano");
   const form = $("form-contratar");
-  form.plano.value = PLANOS.some((p) => p.id === pedido) ? pedido : "essencial-mais";
-  form.prazo.value = "6";
+  if (PLANOS.some((p) => p.id === pedido)) form.plano.value = pedido;
 
   function escolha() {
     return { p: PLANOS.find((x) => x.id === form.plano.value), z: PRAZOS.find((x) => x.meses == form.prazo.value) };
@@ -164,27 +200,30 @@
 
   function atualizar() {
     const { p, z } = escolha();
-    $("r-plano").textContent = `${p.nome} · contrato de ${z.nome}`;
-    $("r-itens").innerHTML = p.itens.map((i) => `<li>${i}</li>`).join("") +
-      (z.meses === 12 ? "<li>Bônus: 1ª captação de fotos e vídeos no local (Brasília/DF e entorno)</li>" : "");
-    $("r-mensal").textContent = reais(p.mensal);
-    $("r-impl").textContent = z.meses === 3 ? `${reais(p.impl)} na 2ª mensalidade` : "grátis";
-    $("r-total").textContent = reais(p.mensal);
-    $("pagar").textContent = LINKS[p.id] ? "Ir para o pagamento" : "Contratar pelo WhatsApp";
-    $("r-pagamento").textContent = LINKS[p.id]
+    $("passo-plano").classList.toggle("feito", !!p);
+    $("passo-prazo").classList.toggle("feito", !!z);
+    $("r-plano").textContent = p ? p.nome + (z ? ` · contrato de ${z.nome}` : "") : "Resumo";
+    $("r-vazio").style.display = p ? "none" : "";
+    $("r-itens").innerHTML = p ? p.itens.map((i) => `<li>${i}</li>`).join("") +
+      (z && z.meses === 12 ? "<li>Bônus: 1ª captação de fotos e vídeos no local (Brasília/DF e entorno)</li>" : "") : "";
+    $("r-mensal").textContent = p ? reais(p.mensal) : "—";
+    $("r-impl").textContent = !p || !z ? "—" : z.meses === 3 ? `${reais(p.impl)} na 2ª mensalidade` : "grátis";
+    $("r-total").textContent = p ? reais(p.mensal) : "—";
+    const falta = [!p && "escolher o plano", !z && "escolher o prazo", !$("aceite").checked && "aceitar o contrato"].filter(Boolean);
+    $("falta").textContent = falta.length ? "Falta: " + falta.join(" · ") : "";
+    $("pagar").disabled = falta.length > 0;
+    $("pagar").textContent = p && LINKS[p.id] ? "Ir para o pagamento" : "Contratar pelo WhatsApp";
+    $("r-pagamento").textContent = p && LINKS[p.id]
       ? "Pagamento seguro por cartão de crédito, Pix ou boleto."
       : "Você combina o pagamento direto comigo pelo WhatsApp.";
   }
 
-  form.addEventListener("change", (ev) => {
-    if (ev.target.id === "aceite") $("pagar").disabled = !ev.target.checked;
-    else atualizar();
-  });
+  form.addEventListener("change", atualizar);
 
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    if (!$("aceite").checked) return;
     const { p, z } = escolha();
+    if (!p || !z || !$("aceite").checked) return;
     // a página /bem-vindo/ (para onde o Asaas volta depois do pagamento) usa isto para vir preenchida
     try {
       localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, contrato: CONTRATO, em: new Date().toISOString() }));

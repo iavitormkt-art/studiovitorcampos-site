@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 1, de 25/10/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 2, de 25/10/2026.
 ---
 ## Partes
 
@@ -71,7 +71,7 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 
 7.1. Liberar o acesso ao Meta Business Suite (Instagram e Facebook) e manter a CONTRATADA com o acesso necessário durante o contrato.
 
-7.2. Fornecer informações corretas sobre produtos, preços, promoções, horários e regras do negócio, além de fotos e materiais quando necessário. A CONTRATANTE é responsável pela veracidade dessas informações.
+7.2. Fornecer informações corretas sobre produtos ou serviços, preços, promoções, horários e regras do negócio, além de fotos e materiais quando necessário. A CONTRATANTE é responsável pela veracidade dessas informações.
 
 7.3. Garantir que tem direito de uso sobre as imagens, marcas e materiais que enviar.
 
@@ -86,7 +86,8 @@ Não fazem parte deste contrato, salvo contratação à parte:
 - atendimento de pedidos, negociações e reclamações;
 - criação de logotipo e identidade visual;
 - captação de fotos e vídeos no local, exceto o bônus do contrato de 12 meses (Anexo I);
-- redesign de cardápios ou criação de cardápios novos.
+- criação de peças gráficas para fora das redes sociais (impressos, catálogos, tabelas de preços, embalagens, apresentações, sites e similares), bem como o redesign desses materiais;
+- produção de vídeos institucionais ou publicitários além dos reels previstos no plano.
 
 ## Cláusula 9: Resultados
 
@@ -155,11 +156,11 @@ Valores mensais, definidos em 25/10/2026.
 | Campanha sazonal | não | não | não | 1 por mês |
 | Relatório | Mensal simples | Mensal | Mensal | Mensal |
 | Comunicados urgentes (Ajuste Expresso) | 1 por mês | 2 por mês | 4 por mês | 4 por mês |
-| Ajustes nos cardápios existentes | não | Sim | Sim | Sim |
+| Atualização de materiais de venda existentes | não | Sim | Sim | Sim |
 
 **Bônus do contrato de 12 meses:** além da isenção da implantação, 1 (uma) captação de fotos e vídeos no local, de até 2 horas, em um único local em Brasília/DF ou entorno, feita por profissional indicado pela CONTRATADA, a partir de roteiro combinado. A captação deve ser agendada com 15 dias de antecedência e pode ser remarcada uma vez. Ela pode ser usada a qualquer momento durante os 12 meses do contrato (recomendamos nos 3 primeiros meses, para o material já render no começo); se não for usada nesse prazo, o bônus expira e não é convertido em desconto ou dinheiro. Por enquanto, a captação no local (bônus ou avulsa) só é oferecida a empresas de Brasília/DF e entorno; para CONTRATANTES de outras regiões, o contrato de 12 meses inclui apenas a isenção da implantação.
 
-**Ajustes nos cardápios:** atualização de preços, de até 5 itens por vez e de ingredientes nos cardápios existentes, mantendo o layout.
+**Atualização de materiais de venda:** nos materiais que a CONTRATANTE já tem (por exemplo, catálogo, tabela de preços ou lista de produtos e serviços), atualização de preços e de informações de até 5 itens por vez, mantendo o layout. Não inclui redesign nem criação de material novo.
 
 ## Anexo II: Ajuste Expresso
 
@@ -167,8 +168,8 @@ Prazos contados em horário comercial, de segunda a sexta, das 8h às 18h, a par
 
 | Pedido | Prazo |
 |---|---|
-| Comunicado de extrema urgência (fechamento inesperado, falta de energia, problema no delivery) | até 2 horas |
-| Comunicado urgente (post ou story: mudança de horário, falta de produto) | até 24 horas |
+| Comunicado de extrema urgência (fechamento inesperado, falta de energia, sistema ou atendimento fora do ar) | até 2 horas |
+| Comunicado urgente (post ou story: mudança de horário, produto ou serviço indisponível) | até 24 horas |
 | Ajuste nas automações ("dia tal não vamos abrir", horário de feriado, data comemorativa) | até 24 horas, sem limite de pedidos |
 
 Os comunicados seguem o modelo pronto da marca da CONTRATANTE e contam no limite mensal do plano (Anexo I). Comunicados acima do limite podem ser feitos por R$ 97 cada.

@@ -114,12 +114,13 @@
   /* manifesto */
   .manifesto { background: var(--manteiga); color: var(--petroleo); overflow: hidden; }
   .manifesto-antes { font-size: 20px; font-weight: 600; opacity: .8; }
-  .manifesto h2 { font-size: clamp(64px, 12vw, 168px); font-weight: 900; line-height: .86; letter-spacing: -.05em; margin: 18px 0 48px; }
+  .manifesto h2 { font-size: clamp(56px, 11vw, 150px); font-weight: 900; line-height: .92; letter-spacing: -.05em; margin: 18px 0 48px; }
   .manifesto h2 em { font-style: normal; color: var(--coral); }
-  .manifesto-lados { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; border-top: 3px solid var(--petroleo); padding-top: 28px; }
+  .manifesto-lados { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; border-top: 3px solid var(--petroleo); padding-top: 28px; }
   .manifesto-lados b { font-size: 19px; font-weight: 800; }
   .manifesto-lados p { margin-top: 6px; font-size: 15px; }
-  @media (max-width: 760px) { .manifesto-lados { grid-template-columns: 1fr; } }
+  @media (max-width: 1000px) { .manifesto-lados { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .manifesto-lados { grid-template-columns: 1fr; } }
 
   /* o que inclui */
   .inclui { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -386,12 +387,13 @@
 <!-- ---------------------------------------------------------------- manifesto (DNA: o básico bem feito funciona) -->
 <section class="manifesto">
   <div class="container">
-    <p class="manifesto-antes">Enquanto muita marca corre atrás da próxima trend…</p>
-    <h2>O básico<br><em>bem feito</em><br>funciona.</h2>
+    <p class="manifesto-antes">Enquanto muita marca corre atrás da próxima trend, nós fazemos…</p>
+    <h2>O básico<br><em>bem feito</em><br>que gera<br>resultados.</h2>
     <div class="manifesto-lados">
       <div><b>Sem loucura mirabolante</b><p>Conteúdo que conversa com o seu cliente, não com o algoritmo do momento.</p></div>
       <div><b>Sem cliente abandonado</b><p>Cada comentário e cada pergunta têm resposta. Cada um é uma venda.</p></div>
       <div><b>Com constância</b><p>A sua marca aparecendo toda semana, no padrão, sem sumir por meses.</p></div>
+      <div><b>Com a cara da sua marca</b><p>Cores, fontes e estilo sempre no mesmo padrão. Cada post fortalece a sua identidade, e quem vê reconhece na hora: é você.</p></div>
     </div>
   </div>
 </section>
@@ -478,7 +480,7 @@
       <div class="prazo urgente">
         <b>2 h</b>
         <h3>Comunicado de extrema urgência</h3>
-        <p>Fechamento inesperado, falta de energia, problema no delivery: o aviso vai ao ar em até 2 horas.</p>
+        <p>Fechamento inesperado, falta de energia, sistema fora do ar: o aviso vai ao ar em até 2 horas.</p>
       </div>
       <div class="prazo">
         <b>24 h</b>
@@ -553,7 +555,7 @@
           <li>Atendimento automático da Meta</li>
           <li>Comente e receba no direct</li>
           <li>App de acompanhamento</li>
-          <li>Ajustes nos cardápios</li>
+          <li>Atualização de catálogo ou tabela de preços</li>
           <li>2 comunicados urgentes por mês</li>
           <li class="nao">Reels e stories</li>
         </ul>
