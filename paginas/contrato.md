@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 2, de 25/10/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 3, de 26/10/2026.
 ---
 ## Partes
 
@@ -168,8 +168,8 @@ Prazos contados em horário comercial, de segunda a sexta, das 8h às 18h, a par
 
 | Pedido | Prazo |
 |---|---|
-| Comunicado de extrema urgência (fechamento inesperado, falta de energia, sistema ou atendimento fora do ar) | até 2 horas |
-| Comunicado urgente (post ou story: mudança de horário, produto ou serviço indisponível) | até 24 horas |
+| Comunicado de extrema urgência (fechamento inesperado, falta de energia, sistema ou atendimento fora do ar) | até 30 minutos |
+| Comunicado urgente (post ou story: mudança de horário, produto ou serviço indisponível) | até 2 horas |
 | Ajuste nas automações ("dia tal não vamos abrir", horário de feriado, data comemorativa) | até 24 horas, sem limite de pedidos |
 
-Os comunicados seguem o modelo pronto da marca da CONTRATANTE e contam no limite mensal do plano (Anexo I). Comunicados acima do limite podem ser feitos por R$ 97 cada.
+Os comunicados são posts ou stories simples, feitos a partir de modelos prontos da marca da CONTRATANTE, preparados na implantação, e contam no limite mensal do plano (Anexo I). Comunicados acima do limite podem ser feitos por R$ 97 cada.

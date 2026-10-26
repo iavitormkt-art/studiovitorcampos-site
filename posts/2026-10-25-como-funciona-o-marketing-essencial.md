@@ -31,7 +31,7 @@ Na prática, a tecnologia é a minha assistente, e eu sou o seu gestor. **Nada v
 
 ## E quando aparece um imprevisto?
 
-Todo comerciante já passou por isso: a loja vai fechar mais cedo, faltou energia, o delivery parou. Para essas horas existe o **Ajuste Expresso**, incluído em todos os planos. Um comunicado de extrema urgência vai ao ar em até 2 horas, e mudanças nas respostas automáticas, como "dia tal não vamos abrir", são feitas em até 24 horas.
+Todo comerciante já passou por isso: a loja vai fechar mais cedo, faltou energia, o delivery parou. Para essas horas existe o **Ajuste Expresso**, incluído em todos os planos. Um comunicado de extrema urgência vai ao ar em até 30 minutos, um comunicado urgente em até 2 horas, e mudanças nas respostas automáticas, como "dia tal não vamos abrir", são feitas em até 24 horas.
 
 ## Para quem é
 
