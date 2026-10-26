@@ -32,6 +32,9 @@
   .opcoes { display: grid; gap: 10px; margin-bottom: 26px; }
   .opcoes.quatro { grid-template-columns: repeat(4, 1fr); }
   .opcoes.tres { grid-template-columns: repeat(3, 1fr); }
+  .opcoes.duas { grid-template-columns: repeat(2, 1fr); }
+  .opcao .eco { display: block; font-size: 12px; font-weight: 800; color: var(--verde); margin-top: 4px; }
+  .passo.bloqueado .opcoes { opacity: .45; pointer-events: none; }
   .opcao { position: relative; display: block; cursor: pointer; }
   .opcao input { position: absolute; opacity: 0; pointer-events: none; }
   .opcao .caixa { position: relative; display: block; height: 100%; border: 2px solid var(--linha); border-radius: 14px; padding: 12px 12px 12px 40px; background: var(--branco); transition: border-color .15s, background .15s, box-shadow .15s; }
@@ -71,7 +74,7 @@
   @media (max-width: 640px) {
     .contratar { padding-top: 28px; }
     .opcoes.quatro { grid-template-columns: 1fr 1fr; }
-    .opcoes.tres { grid-template-columns: 1fr; }
+    .opcoes.tres, .opcoes.duas { grid-template-columns: 1fr; }
     .opcoes.tres b { display: inline; }
     .opcoes.tres .det { display: inline; margin-left: 6px; }
     .passo-ajuda { margin-left: 0; }
@@ -97,7 +100,7 @@
   <div class="container">
     <a class="voltar" href="/#planos">← Voltar aos planos</a>
     <h1>Contratar o Marketing Essencial</h1>
-    <p class="sub">Etapa 1: escolha o plano e o prazo do contrato. Se em 30 dias você não gostar, devolvemos a primeira mensalidade.</p>
+    <p class="sub">Etapa 1: escolha o plano, o prazo e a forma de pagamento: Pix à vista com desconto ou cartão parcelado sem juros. Se em 30 dias você não gostar, devolvemos tudo o que você pagou.</p>
     <ol class="etapas" aria-label="Etapas da contratação">
       <li class="atual"><span>1</span>Plano e prazo</li>
       <li><span>2</span>Contrato</li>
@@ -117,6 +120,11 @@
           <p class="passo-ajuda">Quanto maior o prazo, mais vantagens. <b>Obrigatório.</b></p>
           <div class="opcoes tres" id="prazos"></div>
         </div>
+        <div class="passo bloqueado" id="passo-forma">
+          <p class="passo-titulo"><span class="num">3</span>Escolha a forma de pagamento <span class="ok">✓ escolhido</span></p>
+          <p class="passo-ajuda" id="forma-ajuda">Escolha o plano e o prazo para ver os valores. <b>Obrigatório.</b></p>
+          <div class="opcoes duas" id="formas"></div>
+        </div>
       </div>
 
       <aside class="resumo" aria-live="polite">
@@ -124,16 +132,17 @@
         <p class="vazio-r" id="r-vazio">Escolha o plano e o prazo para ver o resumo.</p>
         <ul id="r-itens"></ul>
         <div class="linha-valor"><span>Mensalidade</span><b id="r-mensal"></b></div>
+        <div class="linha-valor"><span>Pagamento</span><b id="r-forma"></b></div>
         <div class="linha-valor"><span>Implantação</span><b id="r-impl"></b></div>
-        <div class="linha-valor total"><span>Primeiro pagamento</span><b id="r-total"></b></div>
+        <div class="linha-valor total"><span>Total do período</span><b id="r-total"></b></div>
         <div class="garantia">
           <span aria-hidden="true">🛡️</span>
-          <span><strong>Garantia de 30 dias</strong>Não gostou no primeiro mês? Você cancela e recebe a primeira mensalidade de volta, sem multa.</span>
+          <span><strong>Garantia de 30 dias</strong>Não gostou no primeiro mês? Você cancela e recebe de volta tudo o que pagou, sem multa.</span>
         </div>
-        <label class="aceite"><input type="checkbox" id="aceite"><span><b>3.</b> Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
+        <label class="aceite"><input type="checkbox" id="aceite"><span><b>4.</b> Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
         <p class="falta" id="falta"></p>
         <button class="botao botao-coral" type="submit" id="pagar" disabled>Ir para o pagamento</button>
-        <p class="seguro" id="r-pagamento">Pagamento seguro por cartão de crédito, Pix ou boleto.</p>
+        <p class="seguro" id="r-pagamento">Pagamento seguro por Pix ou cartão de crédito.</p>
       </aside>
     </form>
   </div>
@@ -151,19 +160,32 @@
 </footer>
 
 <script>
-  // Links de pagamento recorrente (Asaas), um por plano. Vazio: a contratação segue pelo WhatsApp.
+  // Links de pagamento do período (Asaas): Pix à vista com desconto e cartão parcelado sem juros,
+  // um por plano, forma e prazo. Vazio: a contratação segue pelo WhatsApp.
   const LINKS = {
-    "presenca": "",
-    "essencial": "",
-    "essencial-mais": "",
-    "completo": ""
+    "presenca": {
+      pix:    { 3: "https://www.asaas.com/c/9mzytqyx04dlbu95", 6: "https://www.asaas.com/c/cpbiatcylzrxf02t", 12: "https://www.asaas.com/c/pidwjb9hvnou8vwr" },
+      cartao: { 3: "https://www.asaas.com/c/rdewxth9zvo4e57i", 6: "https://www.asaas.com/c/6eibuihsbemla5gc", 12: "https://www.asaas.com/c/4fblfx3bve6yb0gk" }
+    },
+    "essencial": {
+      pix:    { 3: "https://www.asaas.com/c/5oxc61cutr1gboko", 6: "https://www.asaas.com/c/nktizik9p3t92vbh", 12: "https://www.asaas.com/c/259cweif98nmm6zj" },
+      cartao: { 3: "https://www.asaas.com/c/g17hkpwfjv4ae5dm", 6: "", 12: "" }
+    },
+    "essencial-mais": {
+      pix:    { 3: "https://www.asaas.com/c/tqyj8zq59ctsm2lv", 6: "https://www.asaas.com/c/50o5wykuq60lfpya", 12: "https://www.asaas.com/c/3gr47y8otofkkm9d" },
+      cartao: { 3: "https://www.asaas.com/c/vkf2ftjy50pnspd4", 6: "https://www.asaas.com/c/gugzef43nt0ba6da", 12: "https://www.asaas.com/c/yfi4ox0zc9rgk689" }
+    },
+    "completo": {
+      pix:    { 3: "https://www.asaas.com/c/pdt4ke0s8hpdiuff", 6: "https://www.asaas.com/c/k2mts770jrd3zq2o", 12: "https://www.asaas.com/c/4fjrt3oo5e3uvkqm" },
+      cartao: { 3: "", 6: "", 12: "" }
+    }
   };
   const WHATS = "5561992163078";
-  const CONTRATO = "versão 3 de 26/10/2026";
+  const CONTRATO = "versão 4 de 26/10/2026";
 
   const PLANOS = [
-    { id: "completo", nome: "Completo", mensal: 1597, impl: 497, det: "4 a 5 posts/sem., 4 reels e campanha sazonal",
-      itens: ["4 a 5 posts no feed por semana", "4 reels por mês e stories semanais", "1 campanha sazonal por mês", "Monitoramento diário", "4 comunicados urgentes por mês"] },
+    { id: "completo", nome: "Completo", mensal: 1597, impl: 497, det: "1 post por dia, 4 reels e campanha sazonal",
+      itens: ["7 posts no feed por semana (1 por dia)", "4 reels por mês e stories semanais", "1 campanha sazonal por mês", "Monitoramento diário", "4 comunicados urgentes por mês"] },
     { id: "essencial-mais", nome: "Essencial+", mensal: 1197, impl: 497, tag: "MAIS ESCOLHIDO", det: "4 a 5 posts/sem., 2 reels e monitoramento",
       itens: ["4 a 5 posts no feed por semana", "2 reels por mês e stories semanais", "Monitoramento diário de mensagens e comentários", "4 comunicados urgentes por mês", "App de acompanhamento"] },
     { id: "essencial", nome: "Essencial", mensal: 797, impl: 497, det: "3 posts/sem. e peças exclusivas",
@@ -172,10 +194,13 @@
       itens: ["2 posts no feed por semana", "Modelos prontos com as suas cores e o seu logo", "Atendimento automático da Meta", "Relatório mensal simples", "1 comunicado urgente por mês"] }
   ];
   const PRAZOS = [
-    { meses: 3, nome: "3 meses", det: "Implantação cobrada na 2ª mensalidade" },
-    { meses: 6, nome: "6 meses", det: "Implantação grátis", tag: "ECONOMIA" },
-    { meses: 12, nome: "12 meses", det: "Implantação grátis + captação no local (DF)" }
+    { meses: 3, nome: "3 meses", desconto: 5, det: "5% off no Pix · implantação à parte" },
+    { meses: 6, nome: "6 meses", desconto: 10, det: "10% off no Pix · implantação grátis", tag: "ECONOMIA" },
+    { meses: 12, nome: "12 meses", desconto: 15, det: "15% off no Pix · implantação grátis + captação no local (DF)" }
   ];
+  // valor do período em cada forma de pagamento (Anexo I do contrato)
+  const cheio = (p, z) => p.mensal * z.meses;
+  const pix = (p, z) => Math.round(cheio(p, z) * (1 - z.desconto / 100));
 
   const reais = (v) => "R$ " + v.toLocaleString("pt-BR");
   const $ = (id) => document.getElementById(id);
@@ -190,46 +215,77 @@
     opcao("prazo", z.meses, z.nome, `<span class="det">${z.det}</span>`, z.tag)).join("");
 
   // o plano clicado no site (?plano=essencial-mais) já vem marcado; o prazo o cliente escolhe
-  const pedido = new URLSearchParams(location.search).get("plano");
+  const busca = new URLSearchParams(location.search);
+  const pedido = busca.get("plano");
   const form = $("form-contratar");
   if (PLANOS.some((p) => p.id === pedido)) form.plano.value = pedido;
+  // links de proposta podem sugerir o prazo (?prazo=6)
+  if (PRAZOS.some((z) => z.meses == busca.get("prazo"))) form.prazo.value = busca.get("prazo");
 
   function escolha() {
-    return { p: PLANOS.find((x) => x.id === form.plano.value), z: PRAZOS.find((x) => x.meses == form.prazo.value) };
+    const p = PLANOS.find((x) => x.id === form.plano.value), z = PRAZOS.find((x) => x.meses == form.prazo.value);
+    return { p, z, f: p && z && form.forma ? form.forma.value : "" };
+  }
+
+  // as opções de pagamento mostram os valores do plano e do prazo escolhidos
+  let formasDe = null;
+  function desenharFormas(p, z) {
+    const chave = p && z ? p.id + z.meses : "";
+    if (chave === formasDe) return;
+    const marcada = form.forma ? form.forma.value : "";
+    formasDe = chave;
+    $("passo-forma").classList.toggle("bloqueado", !chave);
+    $("forma-ajuda").innerHTML = chave ? "O desconto vale para o pagamento à vista no Pix. <b>Obrigatório.</b>"
+      : "Escolha o plano e o prazo para ver os valores. <b>Obrigatório.</b>";
+    $("formas").innerHTML = !chave
+      ? opcao("forma", "pix", "Pix à vista", `<span class="det">com desconto</span>`) +
+        opcao("forma", "cartao", "Cartão de crédito", `<span class="det">parcelado sem juros</span>`)
+      : opcao("forma", "pix", "Pix à vista", `<span class="valor">${reais(pix(p, z))}</span><span class="eco">Economia de ${reais(cheio(p, z) - pix(p, z))}</span>`, `${z.desconto}% OFF`) +
+        opcao("forma", "cartao", "Cartão de crédito", `<span class="valor">${z.meses}x ${reais(p.mensal)}</span><span class="det">sem juros · total ${reais(cheio(p, z))}</span>`);
+    if (chave && marcada) form.forma.value = marcada;
   }
 
   function atualizar() {
     const { p, z } = escolha();
+    desenharFormas(p, z);
+    const { f } = escolha();
     $("passo-plano").classList.toggle("feito", !!p);
     $("passo-prazo").classList.toggle("feito", !!z);
+    $("passo-forma").classList.toggle("feito", !!f);
     $("r-plano").textContent = p ? p.nome + (z ? ` · contrato de ${z.nome}` : "") : "Resumo";
     $("r-vazio").style.display = p ? "none" : "";
     $("r-itens").innerHTML = p ? p.itens.map((i) => `<li>${i}</li>`).join("") +
       (z && z.meses === 12 ? "<li>Bônus: 1ª captação de fotos e vídeos no local (Brasília/DF e entorno)</li>" : "") : "";
     $("r-mensal").textContent = p ? reais(p.mensal) : "—";
-    $("r-impl").textContent = !p || !z ? "—" : z.meses === 3 ? `${reais(p.impl)} na 2ª mensalidade` : "grátis";
-    $("r-total").textContent = p ? reais(p.mensal) : "—";
-    const falta = [!p && "escolher o plano", !z && "escolher o prazo", !$("aceite").checked && "aceitar o contrato"].filter(Boolean);
+    $("r-forma").textContent = !f ? "—" : f === "pix" ? `Pix à vista (${z.desconto}% off)` : `${z.meses}x ${reais(p.mensal)} no cartão`;
+    $("r-impl").textContent = !p || !z ? "—" : z.meses === 3 ? `${reais(p.impl)}, depois da garantia` : "grátis";
+    $("r-total").textContent = !f ? "—" : reais(f === "pix" ? pix(p, z) : cheio(p, z));
+    const falta = [!p && "escolher o plano", !z && "escolher o prazo", !f && "escolher a forma de pagamento", !$("aceite").checked && "aceitar o contrato"].filter(Boolean);
     $("falta").textContent = falta.length ? "Falta: " + falta.join(" · ") : "";
     $("pagar").disabled = falta.length > 0;
-    $("pagar").textContent = p && LINKS[p.id] ? "Ir para o pagamento" : "Contratar pelo WhatsApp";
-    $("r-pagamento").textContent = p && LINKS[p.id]
-      ? "Pagamento seguro por cartão de crédito, Pix ou boleto."
-      : "Você combina o pagamento direto comigo pelo WhatsApp.";
+    const link = f && LINKS[p.id][f][z.meses];
+    $("pagar").textContent = !f || link ? "Ir para o pagamento" : "Contratar pelo WhatsApp";
+    $("r-pagamento").textContent = !f || link
+      ? "Pagamento seguro por Pix ou cartão de crédito."
+      : "Você recebe o link de pagamento pelo WhatsApp.";
   }
 
   form.addEventListener("change", atualizar);
 
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    const { p, z } = escolha();
-    if (!p || !z || !$("aceite").checked) return;
+    const { p, z, f } = escolha();
+    if (!p || !z || !f || !$("aceite").checked) return;
     // a página /bem-vindo/ (para onde o Asaas volta depois do pagamento) usa isto para vir preenchida
     try {
-      localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, contrato: CONTRATO, em: new Date().toISOString() }));
+      localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, forma: f, contrato: CONTRATO, em: new Date().toISOString() }));
     } catch (e) {}
-    if (LINKS[p.id]) {
-      window.location.href = LINKS[p.id];
+    const link = LINKS[p.id][f][z.meses];
+    if (link) {
+      // o link do Asaas não volta para o site: abre numa aba nova e esta segue para a /bem-vindo/
+      const aba = window.open(link, "_blank");
+      if (aba) aba.opener = null;
+      window.location.href = aba ? "/bem-vindo/" : link;
       return;
     }
     const texto = [
@@ -237,7 +293,8 @@
       "",
       `Plano: ${p.nome} (${reais(p.mensal)}/mês)`,
       `Prazo: ${z.nome}`,
-      `Implantação: ${z.meses === 3 ? reais(p.impl) + " na 2ª mensalidade" : "grátis"}`,
+      `Pagamento: ${f === "pix" ? `Pix à vista, ${reais(pix(p, z))} (${z.desconto}% de desconto)` : `cartão em ${z.meses}x de ${reais(p.mensal)} sem juros (total ${reais(cheio(p, z))})`}`,
+      `Implantação: ${z.meses === 3 ? reais(p.impl) + ", depois da garantia" : "grátis"}`,
       `Li e aceitei o contrato (${CONTRATO}).`
     ].join("\n");
     window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");

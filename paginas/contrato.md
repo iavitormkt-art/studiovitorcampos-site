@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 3, de 26/10/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 4, de 26/10/2026.
 ---
 ## Partes
 
@@ -16,32 +16,34 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 
 ## Cláusula 2: Prazo e renovação
 
-2.1. O contrato tem o prazo escolhido na contratação: **3 (três), 6 (seis) ou 12 (doze) meses**, contados da data do pagamento da primeira mensalidade.
+2.1. O contrato tem o prazo escolhido na contratação: **3 (três), 6 (seis) ou 12 (doze) meses**, contados da data da confirmação do pagamento.
 
-2.2. Terminado o prazo, o contrato segue **por prazo indeterminado, mês a mês**, com as mesmas condições, até que uma das partes avise que não quer continuar, com pelo menos **30 (trinta) dias** de antecedência.
+2.2. **Renovação:** até 30 (trinta) dias antes do fim do prazo, a CONTRATADA envia a proposta de renovação. A CONTRATANTE pode renovar por um novo período de 3, 6 ou 12 meses, com as condições de pagamento da Cláusula 3. Se não renovar por um novo período nem avisar que não quer continuar, o contrato segue **mês a mês**, pela mensalidade cheia do plano, cobrada todo mês por Pix ou cartão de crédito, até que uma das partes avise, com pelo menos **30 (trinta) dias** de antecedência, que não quer continuar.
 
 ## Cláusula 3: Preço e pagamento
 
-3.1. A CONTRATANTE paga a **mensalidade do plano** escolhido (Anexo I), de forma recorrente, por cartão de crédito, Pix ou boleto, pela plataforma de pagamento indicada pela CONTRATADA.
+3.1. **Pagamento do período:** o valor do período contratado (mensalidade do plano multiplicada pelo número de meses, Anexo I) é pago **na contratação**, pela plataforma de pagamento indicada pela CONTRATADA, em uma destas formas, à escolha da CONTRATANTE:
+- **Pix à vista**, com desconto de **5%** no contrato de 3 meses, **10%** no de 6 meses e **15%** no de 12 meses;
+- **cartão de crédito**, pelo valor cheio do período, parcelado **sem juros** em até 3, 6 ou 12 vezes, conforme o prazo.
 
 3.2. **Implantação:** taxa única pelo trabalho inicial de diagnóstico completo, configuração das automações, criação dos modelos de peças e organização da identidade visual.
-- Contrato de 3 meses: a implantação é cobrada junto com a **segunda mensalidade**, depois de encerrado o prazo da garantia (Cláusula 4).
+- Contrato de 3 meses: a implantação é cobrada **à parte, depois de encerrado o prazo da garantia** (Cláusula 4), por Pix ou cartão de crédito.
 - Contratos de 6 e 12 meses: a implantação é **isenta**.
 
-3.3. **Atraso:** sobre valores pagos em atraso incidem multa de 2% e juros de 1% ao mês. Com atraso superior a **10 (dez) dias**, a CONTRATADA pode suspender os serviços até a regularização, sem prejuízo da cobrança.
+3.3. **Atraso:** sobre valores pagos em atraso (implantação ou mensalidades da fase mês a mês) incidem multa de 2% e juros de 1% ao mês. Com atraso superior a **10 (dez) dias**, a CONTRATADA pode suspender os serviços até a regularização, sem prejuízo da cobrança. O serviço começa depois da confirmação do pagamento do período.
 
 3.4. **Reajuste:** os valores são reajustados a cada 12 meses pelo IPCA.
 
 ## Cláusula 4: Garantia de 30 dias
 
-4.1. A CONTRATANTE pode cancelar este contrato em até **30 (trinta) dias** depois do pagamento da primeira mensalidade, por qualquer motivo, e recebe de volta **100% da primeira mensalidade**, sem multa.
+4.1. A CONTRATANTE pode cancelar este contrato em até **30 (trinta) dias** depois da confirmação do pagamento, por qualquer motivo, e recebe de volta **100% do valor pago**, sem multa.
 
 4.2. Condições da garantia:
 - Vale **uma única vez por CNPJ ou CPF**.
 - A CONTRATANTE precisa ter liberado os acessos (Cláusula 7) e respondido ao planejamento do mês nos primeiros **7 (sete) dias**.
 - O pedido é feito por escrito, por e-mail ou WhatsApp, dentro do prazo.
 
-4.3. O reembolso é feito em até **7 dias úteis**, pelo mesmo meio de pagamento.
+4.3. O reembolso é feito em até **7 dias úteis**, pelo mesmo meio de pagamento: devolução por Pix ou estorno no cartão de crédito (no cartão, o prazo para o valor aparecer na fatura depende do banco emissor).
 
 4.4. As peças já publicadas permanecem nos perfis da CONTRATANTE, e os acessos são devolvidos conforme a Cláusula 12.
 
@@ -115,13 +117,21 @@ Não fazem parte deste contrato, salvo contratação à parte:
 
 12.1. **Durante a garantia:** conforme a Cláusula 4, sem multa.
 
-12.2. **Depois da garantia e antes do fim do prazo:** a parte que cancelar paga multa de **20% das mensalidades que faltam** até o fim do prazo contratado. Nos contratos de 6 e 12 meses, passa a ser devida também a **implantação** que havia sido isenta. No contrato de 12 meses, se a captação bônus (Anexo I) já tiver sido feita, o valor dela também é devido.
+12.2. **Depois da garantia e antes do fim do prazo, a pedido da CONTRATANTE:** a CONTRATADA devolve o valor pago pelo período, descontados:
+- os meses já iniciados, pela **mensalidade cheia** do plano (o desconto do Pix só vale para o período completo);
+- multa de **20% sobre as mensalidades cheias que faltam** até o fim do prazo;
+- nos contratos de 6 e 12 meses, a **implantação** que havia sido isenta;
+- no contrato de 12 meses, o valor da captação bônus (Anexo I), se ela já tiver sido feita.
 
-12.3. **Depois do prazo:** cancelamento livre, com aviso de 30 dias (Cláusula 2.2).
+Se o resultado for zero ou negativo, não há devolução nem cobrança adicional. A devolução é feita em até 7 dias úteis, por Pix ou estorno parcial no cartão de crédito.
 
-12.4. O contrato pode ser encerrado imediatamente, sem multa para quem encerra, se a outra parte descumprir obrigação importante e não corrigir em até 10 dias depois de avisada.
+12.3. **Depois da garantia e antes do fim do prazo, a pedido da CONTRATADA** (sem descumprimento da CONTRATANTE): a CONTRATADA devolve integralmente os meses ainda não iniciados, pelo valor efetivamente pago por mês, e paga multa de 20% sobre esse valor.
 
-12.5. No encerramento, a CONTRATADA entrega os acessos de volta, remove seus usuários das contas e encerra as automações que a CONTRATANTE pedir.
+12.4. **Depois do prazo:** cancelamento livre, com aviso de 30 dias (Cláusula 2.2).
+
+12.5. O contrato pode ser encerrado imediatamente, sem multa para quem encerra, se a outra parte descumprir obrigação importante e não corrigir em até 10 dias depois de avisada.
+
+12.6. No encerramento, a CONTRATADA entrega os acessos de volta, remove seus usuários das contas e encerra as automações que a CONTRATANTE pedir.
 
 ## Cláusula 13: Comunicação
 
@@ -139,13 +149,19 @@ Fica eleito o foro de Brasília/DF para resolver questões deste contrato.
 
 ## Anexo I: Planos
 
-Valores mensais, definidos em 25/10/2026.
+Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026).
 
 | | Presença | Essencial | Essencial+ | Completo |
 |---|---|---|---|---|
-| Mensalidade | R$ 397 | R$ 797 | R$ 1.197 | R$ 1.597 |
-| Implantação (contrato de 3 meses) | R$ 297 | R$ 497 | R$ 497 | R$ 497 |
-| Posts no feed | 2 por semana (8 por mês) | 3 por semana | 4 a 5 por semana | 4 a 5 por semana |
+| Mensalidade (valor cheio) | R$ 397 | R$ 797 | R$ 1.197 | R$ 1.597 |
+| 3 meses: Pix à vista (5% de desconto) | R$ 1.131 | R$ 2.271 | R$ 3.411 | R$ 4.551 |
+| 3 meses: cartão em até 3x sem juros | R$ 1.191 | R$ 2.391 | R$ 3.591 | R$ 4.791 |
+| 6 meses: Pix à vista (10% de desconto) | R$ 2.144 | R$ 4.304 | R$ 6.464 | R$ 8.624 |
+| 6 meses: cartão em até 6x sem juros | R$ 2.382 | R$ 4.782 | R$ 7.182 | R$ 9.582 |
+| 12 meses: Pix à vista (15% de desconto) | R$ 4.049 | R$ 8.129 | R$ 12.209 | R$ 16.289 |
+| 12 meses: cartão em até 12x sem juros | R$ 4.764 | R$ 9.564 | R$ 14.364 | R$ 19.164 |
+| Implantação (só no contrato de 3 meses) | R$ 297 | R$ 497 | R$ 497 | R$ 497 |
+| Posts no feed | 2 por semana (8 por mês) | 3 por semana | 4 a 5 por semana | 7 por semana (1 por dia) |
 | Design | Modelos prontos com as cores e o logo | Peças exclusivas | Peças exclusivas | Peças exclusivas |
 | Reels | não | não | 2 por mês | 4 por mês |
 | Stories | não | não | Semanais | Semanais |

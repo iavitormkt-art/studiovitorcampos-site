@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta Moranguinho · Studio Vitor Campos</title>
+<meta name="description" content="Diagnóstico das redes sociais da Moranguinho e plano do Marketing Essencial.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3B1F1A">
+<meta property="og:title" content="Proposta Marketing Essencial · Moranguinho">
+<meta property="og:description" content="35 mil pessoas seguem a Moranguinho. Quantas viram cliente? Veja o diagnóstico e escolha o plano.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500..800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --chocolate: #3B1F1A;
+    --chocolate-2: #4A2E27;
+    --creme: #F8F1EA;
+    --rosa: #F3B8B4;
+    --morango: #C8323C;
+    --morango-esc: #8E1F2A;
+    --linha: #EADBD2;
+    --cinza: #8A6F65;
+    --branco: #FFFFFF;
+    --verde: #16a34a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--creme); color: var(--chocolate); font-family: "DM Sans", Arial, sans-serif; font-size: 17px; line-height: 1.55; -webkit-text-size-adjust: 100%; }
+  h1, h2, .num { font-family: "Fraunces", Georgia, serif; font-weight: 650; line-height: 1.1; margin: 0; }
+  h2 { font-size: clamp(30px, 7.5vw, 46px); margin-bottom: 18px; }
+  h3 { font-size: 19px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  a { color: inherit; }
+  .bloco { padding: 56px 20px; }
+  .miolo { max-width: 760px; margin: 0 auto; }
+  .rotulo { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--morango); margin-bottom: 12px; }
+  .fonte { font-size: 13px; color: var(--cinza); margin-top: 18px; }
+  .escuro { background: var(--chocolate); color: var(--creme); }
+  .escuro .rotulo { color: var(--rosa); }
+  .escuro .fonte { color: #C9B3A8; }
+  .branco { background: var(--branco); }
+
+  /* capa */
+  .capa { position: relative; overflow: hidden; background: var(--chocolate); color: var(--creme); padding: 28px 20px 64px; }
+  .capa::after { content: ""; position: absolute; right: -90px; top: -60px; width: 260px; height: 260px; border-radius: 50%; background: linear-gradient(160deg, var(--morango), var(--morango-esc)); opacity: .9; }
+  .capa > * { position: relative; z-index: 1; }
+  .capa .de { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--rosa); margin: 40px 0 18px; }
+  .capa h1 { font-size: clamp(38px, 10vw, 68px); }
+  .capa .sub { font-size: 19px; color: #E8D9CF; margin: 20px 0 28px; max-width: 560px; }
+  .capa .assina { font-size: 14px; color: #C9B3A8; }
+  .atalho { display: inline-block; background: var(--rosa); color: var(--chocolate); font-weight: 700; text-decoration: none; padding: 14px 22px; border-radius: 99px; margin-bottom: 26px; }
+
+  /* 8 x 0 */
+  .placar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin: 8px 0 22px; }
+  .placar div { background: var(--branco); border: 1px solid var(--linha); border-radius: 22px; padding: 20px 14px; text-align: center; }
+  .placar .zero { background: var(--morango); border: 0; color: var(--branco); }
+  .placar .num { font-size: 72px; display: block; }
+  .placar small { display: block; font-size: 14px; line-height: 1.35; }
+  .placar .seta { font-size: 28px; color: var(--cinza); }
+
+  /* vozes */
+  .vozes { display: grid; gap: 12px; }
+  .voz { background: var(--branco); border-left: 5px solid var(--rosa); border-radius: 16px; padding: 18px 18px 14px; }
+  .voz.forte { border-left-color: var(--morango); }
+  .voz q { display: block; font-family: "Fraunces", Georgia, serif; font-size: 23px; font-weight: 600; line-height: 1.2; quotes: "“" "”"; margin-bottom: 6px; }
+  .voz span { font-size: 14px; color: var(--cinza); }
+
+  /* números */
+  .grade-num { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .grade-num div { overflow-wrap: anywhere; }
+  .grade-num .num { white-space: nowrap; }
+  .grade-num div { background: rgba(255, 255, 255, .07); border: 1px solid rgba(243, 184, 180, .3); border-radius: 18px; padding: 18px 16px; }
+  .grade-num .num { font-size: 42px; color: var(--rosa); display: block; margin-bottom: 4px; }
+  .grade-num small { font-size: 14px; line-height: 1.35; display: block; color: #E8D9CF; }
+
+  /* nota */
+  .nota-geral { display: flex; align-items: center; gap: 18px; background: var(--chocolate); color: var(--creme); border-radius: 22px; padding: 20px; margin-bottom: 16px; }
+  .nota-geral .num { font-size: 64px; color: var(--rosa); }
+  .nota-geral p { margin: 0; font-size: 15px; }
+  .itens { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .itens li { background: var(--branco); border-radius: 14px; padding: 12px 14px; }
+  .itens .topo-i { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; font-weight: 700; }
+  .itens .sit { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 99px; background: #FBE3E1; color: var(--morango-esc); white-space: nowrap; }
+  .itens .sit.at { background: #FDF0D5; color: #8a5a00; }
+  .itens .sit.ok { background: #E6F4EA; color: #1e6b34; }
+  .barra { height: 8px; background: var(--linha); border-radius: 99px; margin-top: 8px; overflow: hidden; }
+  .barra i { display: block; height: 100%; background: var(--morango); border-radius: 99px; }
+
+  /* jornada */
+  .jornada { list-style: none; padding: 0; margin: 0 0 18px; }
+  .jornada li { position: relative; display: flex; gap: 14px; padding-bottom: 18px; }
+  .jornada li:not(:last-child)::before { content: ""; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--linha); }
+  .jornada .n { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--branco); border: 2px solid var(--linha); display: grid; place-items: center; font-weight: 700; }
+  .jornada li:last-child .n { background: var(--morango); border-color: var(--morango); color: var(--branco); }
+  .jornada p { margin: 0; color: var(--cinza); font-size: 15px; }
+  .destaque-frase { font-family: "Fraunces", Georgia, serif; font-size: 23px; font-weight: 600; line-height: 1.25; }
+
+  /* solução */
+  .solucoes { display: grid; gap: 10px; }
+  .sol { background: var(--creme); border-radius: 16px; padding: 14px 16px; }
+  .sol .hoje { font-size: 14px; color: var(--morango-esc); font-weight: 700; margin-bottom: 4px; }
+  .sol .hoje::before { content: "Hoje: "; font-weight: 500; color: var(--cinza); }
+  .sol .resolve { margin: 0; font-size: 16px; }
+  .sol .resolve::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+
+  /* ciclo */
+  .ciclo { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; counter-reset: c; }
+  .ciclo li { counter-increment: c; display: flex; gap: 14px; align-items: center; background: rgba(255, 255, 255, .07); border-radius: 16px; padding: 14px 16px; }
+  .ciclo li::before { content: counter(c); flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--rosa); color: var(--chocolate); display: grid; place-items: center; font-weight: 700; }
+  .ciclo h3 { font-size: 17px; margin: 0; }
+  .ciclo p { margin: 0; font-size: 14px; color: #E8D9CF; }
+
+  /* planos */
+  .oferta { background: var(--morango); color: var(--branco); border-radius: 22px; padding: 22px 20px; margin-bottom: 22px; }
+  .oferta .rotulo { color: #FFE1DE; margin-bottom: 6px; }
+  .oferta h3 { font-family: "Fraunces", Georgia, serif; font-size: 26px; line-height: 1.15; margin-bottom: 8px; }
+  .oferta p { font-size: 15px; margin-bottom: 16px; }
+  .planos { display: grid; gap: 16px; }
+  .plano { position: relative; background: var(--branco); border: 1px solid var(--linha); border-radius: 22px; padding: 22px 20px; }
+  .plano.rec { background: var(--chocolate); color: var(--creme); border: 0; box-shadow: 0 18px 40px rgba(59, 31, 26, .25); }
+  .plano .selo { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--rosa); color: var(--chocolate); padding: 5px 12px; border-radius: 99px; margin-bottom: 10px; }
+  .plano h3 { font-size: 22px; }
+  .plano .preco { font-family: "Fraunces", Georgia, serif; font-size: 44px; font-weight: 700; line-height: 1; margin: 6px 0 4px; }
+  .plano .preco small { font-family: "DM Sans", Arial, sans-serif; font-size: 16px; font-weight: 500; color: var(--cinza); }
+  .plano.rec .preco small { color: #C9B3A8; }
+  .plano ul { padding: 0; margin: 14px 0 18px; list-style: none; }
+  .plano li { padding-left: 24px; position: relative; margin-bottom: 8px; font-size: 16px; }
+  .plano li::before { content: "✓"; position: absolute; left: 0; color: var(--morango); font-weight: 700; }
+  .plano.rec li::before { color: var(--rosa); }
+  .botao { display: block; text-align: center; text-decoration: none; font-weight: 700; font-size: 17px; padding: 15px 18px; border-radius: 99px; border: 2px solid var(--chocolate); color: var(--chocolate); background: transparent; }
+  .botao.cheio { background: var(--rosa); border-color: var(--rosa); color: var(--chocolate); }
+  .botao.claro { background: var(--branco); border-color: var(--branco); color: var(--morango-esc); }
+  .prazos { display: grid; gap: 10px; margin: 22px 0 12px; }
+  .prazos div { background: var(--branco); border: 1px solid var(--linha); border-radius: 14px; padding: 12px 14px; font-size: 15px; }
+  .prazos div.eco { border: 2px solid var(--verde); }
+  .garantia { background: #ECFDF3; color: #14532d; border-radius: 14px; padding: 14px 16px; font-size: 15px; font-weight: 500; margin-top: 14px; }
+
+  /* bônus e passos */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .chips span { background: var(--creme); border: 1px solid var(--linha); border-radius: 99px; padding: 8px 14px; font-size: 14px; font-weight: 700; }
+  .passos { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; }
+  .passos li { display: flex; gap: 14px; align-items: flex-start; background: var(--branco); border-radius: 16px; padding: 14px 16px; }
+  .passos .n { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--chocolate); color: var(--rosa); display: grid; place-items: center; font-weight: 700; }
+  .passos p { margin: 0; font-size: 14px; color: var(--cinza); }
+  .final { text-align: center; }
+  .final h2 { margin-bottom: 22px; }
+  .final .botao { margin-bottom: 12px; }
+  .final .botao:not(.cheio) { border-color: var(--creme); color: var(--creme); }
+  .contato { font-size: 14px; color: #C9B3A8; margin-top: 18px; }
+
+  @media (min-width: 720px) {
+    .bloco { padding: 80px 32px; }
+    .capa { padding: 40px 32px 90px; }
+    .capa::after { width: 420px; height: 420px; right: -120px; top: -80px; }
+    .grade-num { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .vozes, .solucoes { grid-template-columns: 1fr 1fr; }
+    .prazos { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="capa">
+  <div class="rotulo" style="color:var(--rosa);margin:0">Studio Vitor Campos</div>
+  <p class="de">Proposta · Marketing Essencial</p>
+  <h1>35 mil pessoas seguem a Moranguinho. Quantas viram cliente?</h1>
+  <p class="sub">Fizemos um diagnóstico das redes sociais da Moranguinho, vistas de fora, como um cliente comum vê. Aqui estão o que encontramos e o plano para transformar seguidores em encomendas.</p>
+  <a class="atalho" href="#planos">Ir direto para os planos ↓</a>
+  <p class="assina">Vitor Campos · Gestão e direção criativa · Outubro de 2026</p>
+</header>
+
+<section class="bloco">
+  <div class="miolo">
+    <p class="rotulo">O que encontramos</p>
+    <div class="placar">
+      <div><span class="num">8</span><small>clientes falaram com a marca nos comentários</small></div>
+      <span class="seta">→</span>
+      <div class="zero"><span class="num">0</span><small>receberam resposta da Moranguinho</small></div>
+    </div>
+    <p class="destaque-frase">Preço, horário, “a loja está aberta?”. Cada pergunta sem resposta é uma venda que pode ter ido para o concorrente.</p>
+    <p class="fonte">Fonte: últimos 11 posts do Instagram @moranguinhoconfeitaria, coletados em 22/10/2026.</p>
+  </div>
+</section>
+
+<section class="bloco" style="padding-top:0">
+  <div class="miolo">
+    <h2>O que os clientes perguntaram, e ninguém respondeu</h2>
+    <div class="vozes">
+      <div class="voz"><q>Qual valor kg?</q><span>Pergunta de preço · post fixado · sem resposta</span></div>
+      <div class="voz"><q>Ainda está fechada?</q><span>Outra cliente reforçou: “também queria saber” · sem resposta</span></div>
+      <div class="voz"><q>Na Ceilândia já está funcionando?</q><span>Pergunta sobre a unidade · sem resposta</span></div>
+      <div class="voz forte"><q>Não vale a pena o desgaste.</q><span>Cliente que tentou encomendar um bolo de aniversário, não teve retorno do WhatsApp e desistiu, em público</span></div>
+    </div>
+    <p class="fonte">Trechos de comentários públicos no Instagram (out/2026). Nomes omitidos.</p>
+  </div>
+</section>
+
+<section class="bloco escuro">
+  <div class="miolo">
+    <h2>Uma audiência grande, quase sem atenção</h2>
+    <div class="grade-num">
+      <div><span class="num">1</span><small>post nos últimos 30 dias (Instagram e Facebook)</small></div>
+      <div><span class="num">0</span><small>resposta automática na DM do Instagram (teste de 22/10)</small></div>
+      <div><span class="num">0–4</span><small>reações por post no Facebook (8,1 mil seguidores)</small></div>
+      <div><span class="num">Off</span><small>site moranguinhoconfeitaria.com.br, divulgado nos cardápios</small></div>
+    </div>
+    <p>Quando a marca publica, o público responde: o collab de 21/10 passou de 1,7 mil curtidas. <b>O interesse existe. Falta constância e atendimento.</b></p>
+    <p class="fonte">Coleta externa em 22/10/2026. Site testado em https e http: página de erro.</p>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="miolo">
+    <p class="rotulo">Diagnóstico</p>
+    <div class="nota-geral">
+      <span class="num">3,4</span>
+      <p>de 10, nos 8 itens avaliados.<br><b>14 pontos de perda de venda</b> encontrados.</p>
+    </div>
+    <ul class="itens">
+      <li><div class="topo-i">Comentários respondidos <span class="sit">1 · Crítico</span></div><div class="barra"><i style="width:10%"></i></div></li>
+      <li><div class="topo-i">Tempo de resposta (DM) <span class="sit">1 · Crítico</span></div><div class="barra"><i style="width:10%"></i></div></li>
+      <li><div class="topo-i">Frequência de posts <span class="sit">2 · Crítico</span></div><div class="barra"><i style="width:20%"></i></div></li>
+      <li><div class="topo-i">Resposta automática (DM) <span class="sit">3 · Crítico</span></div><div class="barra"><i style="width:30%"></i></div></li>
+      <li><div class="topo-i">Página do Facebook <span class="sit at">4 · Atenção</span></div><div class="barra"><i style="width:40%"></i></div></li>
+      <li><div class="topo-i">Destaques <span class="sit at">5 · Atenção</span></div><div class="barra"><i style="width:50%"></i></div></li>
+      <li><div class="topo-i">Identidade visual <span class="sit at">5 · Atenção</span></div><div class="barra"><i style="width:50%"></i></div></li>
+      <li><div class="topo-i">Caminho até a compra <span class="sit ok">6 · Razoável</span></div><div class="barra"><i style="width:60%"></i></div></li>
+    </ul>
+    <p class="fonte">Diagnóstico externo, sem acesso às contas. DM de teste enviada em 22/10/2026: sem resposta humana mais de 14 horas depois.</p>
+  </div>
+</section>
+
+<section class="bloco branco">
+  <div class="miolo">
+    <h2>A jornada de quem quer encomendar hoje</h2>
+    <ol class="jornada">
+      <li><span class="n">1</span><div><h3>Vê o post</h3><p>Fica com vontade do bolo.</p></div></li>
+      <li><span class="n">2</span><div><h3>Pergunta o preço</h3><p>Comentário sem resposta.</p></div></li>
+      <li><span class="n">3</span><div><h3>Manda DM</h3><p>Sem resposta automática, nem fora do horário.</p></div></li>
+      <li><span class="n">4</span><div><h3>Vai ao WhatsApp</h3><p>Mais um app, mais uma espera.</p></div></li>
+      <li><span class="n">5</span><div><h3>Desiste</h3><p>E compra na concorrência.</p></div></li>
+    </ol>
+    <p class="destaque-frase">Cada etapa é uma chance de perder o cliente. O Marketing Essencial fecha essas portas.</p>
+    <p class="fonte">Etapas 2 e 3 verificadas no diagnóstico; etapa 5 relatada publicamente por uma cliente.</p>
+  </div>
+</section>
+
+<section class="bloco branco" style="padding-top:0">
+  <div class="miolo">
+    <h2>Cada problema tem uma solução no pacote</h2>
+    <div class="solucoes">
+      <div class="sol"><p class="hoje">8 comentários sem resposta</p><p class="resolve">Monitoramento diário com IA, com respostas sugeridas para aprovação</p></div>
+      <div class="sol"><p class="hoje">DM sem resposta automática</p><p class="resolve">Perguntas frequentes, resposta instantânea e mensagem de ausência na Meta</p></div>
+      <div class="sol"><p class="hoje">1 post em 30 dias</p><p class="resolve">Calendário mensal com publicações agendadas</p></div>
+      <div class="sol"><p class="hoje">Sem destaque de cardápio e encomendas</p><p class="resolve">Bio, link, botão de contato e destaques reorganizados</p></div>
+      <div class="sol"><p class="hoje">Site fora do ar, WhatsApp genérico</p><p class="resolve">Caminho até a compra revisado, com mensagem por unidade</p></div>
+      <div class="sol"><p class="hoje">Peças sem padrão visual</p><p class="resolve">Modelos exclusivos no padrão da marca</p></div>
+      <div class="sol"><p class="hoje">Facebook incompleto e sem avaliações</p><p class="resolve">Página ajustada e posts agendados nas duas redes</p></div>
+      <div class="sol"><p class="hoje">Sem medir resultados</p><p class="resolve">Relatório mensal com crescimento e melhores posts</p></div>
+    </div>
+    <p class="fonte">Tudo feito nas ferramentas da própria Meta (Business Suite): sem plataformas pagas extras para a Moranguinho.</p>
+  </div>
+</section>
+
+<section class="bloco escuro">
+  <div class="miolo">
+    <h2>Como funciona, todo mês</h2>
+    <ol class="ciclo">
+      <li><div><h3>Planejamento</h3><p>Calendário do mês com datas e produtos</p></div></li>
+      <li><div><h3>Criação</h3><p>Posts e reels no padrão da marca</p></div></li>
+      <li><div><h3>Sua aprovação</h3><p>Nada sai sem o seu ok</p></div></li>
+      <li><div><h3>Agendamento</h3><p>Publicação nas duas redes</p></div></li>
+      <li><div><h3>Relatório</h3><p>Crescimento e melhores posts</p></div></li>
+    </ol>
+    <p class="destaque-frase" style="color:var(--rosa)">Você cuida da confeitaria. A gente cuida para que as redes vendam.</p>
+  </div>
+</section>
+
+<section class="bloco" id="planos">
+  <div class="miolo">
+    <h2>Escolha o plano</h2>
+    <div class="oferta">
+      <p class="rotulo">Recomendado para a Moranguinho</p>
+      <h3>Essencial+ com contrato de 6 meses</h3>
+      <p>Monitoramento diário, que resolve a dor número 1: os comentários sem resposta. Implantação grátis.</p>
+      <p><b>Pix à vista: R$ 6.464</b> (10% off, economia de R$ 1.215 com a implantação)<br><b>Cartão: 6x de R$ 1.197</b> sem juros</p>
+      <a class="botao claro" href="/contratar/?plano=essencial-mais&amp;prazo=6">Contratar o Essencial+ agora</a>
+    </div>
+    <div class="planos">
+      <div class="plano">
+        <h3>Completo</h3>
+        <p class="preco">R$ 1.597<small>/mês</small></p>
+        <ul>
+          <li>7 posts por semana: 1 por dia</li>
+          <li>4 reels por mês e stories semanais</li>
+          <li>1 campanha sazonal por mês (Páscoa, Natal, Dia das Mães…)</li>
+          <li>4 comunicados urgentes por mês</li>
+          <li>Tudo do Essencial+</li>
+        </ul>
+        <a class="botao" href="/contratar/?plano=completo">Escolher o Completo</a>
+      </div>
+      <div class="plano rec">
+        <span class="selo">Recomendado</span>
+        <h3>Essencial+</h3>
+        <p class="preco">R$ 1.197<small>/mês</small></p>
+        <ul>
+          <li>4 a 5 posts por semana</li>
+          <li>2 reels por mês e stories semanais</li>
+          <li><b>Monitoramento diário com IA</b> de comentários e mensagens</li>
+          <li>4 comunicados urgentes por mês</li>
+          <li>Tudo do Essencial</li>
+        </ul>
+        <a class="botao cheio" href="/contratar/?plano=essencial-mais">Escolher o Essencial+</a>
+      </div>
+      <div class="plano">
+        <h3>Essencial</h3>
+        <p class="preco">R$ 797<small>/mês</small></p>
+        <ul>
+          <li>3 posts por semana com peças exclusivas</li>
+          <li>Atendimento automático da Meta</li>
+          <li>Comente e receba no direct</li>
+          <li>App de acompanhamento</li>
+          <li>Atualização dos cardápios</li>
+          <li>2 comunicados urgentes por mês</li>
+        </ul>
+        <a class="botao" href="/contratar/?plano=essencial">Escolher o Essencial</a>
+      </div>
+    </div>
+    <div class="prazos">
+      <div><b>3 meses</b> · 5% off no Pix ou 3x sem juros · implantação de R$ 497 depois da garantia</div>
+      <div class="eco"><b>6 meses</b> · 10% off no Pix ou 6x sem juros · implantação grátis</div>
+      <div><b>12 meses</b> · 15% off no Pix ou 12x sem juros · implantação grátis + 1ª captação de fotos e vídeos na loja</div>
+    </div>
+    <p class="fonte" style="margin-top:0">O período é pago de uma vez: à vista no Pix, com desconto, ou no cartão de crédito, parcelado sem juros (a parcela fica igual à mensalidade).</p>
+    <p class="garantia">🛡️ Garantia de 30 dias: se não gostar no primeiro mês, devolvemos tudo o que você pagou.</p>
+    <p class="fonte">Ajuste Expresso em todos os planos: comunicado de extrema urgência no ar em até 30 min, urgente em até 2 h, ajuste nas respostas automáticas em até 24 h (horário comercial). Não incluso: tráfego pago e logotipo. <a href="/contrato/">Ler o contrato</a>.</p>
+  </div>
+</section>
+
+<section class="bloco branco">
+  <div class="miolo">
+    <p class="rotulo">Bônus</p>
+    <h2>Seus cardápios sempre atualizados</h2>
+    <p>Ajustes de preços (até 5 itens por atualização) e ingredientes nos cardápios da loja, de encomendas e sazonais, mantendo o layout.</p>
+    <div class="chips"><span>Cardápio da loja</span><span>Encomendas</span><span>Páscoa · Natal · Ano Novo</span></div>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="miolo">
+    <h2>Primeiras semanas</h2>
+    <ol class="passos">
+      <li><span class="n">1</span><div><h3>Escolha do plano</h3><p>Contratação pelo site e acesso ao Meta Business Suite</p></div></li>
+      <li><span class="n">2</span><div><h3>Mês zero</h3><p>Métricas reais, para medir o crescimento</p></div></li>
+      <li><span class="n">3</span><div><h3>Primeira semana</h3><p>Respostas automáticas, bio, destaques e link do WhatsApp</p></div></li>
+      <li><span class="n">4</span><div><h3>Calendário no ar</h3><p>Posts agendados e primeiro relatório no fim do mês</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="bloco escuro final">
+  <div class="miolo">
+    <h2>Vamos fazer cada seguidor virar encomenda?</h2>
+    <a class="botao cheio" href="/contratar/?plano=essencial-mais&amp;prazo=6">Contratar agora</a>
+    <a class="botao" href="https://wa.me/5561992163078?text=Ol%C3%A1%20Vitor%2C%20vi%20a%20proposta%20da%20Moranguinho%20e%20tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Tirar uma dúvida no WhatsApp</a>
+    <p class="contato">Vitor Campos · Studio Vitor Campos<br>(61) 99216-3078 · contato@studiovitorcampos.com.br</p>
+  </div>
+</section>
+
+</body>
+</html>

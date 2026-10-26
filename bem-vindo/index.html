@@ -124,6 +124,7 @@
       `Instagram: ${v("instagram")}`,
       v("facebook") && `Facebook: ${v("facebook")}`,
       `Plano: ${NOMES[v("plano")]} · contrato de ${v("prazo")} meses`,
+      escolha.forma && `Pagamento: ${escolha.forma === "pix" ? "Pix à vista" : "cartão parcelado"}`,
       v("horario") && `Melhor horário para conversar: ${v("horario")}`,
       v("obs") && `Observações: ${v("obs")}`,
       escolha.contrato && `Aceitei o contrato (${escolha.contrato}).`
