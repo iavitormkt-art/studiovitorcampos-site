@@ -68,6 +68,16 @@
   .voz q { display: block; font-family: "Fraunces", Georgia, serif; font-size: 23px; font-weight: 600; line-height: 1.2; quotes: "“" "”"; margin-bottom: 6px; }
   .voz span { font-size: 14px; color: var(--cinza); }
 
+  /* prints reais */
+  .prints { display: grid; gap: 16px; margin-top: 22px; }
+  .print { margin: 0; }
+  .print img { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; border-radius: 22px; border: 6px solid var(--chocolate); box-shadow: 0 14px 30px rgba(59, 31, 26, .18); }
+  .print figcaption { font-size: 14px; color: var(--cinza); text-align: center; margin-top: 10px; line-height: 1.4; }
+  .print figcaption b { color: var(--chocolate); }
+  .escuro .print img { border-color: var(--chocolate-2); background: #fff; }
+  .escuro .print figcaption { color: #C9B3A8; }
+  .escuro .print figcaption b { color: var(--creme); }
+
   /* números */
   .grade-num { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
   .grade-num div { overflow-wrap: anywhere; }
@@ -151,7 +161,8 @@
     .capa { padding: 40px 32px 90px; }
     .capa::after { width: 420px; height: 420px; right: -120px; top: -80px; }
     .grade-num { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .vozes, .solucoes { grid-template-columns: 1fr 1fr; }
+    .vozes, .solucoes, .prints { grid-template-columns: 1fr 1fr; }
+    .site-off { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: center; }
     .prazos { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
@@ -189,7 +200,17 @@
       <div class="voz"><q>Na Ceilândia já está funcionando?</q><span>Pergunta sobre a unidade · sem resposta</span></div>
       <div class="voz forte"><q>Não vale a pena o desgaste.</q><span>Cliente que tentou encomendar um bolo de aniversário, não teve retorno do WhatsApp e desistiu, em público</span></div>
     </div>
-    <p class="fonte">Trechos de comentários públicos no Instagram (out/2026). Nomes omitidos.</p>
+    <div class="prints">
+      <figure class="print">
+        <img src="/assets/proposta-moranguinho/comentarios-atencao.webp" width="398" height="821" loading="lazy" alt="Comentários no post fixado 'Atenção': 'Ainda está fechada?', 'também queria saber', 'Já inaugurou?' e a cliente que desistiu da encomenda. Nenhuma resposta da Moranguinho.">
+        <figcaption><b>Post fixado “Atenção”</b><br>Perguntas sobre a loja e a cliente que desistiu: nenhuma resposta.</figcaption>
+      </figure>
+      <figure class="print">
+        <img src="/assets/proposta-moranguinho/comentarios-preco.webp" width="398" height="772" loading="lazy" alt="Comentários no post da calda extra: a Moranguinho respondeu os elogios, mas não respondeu 'Qual valor kg' nem 'Quanto tá kg do bolo suflê'.">
+        <figcaption><b>Post fixado da calda extra</b><br>Os elogios ganharam resposta. As duas perguntas de preço, não.</figcaption>
+      </figure>
+    </div>
+    <p class="fonte">Prints reais dos comentários públicos no Instagram, capturados em 27/10/2026. Nomes e fotos dos clientes desfocados.</p>
   </div>
 </section>
 
@@ -203,7 +224,14 @@
       <div><span class="num">Off</span><small>site fora do ar (moranguinhoconfeitaria.com.br), mesmo divulgado nos cardápios</small></div>
     </div>
     <p>Quando a marca publica, o público responde: o post em parceria de 21/10 passou de 1,7 mil curtidas. <b>O interesse existe. Falta constância e atendimento.</b></p>
-    <p class="fonte">Coleta externa em 22/10/2026. Site testado em https e http: página de erro.</p>
+    <div class="site-off" style="margin-top:22px">
+      <p style="margin:0">E quem digita o endereço divulgado nos cardápios encontra isto:</p>
+      <figure class="print">
+        <img src="/assets/proposta-moranguinho/site-fora-do-ar.webp" width="390" height="335" loading="lazy" alt="Navegador mostrando 'Não é possível acessar esse site' ao abrir moranguinhoconfeitaria.com.br.">
+        <figcaption><b>moranguinhoconfeitaria.com.br</b><br>Fora do ar em 22/10 e de novo em 27/10/2026</figcaption>
+      </figure>
+    </div>
+    <p class="fonte">Coleta externa em 22/10/2026. Site testado em https e http em 22/10 e 27/10/2026: página de erro.</p>
   </div>
 </section>
 
