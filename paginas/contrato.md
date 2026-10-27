@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 4, de 26/10/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 5, de 27/10/2026.
 ---
 ## Partes
 
@@ -45,7 +45,7 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 
 4.3. O reembolso é feito em até **7 dias úteis**, pelo mesmo meio de pagamento: devolução por Pix ou estorno no cartão de crédito (no cartão, o prazo para o valor aparecer na fatura depende do banco emissor).
 
-4.4. As peças já publicadas permanecem nos perfis da CONTRATANTE, e os acessos são devolvidos conforme a Cláusula 12.
+4.4. As peças já publicadas e as automações configuradas permanecem nas contas da CONTRATANTE, e o encerramento segue as Cláusulas 12.6 e 12.7.
 
 4.5. Esta garantia não exclui o direito de arrependimento de 7 (sete) dias previsto no art. 49 do Código de Defesa do Consumidor, quando aplicável.
 
@@ -63,7 +63,7 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 
 ## Cláusula 6: Aprovação do conteúdo
 
-6.1. Nenhum conteúdo é publicado sem a aprovação da CONTRATANTE, pelo canal combinado (WhatsApp ou app).
+6.1. Nenhum conteúdo é publicado sem a aprovação da CONTRATANTE, dada pelo canal de atendimento (Cláusula 13.2).
 
 6.2. Cada peça tem **1 (uma) rodada de ajustes**. No plano Presença, que usa modelos prontos, é 1 rodada de ajustes por mês para o conjunto das peças.
 
@@ -101,7 +101,7 @@ Não fazem parte deste contrato, salvo contratação à parte:
 
 10.1. As peças finais produzidas e pagas passam a poder ser usadas livremente pela CONTRATANTE em seus canais.
 
-10.2. Os arquivos-fonte, modelos e ferramentas da CONTRATADA (incluindo modelos de vídeo e o app) continuam sendo da CONTRATADA.
+10.2. Os arquivos-fonte, modelos de peças e de vídeo, diretrizes de trabalho, método e ferramentas da CONTRATADA (incluindo o app) continuam sendo da CONTRATADA.
 
 10.3. Imagens de banco de imagens são usadas conforme a licença de cada banco.
 
@@ -131,11 +131,20 @@ Se o resultado for zero ou negativo, não há devolução nem cobrança adiciona
 
 12.5. O contrato pode ser encerrado imediatamente, sem multa para quem encerra, se a outra parte descumprir obrigação importante e não corrigir em até 10 dias depois de avisada.
 
-12.6. No encerramento, a CONTRATADA entrega os acessos de volta, remove seus usuários das contas e encerra as automações que a CONTRATANTE pedir.
+12.6. **O que continua com a CONTRATANTE** no encerramento, por qualquer motivo (salvo o caso da Cláusula 12.8):
+- os posts e as peças publicados nos perfis (Cláusula 10.1);
+- as automações de atendimento configuradas nas contas da Meta da CONTRATANTE (resposta automática, mensagem de ausência, perguntas frequentes e respostas por palavra-chave), que continuam funcionando sem custo. Depois do encerramento, a CONTRATADA não faz mais manutenção nem atualização delas;
+- um documento com a lista das automações configuradas e seus textos, e um relatório final com a evolução dos perfis desde o início do contrato, entregues em até 7 (sete) dias úteis depois do encerramento.
+
+12.7. **O que é encerrado:** o acesso ao app de acompanhamento, os relatórios e o monitoramento terminam na data do encerramento. Os modelos, as diretrizes de trabalho e o método continuam sendo da CONTRATADA (Cláusula 10.2). Em até 7 (sete) dias depois do encerramento, a CONTRATADA remove seus usuários e acessos das contas da CONTRATANTE. Se a CONTRATANTE pedir, a CONTRATADA desativa as automações antes de sair.
+
+12.8. **Encerramento por falta de pagamento:** se o contrato for encerrado por inadimplência da CONTRATANTE (Cláusulas 3.3 e 12.5), a CONTRATADA pode, depois de aviso por escrito com 5 (cinco) dias úteis de antecedência, desativar as automações que configurou, e fica dispensada de entregar o documento e o relatório final da Cláusula 12.6, sem prejuízo da cobrança dos valores devidos. Os posts já publicados permanecem nos perfis.
 
 ## Cláusula 13: Comunicação
 
-As comunicações oficiais são feitas pelos e-mails e WhatsApps informados pelas partes na contratação.
+13.1. As comunicações oficiais são feitas pelos e-mails e WhatsApps informados pelas partes na contratação.
+
+13.2. **Canal de atendimento:** pedidos de ajuste, aprovações de conteúdo e pedidos do Ajuste Expresso são feitos pelo canal de atendimento indicado pela CONTRATADA, que hoje é o **WhatsApp**. A CONTRATADA pode passar a usar o app como canal de atendimento, avisando a CONTRATANTE por escrito com pelo menos 15 (quinze) dias de antecedência, sem custo adicional e sem mudança nos prazos deste contrato.
 
 ## Cláusula 14: Aceite eletrônico
 
@@ -180,7 +189,7 @@ Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026).
 
 ## Anexo II: Ajuste Expresso
 
-Prazos contados em horário comercial, de segunda a sexta, das 8h às 18h, a partir do pedido pelo WhatsApp:
+Prazos contados em horário comercial, de segunda a sexta, das 8h às 18h, a partir do pedido feito pelo canal de atendimento (Cláusula 13.2):
 
 | Pedido | Prazo |
 |---|---|
