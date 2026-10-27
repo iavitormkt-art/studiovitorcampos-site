@@ -113,9 +113,9 @@
 
   /* manifesto */
   .manifesto { background: var(--manteiga); color: var(--petroleo); overflow: hidden; }
-  .manifesto-antes { font-size: 20px; font-weight: 600; opacity: .8; }
-  .manifesto h2 { font-size: clamp(56px, 11vw, 150px); font-weight: 900; line-height: .92; letter-spacing: -.05em; margin: 18px 0 48px; }
-  .manifesto h2 em { font-style: normal; color: var(--coral); }
+  .manifesto { padding-bottom: 80px; }
+  .manifesto-arte { display: block; width: 100%; height: auto; margin-bottom: 48px; }
+  .manifesto .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .manifesto-lados { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; border-top: 3px solid var(--petroleo); padding-top: 28px; }
   .manifesto-lados b { font-size: 19px; font-weight: 800; }
   .manifesto-lados p { margin-top: 6px; font-size: 15px; }
@@ -392,8 +392,8 @@
 <!-- ---------------------------------------------------------------- manifesto (DNA: o básico bem feito funciona) -->
 <section class="manifesto">
   <div class="container">
-    <p class="manifesto-antes">Enquanto muita marca corre atrás da próxima trend, nós fazemos…</p>
-    <h2>O básico<br><em>bem feito</em><br>que gera<br>resultados.</h2>
+    <h2 class="so-leitor">Enquanto muita marca corre atrás da próxima trend, nós fazemos o básico bem feito que gera resultados.</h2>
+    <img class="manifesto-arte" src="assets/manifesto-1200.webp" srcset="assets/manifesto-1200.webp 1200w, assets/manifesto-2400.webp 2400w" sizes="(min-width: 1240px) 1180px, 100vw" alt="" width="2400" height="1126" loading="lazy">
     <div class="manifesto-lados">
       <div><b>Sem loucura mirabolante</b><p>Conteúdo que conversa com o seu cliente, não com o algoritmo do momento.</p></div>
       <div><b>Sem cliente abandonado</b><p>Cada comentário e cada pergunta têm resposta. Cada um é uma venda.</p></div>
