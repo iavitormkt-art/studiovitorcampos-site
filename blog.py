@@ -90,6 +90,12 @@ def markdown(texto):
             fechar()
             saida.append("<hr>")
             continue
+        m = re.fullmatch(r"!\[([^\]]*)\]\(([^)\s]+)\)", s)   # foto no meio do texto
+        if m:
+            fechar()
+            leg = f"<figcaption>{inline(m[1])}</figcaption>" if m[1] else ""
+            saida.append(f'<figure><img src="{html.escape(m[2])}" alt="{html.escape(m[1])}" loading="lazy">{leg}</figure>')
+            continue
         if s.startswith("|"):
             if tipo != "tabela":
                 fechar()
@@ -140,6 +146,7 @@ def ler_post(arquivo):
         "data": dt.date.fromisoformat(nome[1]),
         "slug": nome[2],
         "html": markdown(corpo),
+        "texto": corpo,
         "minutos": max(1, round(palavras / 200)),
     }
 
@@ -367,6 +374,11 @@ def main():
         (pasta / p["slug"]).mkdir(exist_ok=True)
         (pasta / p["slug"] / "index.html").write_text(pagina_post(p), encoding="utf-8")
         gerar_capa(p, pasta / p["slug"] / "capa.jpg")
+        # fotos do meio do texto: vêm de posts/imagens/ e vão, reduzidas, para a pasta do artigo
+        for nome in re.findall(r"^!\[[^\]]*\]\(([^)\s]+)\)\s*$", p["texto"], re.M):
+            foto = Image.open(RAIZ / "posts" / "imagens" / nome).convert("RGB")
+            foto.thumbnail((1200, 1200), Image.LANCZOS)
+            foto.save(pasta / p["slug"] / nome, "JPEG", quality=84, optimize=True, progressive=True)
 
     avulsas = sorted((RAIZ / "paginas").glob("*.md"))
     for a in avulsas:

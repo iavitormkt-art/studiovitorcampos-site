@@ -99,3 +99,6 @@ footer a:hover { color: var(--ciano); }
   .texto { font-size: 17px; }
   .chamada { padding: 28px 22px; }
 }
+.texto figure { margin: 36px 0; }
+.texto figure img { width: 100%; height: auto; display: block; border-radius: 18px; box-shadow: 0 18px 40px rgba(0, 51, 70, .12); }
+.texto figcaption { font-size: 14px; color: var(--cinza); margin-top: 10px; }
