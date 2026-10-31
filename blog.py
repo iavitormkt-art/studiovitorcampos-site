@@ -386,7 +386,9 @@ def main():
         (RAIZ / a.stem / "index.html").write_text(pagina_avulsa(a), encoding="utf-8")
 
     (RAIZ / "feed.xml").write_text(feed(no_ar), encoding="utf-8")
-    (RAIZ / "sitemap.xml").write_text(sitemap(no_ar, [a.stem for a in avulsas]), encoding="utf-8")
+    # páginas legais feitas à mão em HTML (não saem de paginas/), mas precisam ficar no sitemap
+    fixas = ["privacidade", "termos", "exclusao-de-dados"]
+    (RAIZ / "sitemap.xml").write_text(sitemap(no_ar, [a.stem for a in avulsas] + fixas), encoding="utf-8")
     (RAIZ / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
     agendados = [p for p in todos if p["data"] > hoje()]
