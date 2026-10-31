@@ -4,7 +4,7 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 ---
 ## Partes
 
-**CONTRATADA:** VC CONSULTORIA EM MARKETING LTDA, nome fantasia Studio Vitor Campos, CNPJ 28.048.135/0001-46, com sede na QNA 30, Sala 06, Taguatinga Sul, Brasília/DF, e-mail contato@studiovitorcampos.com.br, WhatsApp (61) 99216-3078.
+**CONTRATADA:** VC CONSULTORIA EM MARKETING LTDA, nome fantasia Studio Vitor Campos, CNPJ 28.048.135/0001-46, com sede na Quadra 1, Conjunto 3, Lote 44, Setor Habitacional Vicente Pires - Trecho 3, Brasília/DF, CEP 72.001-211, e-mail contato@studiovitorcampos.com.br, WhatsApp (61) 99216-3078.
 
 **CONTRATANTE:** a pessoa jurídica ou física identificada no formulário de contratação (razão social ou nome, CNPJ ou CPF, endereço, responsável, e-mail e WhatsApp), que aceita este contrato eletronicamente.
 
