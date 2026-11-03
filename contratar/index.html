@@ -213,6 +213,9 @@
   }
   $("planos").innerHTML = PLANOS.map((p) =>
     opcao("plano", p.id, p.nome, `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">${p.det}</span>`, p.tag)).join("");
+  // TEMPORÁRIO (contratação da Moranguinho, 03/11/2026): só o contrato de 12 meses aparece.
+  // Para voltar os de 3 e 6 meses, apagar esta linha.
+  PRAZOS.splice(0, PRAZOS.length, ...PRAZOS.filter((z) => z.meses === 12));
   $("prazos").innerHTML = PRAZOS.map((z) =>
     opcao("prazo", z.meses, z.nome, `<span class="det">${z.det}</span>`, z.tag)).join("");
 
@@ -223,6 +226,7 @@
   if (PLANOS.some((p) => p.id === pedido)) form.plano.value = pedido;
   // links de proposta podem sugerir o prazo (?prazo=6)
   if (PRAZOS.some((z) => z.meses == busca.get("prazo"))) form.prazo.value = busca.get("prazo");
+  if (PRAZOS.length === 1) form.querySelector('input[name="prazo"]').checked = true;
   // links de proposta fechada (?plano=...&prazo=12&fixo): plano e prazo já combinados,
   // só aparecem as opções escolhidas; o cliente escolhe a forma de pagamento e aceita o contrato
   if (busca.has("fixo") && form.plano.value && form.prazo.value) {
