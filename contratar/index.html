@@ -79,6 +79,8 @@
     .opcoes.tres .det { display: inline; margin-left: 6px; }
     .passo-ajuda { margin-left: 0; }
   }
+.opcoes.fixo { grid-template-columns: 1fr; max-width: 420px; }
+.opcao[hidden] { display: none; }
 </style>
 </head>
 <body>
@@ -221,6 +223,17 @@
   if (PLANOS.some((p) => p.id === pedido)) form.plano.value = pedido;
   // links de proposta podem sugerir o prazo (?prazo=6)
   if (PRAZOS.some((z) => z.meses == busca.get("prazo"))) form.prazo.value = busca.get("prazo");
+  // links de proposta fechada (?plano=...&prazo=12&fixo): plano e prazo já combinados,
+  // só aparecem as opções escolhidas; o cliente escolhe a forma de pagamento e aceita o contrato
+  if (busca.has("fixo") && form.plano.value && form.prazo.value) {
+    for (const nome of ["plano", "prazo"]) {
+      form.querySelectorAll(`input[name="${nome}"]`).forEach((i) => {
+        if (!i.checked) i.closest("label").hidden = true;
+      });
+    }
+    document.querySelectorAll("#planos, #prazos").forEach((g) => g.classList.add("fixo"));
+    document.querySelectorAll(".passo-ajuda").forEach((a, n) => { if (n < 2) a.textContent = "Combinado na nossa conversa."; });
+  }
 
   function escolha() {
     const p = PLANOS.find((x) => x.id === form.plano.value), z = PRAZOS.find((x) => x.meses == form.prazo.value);
