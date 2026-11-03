@@ -88,7 +88,7 @@ Não fazem parte deste contrato, salvo contratação à parte:
 - atendimento de pedidos, negociações e reclamações;
 - criação de logotipo e identidade visual;
 - captação de fotos e vídeos no local, exceto o bônus do contrato de 12 meses (Anexo I);
-- criação de peças gráficas para fora das redes sociais (impressos, catálogos, tabelas de preços, embalagens, apresentações, sites e similares), bem como o redesign desses materiais;
+- criação de peças gráficas para fora das redes sociais (impressos, catálogos, tabelas de preços, embalagens, apresentações, sites e similares), bem como o redesign desses materiais, exceto o catálogo de produtos no Facebook do plano Essencial+ (Anexo I);
 - produção de vídeos institucionais ou publicitários além dos reels previstos no plano.
 
 ## Cláusula 9: Resultados
@@ -170,7 +170,7 @@ Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026).
 | 12 meses: Pix à vista (15% de desconto) | R$ 4.049 | R$ 8.129 | R$ 12.209 | R$ 16.289 |
 | 12 meses: cartão em até 12x sem juros | R$ 4.764 | R$ 9.564 | R$ 14.364 | R$ 19.164 |
 | Implantação (só no contrato de 3 meses) | R$ 297 | R$ 497 | R$ 497 | R$ 497 |
-| Posts no feed | 2 por semana (8 por mês) | 3 por semana | 4 a 5 por semana | 7 por semana (1 por dia) |
+| Posts no feed | 2 por semana (8 por mês) | 3 por semana | 7 por semana (1 por dia) | 7 por semana (1 por dia) |
 | Design | Modelos prontos com as cores e o logo | Peças exclusivas | Peças exclusivas | Peças exclusivas |
 | Reels | não | não | 2 por mês | 4 por mês |
 | Stories | não | não | Semanais | Semanais |
@@ -184,6 +184,8 @@ Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026).
 | Atualização de materiais de venda existentes | não | Sim | Sim | Sim |
 
 **Bônus do contrato de 12 meses:** além da isenção da implantação, 1 (uma) captação de fotos e vídeos no local, de até 2 horas, em um único local em Brasília/DF ou entorno, feita por profissional indicado pela CONTRATADA, a partir de roteiro combinado. A captação deve ser agendada com 15 dias de antecedência e pode ser remarcada uma vez. Ela pode ser usada a qualquer momento durante os 12 meses do contrato (recomendamos nos 3 primeiros meses, para o material já render no começo); se não for usada nesse prazo, o bônus expira e não é convertido em desconto ou dinheiro. Por enquanto, a captação no local (bônus ou avulsa) só é oferecida a empresas de Brasília/DF e entorno; para CONTRATANTES de outras regiões, o contrato de 12 meses inclui apenas a isenção da implantação.
+
+**Catálogo de produtos no Facebook (plano Essencial+):** a partir de janeiro de 2027, a CONTRATADA monta e mantém o catálogo de produtos da CONTRATANTE no Facebook (Gerenciador de Comércio da Meta), com os produtos, as fotos e os preços fornecidos pela CONTRATANTE.
 
 **Atualização de materiais de venda:** nos materiais que a CONTRATANTE já tem (por exemplo, catálogo, tabela de preços ou lista de produtos e serviços), atualização de preços e de informações de até 5 itens por vez, mantendo o layout. Não inclui redesign nem criação de material novo.
 
