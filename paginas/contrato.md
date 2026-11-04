@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 6, de 04/11/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 7, de 04/11/2026.
 ---
 ## Partes
 
@@ -125,12 +125,12 @@ Não fazem parte deste contrato, salvo contratação à parte:
 12.2. **Depois da garantia e antes do fim do prazo, a pedido da CONTRATANTE:** a CONTRATADA devolve o valor pago pelo período, descontados:
 - os meses já iniciados, pela **mensalidade cheia** do plano (o desconto do Pix só vale para o período completo);
 - multa de **20% sobre as mensalidades cheias que faltam** até o fim do prazo;
-- nos contratos de 6 e 12 meses, a **implantação** que havia sido isenta;
+- nos contratos de 6 e 12 meses, **50% (metade) do valor da implantação** que havia sido isenta;
 - no contrato de 12 meses, o valor da captação bônus (Anexo I), se ela já tiver sido feita.
 
 Se o resultado for zero ou negativo, não há devolução nem cobrança adicional. A devolução é feita em até 7 dias úteis, por Pix ou estorno parcial no cartão de crédito.
 
-**No cartão mês a mês**, como cada mês é pago separadamente, não há valor adiantado a devolver: a CONTRATADA cancela as cobranças dos meses seguintes, e a CONTRATANTE paga, em uma única cobrança, a multa de **20% sobre as mensalidades cheias que faltam** até o fim do prazo, mais a implantação que havia sido isenta e, no contrato de 12 meses, o valor da captação bônus, se ela já tiver sido feita.
+**No cartão mês a mês**, como cada mês é pago separadamente, não há valor adiantado a devolver: a CONTRATADA cancela as cobranças dos meses seguintes, e a CONTRATANTE paga, em uma única cobrança, a multa de **20% sobre as mensalidades cheias que faltam** até o fim do prazo, mais **50% (metade) do valor da implantação** que havia sido isenta e, no contrato de 12 meses, o valor da captação bônus, se ela já tiver sido feita. Ao confirmar o pedido de cancelamento, a CONTRATANTE **autoriza a cobrança desse valor no cartão de crédito cadastrado**; se a cobrança for recusada, o valor é pago por Pix em até 5 (cinco) dias úteis.
 
 12.3. **Depois da garantia e antes do fim do prazo, a pedido da CONTRATADA** (sem descumprimento da CONTRATANTE): a CONTRATADA devolve integralmente os meses ainda não iniciados, pelo valor efetivamente pago por mês, e paga multa de 20% sobre esse valor. No cartão mês a mês, a CONTRATADA cancela as cobranças seguintes e paga multa de 20% sobre as mensalidades que faltavam.
 
@@ -146,6 +146,8 @@ Se o resultado for zero ou negativo, não há devolução nem cobrança adiciona
 12.7. **O que é encerrado:** o acesso ao app de acompanhamento, os relatórios e o monitoramento terminam na data do encerramento. Os modelos, as diretrizes de trabalho e o método continuam sendo da CONTRATADA (Cláusula 10.2). Em até 7 (sete) dias depois do encerramento, a CONTRATADA remove seus usuários e acessos das contas da CONTRATANTE. Se a CONTRATANTE pedir, a CONTRATADA desativa as automações antes de sair.
 
 12.8. **Encerramento por falta de pagamento:** se o contrato for encerrado por inadimplência da CONTRATANTE (Cláusulas 3.3 e 12.5), a CONTRATADA pode, depois de aviso por escrito com 5 (cinco) dias úteis de antecedência, desativar as automações que configurou, e fica dispensada de entregar o documento e o relatório final da Cláusula 12.6, sem prejuízo da cobrança dos valores devidos. Os posts já publicados permanecem nos perfis.
+
+12.9. **Como pedir o cancelamento:** pelo app de acompanhamento (Configurações → Minha assinatura → Cancelar assinatura), por e-mail ou por WhatsApp (Cláusula 13). O app mostra o cálculo dos valores conforme esta cláusula antes da confirmação. A CONTRATADA confirma o cancelamento em até 1 (um) dia útil, e os valores (devolução ou cobrança) seguem os prazos da Cláusula 12.2.
 
 ## Cláusula 13: Comunicação
 
