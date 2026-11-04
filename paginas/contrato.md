@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 5, de 27/10/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 6, de 04/11/2026.
 ---
 ## Partes
 
@@ -16,23 +16,28 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 
 ## Cláusula 2: Prazo e renovação
 
-2.1. O contrato tem o prazo escolhido na contratação: **3 (três), 6 (seis) ou 12 (doze) meses**, contados da data da confirmação do pagamento.
+2.1. O contrato tem o prazo escolhido na contratação: **3 (três), 6 (seis) ou 12 (doze) meses**, contados da data da confirmação do pagamento (no cartão mês a mês, da primeira mensalidade).
 
 2.2. **Renovação:** até 30 (trinta) dias antes do fim do prazo, a CONTRATADA envia a proposta de renovação. A CONTRATANTE pode renovar por um novo período de 3, 6 ou 12 meses, com as condições de pagamento da Cláusula 3. Se não renovar por um novo período nem avisar que não quer continuar, o contrato segue **mês a mês**, pela mensalidade cheia do plano, cobrada todo mês por Pix ou cartão de crédito, até que uma das partes avise, com pelo menos **30 (trinta) dias** de antecedência, que não quer continuar.
 
 ## Cláusula 3: Preço e pagamento
 
-3.1. **Pagamento do período:** o valor do período contratado (mensalidade do plano multiplicada pelo número de meses, Anexo I) é pago **na contratação**, pela plataforma de pagamento indicada pela CONTRATADA, em uma destas formas, à escolha da CONTRATANTE:
-- **Pix à vista**, com desconto de **5%** no contrato de 3 meses, **10%** no de 6 meses e **15%** no de 12 meses;
-- **cartão de crédito**, pelo valor cheio do período, parcelado **sem juros** em até 3, 6 ou 12 vezes, conforme o prazo.
+3.1. **Formas de pagamento:** a CONTRATANTE escolhe, na contratação, uma destas formas, pela plataforma de pagamento indicada pela CONTRATADA (valores no Anexo I):
+- **Pix à vista**, pago na contratação: o valor do período (mensalidade do plano multiplicada pelo número de meses), com desconto de **5%** no contrato de 3 meses, **10%** no de 6 meses e **15%** no de 12 meses;
+- **cartão de crédito parcelado**, pago na contratação: o valor cheio do período, parcelado **sem juros** em até 3, 6 ou 12 vezes, conforme o prazo;
+- **cartão de crédito mês a mês** (só nos contratos de **6 e 12 meses**): a mensalidade cheia do plano é cobrada **automaticamente no cartão uma vez por mês**, durante todo o prazo do contrato. A primeira cobrança é feita na contratação e as seguintes na mesma data dos meses seguintes. Nessa forma, o limite do cartão é usado só pela mensalidade de cada mês, e não pelo valor total do período.
+
+A forma de pagamento escolhida **não muda o prazo do contrato** (Cláusula 2) nem as regras de cancelamento (Cláusula 12): no cartão mês a mês, a CONTRATANTE continua comprometida com o prazo de 6 ou 12 meses escolhido.
 
 3.2. **Implantação:** taxa única pelo trabalho inicial de diagnóstico completo, configuração das automações, criação dos modelos de peças e organização da identidade visual.
 - Contrato de 3 meses: a implantação é cobrada **à parte, depois de encerrado o prazo da garantia** (Cláusula 4), por Pix ou cartão de crédito.
 - Contratos de 6 e 12 meses: a implantação é **isenta**.
 
-3.3. **Atraso:** sobre valores pagos em atraso (implantação ou mensalidades da fase mês a mês) incidem multa de 2% e juros de 1% ao mês. Com atraso superior a **10 (dez) dias**, a CONTRATADA pode suspender os serviços até a regularização, sem prejuízo da cobrança. O serviço começa depois da confirmação do pagamento do período.
+3.3. **Atraso:** sobre valores pagos em atraso (implantação ou mensalidades da fase mês a mês) incidem multa de 2% e juros de 1% ao mês. Isso inclui as mensalidades do cartão mês a mês. Com atraso superior a **10 (dez) dias**, a CONTRATADA pode suspender os serviços até a regularização, sem prejuízo da cobrança. O serviço começa depois da confirmação do pagamento do período ou, no cartão mês a mês, da primeira mensalidade.
 
 3.4. **Reajuste:** os valores são reajustados a cada 12 meses pelo IPCA.
+
+3.5. **Cobrança mensal recusada (cartão mês a mês):** se o banco recusar uma cobrança mensal, a CONTRATADA avisa a CONTRATANTE por e-mail ou WhatsApp. A CONTRATANTE tem **5 (cinco) dias úteis** para atualizar o cartão na plataforma de pagamento ou pagar a mensalidade por Pix. Depois desse prazo, a mensalidade fica em atraso e valem as regras da Cláusula 3.3. Se a CONTRATANTE cancelar o cartão ou a cobrança automática diretamente no banco, isso não encerra o contrato: as mensalidades que faltam continuam devidas e passam a ser cobradas por Pix.
 
 ## Cláusula 4: Garantia de 30 dias
 
@@ -43,7 +48,7 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 - A CONTRATANTE precisa ter liberado os acessos (Cláusula 7) e respondido ao planejamento do mês nos primeiros **7 (sete) dias**.
 - O pedido é feito por escrito, por e-mail ou WhatsApp, dentro do prazo.
 
-4.3. O reembolso é feito em até **7 dias úteis**, pelo mesmo meio de pagamento: devolução por Pix ou estorno no cartão de crédito (no cartão, o prazo para o valor aparecer na fatura depende do banco emissor).
+4.3. O reembolso é feito em até **7 dias úteis**, pelo mesmo meio de pagamento: devolução por Pix ou estorno no cartão de crédito (no cartão, o prazo para o valor aparecer na fatura depende do banco emissor). No cartão mês a mês, a CONTRATADA também cancela as cobranças dos meses seguintes.
 
 4.4. As peças já publicadas e as automações configuradas permanecem nas contas da CONTRATANTE, e o encerramento segue as Cláusulas 12.6 e 12.7.
 
@@ -125,7 +130,9 @@ Não fazem parte deste contrato, salvo contratação à parte:
 
 Se o resultado for zero ou negativo, não há devolução nem cobrança adicional. A devolução é feita em até 7 dias úteis, por Pix ou estorno parcial no cartão de crédito.
 
-12.3. **Depois da garantia e antes do fim do prazo, a pedido da CONTRATADA** (sem descumprimento da CONTRATANTE): a CONTRATADA devolve integralmente os meses ainda não iniciados, pelo valor efetivamente pago por mês, e paga multa de 20% sobre esse valor.
+**No cartão mês a mês**, como cada mês é pago separadamente, não há valor adiantado a devolver: a CONTRATADA cancela as cobranças dos meses seguintes, e a CONTRATANTE paga, em uma única cobrança, a multa de **20% sobre as mensalidades cheias que faltam** até o fim do prazo, mais a implantação que havia sido isenta e, no contrato de 12 meses, o valor da captação bônus, se ela já tiver sido feita.
+
+12.3. **Depois da garantia e antes do fim do prazo, a pedido da CONTRATADA** (sem descumprimento da CONTRATANTE): a CONTRATADA devolve integralmente os meses ainda não iniciados, pelo valor efetivamente pago por mês, e paga multa de 20% sobre esse valor. No cartão mês a mês, a CONTRATADA cancela as cobranças seguintes e paga multa de 20% sobre as mensalidades que faltavam.
 
 12.4. **Depois do prazo:** cancelamento livre, com aviso de 30 dias (Cláusula 2.2).
 
@@ -158,7 +165,7 @@ Fica eleito o foro de Brasília/DF para resolver questões deste contrato.
 
 ## Anexo I: Planos
 
-Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026).
+Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026; cartão mês a mês: 04/11/2026).
 
 | | Presença | Essencial | Essencial+ | Completo |
 |---|---|---|---|---|
@@ -167,8 +174,10 @@ Valores definidos em 25/10/2026 (pagamento do período: 26/10/2026).
 | 3 meses: cartão em até 3x sem juros | R$ 1.191 | R$ 2.391 | R$ 3.591 | R$ 4.791 |
 | 6 meses: Pix à vista (10% de desconto) | R$ 2.144 | R$ 4.304 | R$ 6.464 | R$ 8.624 |
 | 6 meses: cartão em até 6x sem juros | R$ 2.382 | R$ 4.782 | R$ 7.182 | R$ 9.582 |
+| 6 meses: cartão mês a mês (6 cobranças mensais) | R$ 397/mês | R$ 797/mês | R$ 1.197/mês | R$ 1.597/mês |
 | 12 meses: Pix à vista (15% de desconto) | R$ 4.049 | R$ 8.129 | R$ 12.209 | R$ 16.289 |
 | 12 meses: cartão em até 12x sem juros | R$ 4.764 | R$ 9.564 | R$ 14.364 | R$ 19.164 |
+| 12 meses: cartão mês a mês (12 cobranças mensais) | R$ 397/mês | R$ 797/mês | R$ 1.197/mês | R$ 1.597/mês |
 | Implantação (só no contrato de 3 meses) | R$ 297 | R$ 497 | R$ 497 | R$ 497 |
 | Posts no feed | 2 por semana (8 por mês) | 3 por semana | 7 por semana (1 por dia) | 7 por semana (1 por dia) |
 | Design | Modelos prontos com as cores e o logo | Peças exclusivas | Peças exclusivas | Peças exclusivas |
