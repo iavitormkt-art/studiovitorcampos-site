@@ -79,6 +79,27 @@
     .opcoes.tres .det { display: inline; margin-left: 6px; }
     .passo-ajuda { margin-left: 0; }
   }
+  /* dados para a nota fiscal */
+  .nf { border: 2px solid var(--linha); border-radius: 18px; padding: 18px; background: #fbfdfe; margin-bottom: 26px; }
+  .passo.bloqueado .nf { opacity: .45; pointer-events: none; }
+  .nf-tipo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .campos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px 14px; }
+  .campo { display: grid; gap: 4px; grid-column: span 6; align-content: start; }
+  .campo.c1 { grid-column: span 1; } .campo.c2 { grid-column: span 2; } .campo.c3 { grid-column: span 3; } .campo.c4 { grid-column: span 4; }
+  .campo label, .nf-rot { font-size: 13px; font-weight: 700; }
+  .campo label i, .nf-rot i { font-style: normal; color: var(--coral); }
+  .campo input { font: inherit; font-size: 15px; padding: 11px 12px; border: 2px solid var(--linha); border-radius: 10px; background: var(--branco); width: 100%; }
+  .campo input:focus { outline: none; border-color: var(--ciano-texto); }
+  .campo .dica { font-size: 12px; color: var(--cinza); }
+  .campo .dica.ok { color: var(--verde); font-weight: 700; }
+  .campo .dica.ruim { color: var(--coral); font-weight: 700; }
+  .grupo[hidden], .campo[hidden] { display: none; }
+  .im-toggle { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--cinza); grid-column: span 6; cursor: pointer; }
+  .confirma-nf { display: flex; gap: 12px; align-items: flex-start; background: var(--verde-claro); border: 2px solid #b7e7c8; border-radius: 14px; padding: 14px; margin-top: 16px; font-size: 14px; cursor: pointer; }
+  .confirma-nf input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--verde); flex-shrink: 0; }
+  .confirma-nf[hidden] { display: none; }
+  .nf-obs { font-size: 12px; color: var(--cinza); margin-top: 10px; }
+  @media (max-width: 640px) { .campo.c1, .campo.c2, .campo.c3, .campo.c4 { grid-column: span 6; } .nf-tipo { grid-template-columns: 1fr; } }
 .opcoes.fixo { grid-template-columns: 1fr; max-width: 420px; }
 .opcao[hidden] { display: none; }
 </style>
@@ -102,12 +123,12 @@
   <div class="container">
     <a class="voltar" href="/#planos">← Voltar aos planos</a>
     <h1>Contratar o Marketing Essencial</h1>
-    <p class="sub">Etapa 1: escolha o plano, o prazo e a forma de pagamento: Pix à vista com desconto, cartão parcelado sem juros ou cartão mês a mês, que cobra só a mensalidade de cada mês e não compromete o limite do cartão. Se em 30 dias você não gostar, devolvemos tudo o que você pagou.</p>
+    <p class="sub">Escolha o plano, o prazo e a forma de pagamento e informe os dados para a nota fiscal: Pix à vista com desconto, cartão parcelado sem juros ou cartão mês a mês, que cobra só a mensalidade de cada mês e não compromete o limite do cartão. Se em 30 dias você não gostar, devolvemos tudo o que você pagou.</p>
     <ol class="etapas" aria-label="Etapas da contratação">
-      <li class="atual"><span>1</span>Plano e prazo</li>
-      <li><span>2</span>Contrato</li>
-      <li><span>3</span>Pagamento</li>
-      <li><span>4</span>Seus dados</li>
+      <li class="atual" id="et1"><span>1</span>Plano e prazo</li>
+      <li id="et2"><span>2</span>Dados para a nota fiscal</li>
+      <li id="et3"><span>3</span>Contrato</li>
+      <li id="et4"><span>4</span>Pagamento</li>
     </ol>
 
     <form class="grade" id="form-contratar" novalidate>
@@ -127,6 +148,35 @@
           <p class="passo-ajuda" id="forma-ajuda">Escolha o plano e o prazo para ver os valores. <b>Obrigatório.</b></p>
           <div class="opcoes duas" id="formas"></div>
         </div>
+        <div class="passo bloqueado" id="passo-nf">
+          <p class="passo-titulo"><span class="num">4</span>Dados para a nota fiscal <span class="ok">✓ confirmado</span></p>
+          <p class="passo-ajuda">A nota fiscal de cada pagamento sai com estes dados. <b>Obrigatório.</b></p>
+          <div class="nf">
+            <p class="nf-rot" style="margin-bottom:8px">A nota fiscal sai em nome de: <i>*</i></p>
+            <div class="nf-tipo">
+              <label class="opcao"><input type="radio" name="tipo" value="cnpj"><span class="caixa"><b>Empresa</b><span class="det">CNPJ: buscamos os dados na Receita</span></span></label>
+              <label class="opcao"><input type="radio" name="tipo" value="cpf"><span class="caixa"><b>Pessoa</b><span class="det">CPF</span></span></label>
+            </div>
+            <div class="campos grupo" id="nf-campos" hidden>
+              <div class="campo c3"><label for="doc" id="doc-rot">CNPJ <i>*</i></label><input id="doc" inputmode="numeric" autocomplete="off"><span class="dica" id="doc-dica"></span></div>
+              <div class="campo c3" id="c-resp"><label for="responsavel">Nome do responsável <i>*</i></label><input id="responsavel" autocomplete="name"></div>
+              <div class="campo"><label for="nome" id="nome-rot">Razão social <i>*</i></label><input id="nome" autocomplete="organization"></div>
+              <div class="campo c3"><label for="email">E-mail para receber a nota <i>*</i></label><input id="email" type="email" autocomplete="email"></div>
+              <div class="campo c3"><label for="whats">WhatsApp <i>*</i></label><input id="whats" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(61) 99999-9999"></div>
+              <div class="campo c2"><label for="cep">CEP <i>*</i></label><input id="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000"><span class="dica" id="cep-dica"></span></div>
+              <div class="campo c4"><label for="rua">Endereço <i>*</i></label><input id="rua" autocomplete="address-line1"></div>
+              <div class="campo c2"><label for="numero">Número <i>*</i></label><input id="numero" autocomplete="off"></div>
+              <div class="campo c4"><label for="compl">Complemento</label><input id="compl" autocomplete="address-line2" placeholder="Sala, conjunto, lote…"></div>
+              <div class="campo c2"><label for="bairro">Bairro <i>*</i></label><input id="bairro"></div>
+              <div class="campo c3"><label for="cidade">Cidade <i>*</i></label><input id="cidade" autocomplete="address-level2"></div>
+              <div class="campo c1"><label for="uf">UF <i>*</i></label><input id="uf" maxlength="2" autocomplete="address-level1"></div>
+              <label class="im-toggle"><input type="checkbox" id="tem-im"> Tenho inscrição municipal (opcional)</label>
+              <div class="campo c3" id="c-im" hidden><label for="im">Inscrição municipal</label><input id="im" inputmode="numeric"></div>
+            </div>
+            <label class="confirma-nf" id="confirma-nf" hidden><input type="checkbox" id="nf-ok"><span id="nf-texto"></span></label>
+            <p class="nf-obs">O cartão de crédito pode ser de outra pessoa: a nota sai sempre no nome acima. Seus dados ficam só com o Studio Vitor Campos e a plataforma de pagamento.</p>
+          </div>
+        </div>
       </div>
 
       <aside class="resumo" aria-live="polite">
@@ -137,11 +187,12 @@
         <div class="linha-valor"><span>Pagamento</span><b id="r-forma"></b></div>
         <div class="linha-valor"><span>Implantação</span><b id="r-impl"></b></div>
         <div class="linha-valor total"><span>Total do período</span><b id="r-total"></b></div>
+        <div class="linha-valor"><span>Nota fiscal</span><b id="r-nf" style="text-align:right;font-size:14px"></b></div>
         <div class="garantia">
           <span aria-hidden="true">🛡️</span>
           <span><strong>Garantia de 30 dias</strong>Não gostou no primeiro mês? Você cancela e recebe de volta tudo o que pagou, sem multa.</span>
         </div>
-        <label class="aceite"><input type="checkbox" id="aceite"><span><b>4.</b> Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
+        <label class="aceite"><input type="checkbox" id="aceite"><span><b>5.</b> Li e aceito o <a href="/contrato/" target="_blank" rel="noopener">contrato de prestação de serviços</a> e os termos do plano escolhido.</span></label>
         <p class="falta" id="falta"></p>
         <button class="botao botao-coral" type="submit" id="pagar" disabled>Ir para o pagamento</button>
         <p class="seguro" id="r-pagamento">Pagamento seguro por Pix ou cartão de crédito.</p>
@@ -275,6 +326,103 @@
     if (chave && marcada && (marcada !== "mensal" || temMensal)) form.forma.value = marcada;
   }
 
+  // ------------------------------------------------ dados para a nota fiscal
+  const so = (v) => v.replace(/\D/g, "");
+  function cpfValido(c) {
+    c = so(c); if (c.length !== 11 || /^(\d)\1+$/.test(c)) return false;
+    for (const n of [9, 10]) { let t = 0; for (let i = 0; i < n; i++) t += +c[i] * (n + 1 - i); if ((t * 10) % 11 % 10 !== +c[n]) return false; }
+    return true;
+  }
+  function cnpjValido(c) {
+    c = so(c); if (c.length !== 14 || /^(\d)\1+$/.test(c)) return false;
+    const calc = (n) => { let t = 0, p = n - 7; for (let i = 0; i < n; i++) { t += +c[i] * p--; if (p < 2) p = 9; } const r = t % 11; return r < 2 ? 0 : 11 - r; };
+    return calc(12) === +c[12] && calc(13) === +c[13];
+  }
+  const mascara = {
+    cnpj: (v) => so(v).slice(0, 14).replace(/^(\d{2})(\d)/, "$1.$2").replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3").replace(/\.(\d{3})(\d)/, ".$1/$2").replace(/(\d{4})(\d)/, "$1-$2"),
+    cpf: (v) => so(v).slice(0, 11).replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2"),
+    cep: (v) => so(v).slice(0, 8).replace(/(\d{5})(\d)/, "$1-$2"),
+    whats: (v) => so(v).slice(0, 11).replace(/^(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d{4})$/, "$1-$2"),
+  };
+  const tipoNF = () => (form.tipo ? form.tipo.value : "");
+  let docBuscado = "", cepBuscado = "";
+  async function buscarCNPJ(c) {
+    if (c === docBuscado) return; docBuscado = c;
+    $("doc-dica").className = "dica"; $("doc-dica").textContent = "Buscando os dados da empresa na Receita…";
+    try {
+      const r = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${c}`);
+      if (!r.ok) throw 0;
+      const d = await r.json();
+      const vals = { nome: d.razao_social, cep: mascara.cep(d.cep || ""), rua: [d.descricao_tipo_de_logradouro, d.logradouro].filter(Boolean).join(" "),
+        numero: d.numero, compl: d.complemento, bairro: d.bairro, cidade: d.municipio, uf: d.uf };
+      for (const [id, v] of Object.entries(vals)) $(id).value = (v || "").trim();
+      const ativa = (d.descricao_situacao_cadastral || "").toUpperCase() === "ATIVA";
+      $("doc-dica").className = "dica " + (ativa ? "ok" : "ruim");
+      $("doc-dica").textContent = ativa ? "✓ Empresa encontrada. Confira os dados abaixo." : `Situação na Receita: ${d.descricao_situacao_cadastral || "não informada"}. Confira com o seu contador.`;
+    } catch (e) {
+      $("doc-dica").className = "dica"; $("doc-dica").textContent = "Não conseguimos buscar agora: preencha os dados abaixo.";
+    }
+    atualizar();
+  }
+  async function buscarCEP(c) {
+    if (c === cepBuscado) return; cepBuscado = c;
+    $("cep-dica").className = "dica"; $("cep-dica").textContent = "Buscando o endereço…";
+    try {
+      const d = await (await fetch(`https://viacep.com.br/ws/${c}/json/`)).json();
+      if (d.erro) throw 0;
+      if (d.logradouro) $("rua").value = d.logradouro;
+      if (d.bairro) $("bairro").value = d.bairro;
+      $("cidade").value = d.localidade; $("uf").value = d.uf; $("cep-dica").textContent = "";
+      if (!$("numero").value) $("numero").focus();
+    } catch (e) { $("cep-dica").className = "dica ruim"; $("cep-dica").textContent = "CEP não encontrado: preencha o endereço."; }
+    atualizar();
+  }
+  function mudouTipo() {
+    const t = tipoNF();
+    $("nf-campos").hidden = !t;
+    if (!t) return;
+    $("doc-rot").innerHTML = (t === "cnpj" ? "CNPJ" : "CPF") + " <i>*</i>";
+    $("nome-rot").innerHTML = (t === "cnpj" ? "Razão social" : "Nome completo") + " <i>*</i>";
+    $("c-resp").hidden = t !== "cnpj";
+    $("doc").placeholder = t === "cnpj" ? "00.000.000/0000-00" : "000.000.000-00";
+    $("doc").value = mascara[t]($("doc").value); docBuscado = ""; $("doc-dica").textContent = "";
+    $("doc").focus();
+  }
+  form.querySelectorAll('input[name="tipo"]').forEach((i) => i.addEventListener("change", mudouTipo));
+  $("tem-im").addEventListener("change", () => { $("c-im").hidden = !$("tem-im").checked; });
+  $("doc").addEventListener("input", () => {
+    const t = tipoNF(); $("doc").value = mascara[t]($("doc").value);
+    const c = so($("doc").value), dica = $("doc-dica");
+    if (t === "cnpj" && c.length === 14) {
+      if (cnpjValido(c)) buscarCNPJ(c); else { dica.className = "dica ruim"; dica.textContent = "CNPJ inválido: confira os números."; }
+    } else if (t === "cpf" && c.length === 11) {
+      const ok = cpfValido(c); dica.className = "dica " + (ok ? "ok" : "ruim"); dica.textContent = ok ? "✓ CPF válido" : "CPF inválido: confira os números.";
+    } else dica.textContent = "";
+  });
+  $("cep").addEventListener("input", () => { $("cep").value = mascara.cep($("cep").value); const c = so($("cep").value); if (c.length === 8) buscarCEP(c); });
+  $("whats").addEventListener("input", () => { $("whats").value = mascara.whats($("whats").value); });
+  $("uf").addEventListener("input", () => { $("uf").value = $("uf").value.toUpperCase(); });
+  ["doc", "nome", "responsavel", "email", "whats", "cep", "rua", "numero", "compl", "bairro", "cidade", "uf", "im"].forEach((id) => $(id).addEventListener("input", atualizar));
+
+  function dadosNF() {
+    const t = tipoNF(), v = (id) => $(id).value.trim();
+    const d = { tipo: t, documento: so(v("doc")), nome: v("nome"), responsavel: t === "cnpj" ? v("responsavel") : v("nome"), email: v("email"),
+      whatsapp: so(v("whats")), cep: so(v("cep")), endereco: v("rua"), numero: v("numero"), complemento: v("compl"),
+      bairro: v("bairro"), cidade: v("cidade"), uf: v("uf"), inscricaoMunicipal: $("tem-im").checked ? v("im") : "" };
+    const falta = [];
+    if (!t) falta.push("CNPJ ou CPF");
+    else {
+      if (!(t === "cnpj" ? cnpjValido(d.documento) : cpfValido(d.documento))) falta.push(t === "cnpj" ? "CNPJ válido" : "CPF válido");
+      if (d.nome.length < 3) falta.push(t === "cnpj" ? "razão social" : "nome completo");
+      if (t === "cnpj" && d.responsavel.length < 3) falta.push("responsável");
+      if (!/^\S+@\S+\.\S+$/.test(d.email)) falta.push("e-mail");
+      if (d.whatsapp.length < 10) falta.push("WhatsApp");
+      if (d.cep.length !== 8 || !d.endereco || !d.numero || !d.bairro || !d.cidade || d.uf.length !== 2) falta.push("endereço completo");
+    }
+    return { d, falta };
+  }
+  const docFmt = (d) => (d.tipo === "cnpj" ? "CNPJ " + mascara.cnpj(d.documento) : "CPF " + mascara.cpf(d.documento));
+
   function atualizar() {
     const { p, z } = escolha();
     desenharFormas(p, z);
@@ -282,6 +430,20 @@
     $("passo-plano").classList.toggle("feito", !!p);
     $("passo-prazo").classList.toggle("feito", !!z);
     $("passo-forma").classList.toggle("feito", !!f);
+    // nota fiscal: liberada depois da forma de pagamento
+    $("passo-nf").classList.toggle("bloqueado", !f);
+    const nf = dadosNF();
+    const nfCompleta = !!f && nf.falta.length === 0;
+    $("confirma-nf").hidden = !nfCompleta;
+    if (!nfCompleta) $("nf-ok").checked = false;
+    $("nf-texto").innerHTML = nfCompleta ? `Confirmo: a nota fiscal será emitida em nome de <b>${nf.d.nome}</b> · ${docFmt(nf.d)} · ${nf.d.cidade}/${nf.d.uf}. <i style="color:var(--coral);font-style:normal">*</i>` : "";
+    const nfOk = nfCompleta && $("nf-ok").checked;
+    $("passo-nf").classList.toggle("feito", nfOk);
+    $("r-nf").textContent = nfOk ? `${nf.d.nome} · ${docFmt(nf.d)}` : "—";
+    $("et1").classList.toggle("atual", !f);
+    $("et2").classList.toggle("atual", !!f && !nfOk);
+    $("et3").classList.toggle("atual", nfOk && !$("aceite").checked);
+    $("et4").classList.toggle("atual", nfOk && $("aceite").checked);
     $("r-plano").textContent = p ? p.nome + (z ? ` · contrato de ${z.nome}` : "") : "Resumo";
     $("r-vazio").style.display = p ? "none" : "";
     $("r-itens").innerHTML = p ? p.itens.map((i) => `<li>${i}</li>`).join("") +
@@ -290,7 +452,8 @@
     $("r-forma").textContent = !f ? "—" : f === "pix" ? `Pix à vista (${z.desconto}% off)` : f === "mensal" ? `${reais(p.mensal)} por mês no cartão` : `${z.meses}x ${reais(p.mensal)} no cartão`;
     $("r-impl").textContent = !p || !z ? "—" : z.meses === 3 ? `${reais(p.impl)}, depois da garantia` : "grátis";
     $("r-total").textContent = !f ? "—" : f === "mensal" ? `${z.meses}x ${reais(p.mensal)}/mês` : reais(f === "pix" ? pix(p, z) : cheio(p, z));
-    const falta = [!p && "escolher o plano", !z && "escolher o prazo", !f && "escolher a forma de pagamento", !$("aceite").checked && "aceitar o contrato"].filter(Boolean);
+    const falta = [!p && "escolher o plano", !z && "escolher o prazo", !f && "escolher a forma de pagamento",
+      f && nf.falta.length ? "dados da nota (" + nf.falta.join(", ") + ")" : f && !$("nf-ok").checked && "confirmar o nome da nota", !$("aceite").checked && "aceitar o contrato"].filter(Boolean);
     $("falta").textContent = falta.length ? "Falta: " + falta.join(" · ") : "";
     $("pagar").disabled = falta.length > 0;
     const link = f && LINKS[p.id][f][z.meses];
@@ -305,10 +468,11 @@
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
     const { p, z, f } = escolha();
-    if (!p || !z || !f || !$("aceite").checked) return;
+    const nf = dadosNF();
+    if (!p || !z || !f || nf.falta.length || !$("nf-ok").checked || !$("aceite").checked) return;
     // a página /bem-vindo/ (para onde o Asaas volta depois do pagamento) usa isto para vir preenchida
     try {
-      localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, forma: f, contrato: CONTRATO, em: new Date().toISOString() }));
+      localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, forma: f, contrato: CONTRATO, nf: nf.d, em: new Date().toISOString() }));
     } catch (e) {}
     const link = LINKS[p.id][f][z.meses];
     if (link) {
@@ -325,8 +489,15 @@
       `Prazo: ${z.nome}`,
       `Pagamento: ${f === "pix" ? `Pix à vista, ${reais(pix(p, z))} (${z.desconto}% de desconto)` : f === "mensal" ? `cartão mês a mês, ${reais(p.mensal)} cobrado todo mês por ${z.meses} meses` : `cartão em ${z.meses}x de ${reais(p.mensal)} sem juros (total ${reais(cheio(p, z))})`}`,
       `Implantação: ${z.meses === 3 ? reais(p.impl) + ", depois da garantia" : "grátis"}`,
+      "",
+      `Nota fiscal em nome de: ${nf.d.nome} (${docFmt(nf.d)})`,
+      `Responsável: ${nf.d.responsavel}`,
+      `E-mail da nota: ${nf.d.email} · WhatsApp: ${mascara.whats(nf.d.whatsapp)}`,
+      `Endereço: ${nf.d.endereco}, ${nf.d.numero}${nf.d.complemento ? " (" + nf.d.complemento + ")" : ""}, ${nf.d.bairro}, ${nf.d.cidade}/${nf.d.uf}, CEP ${mascara.cep(nf.d.cep)}`,
+      nf.d.inscricaoMunicipal ? `Inscrição municipal: ${nf.d.inscricaoMunicipal}` : null,
+      "",
       `Li e aceitei o contrato (${CONTRATO}).`
-    ].join("\n");
+    ].filter((l) => l !== null).join("\n");
     window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
   });
 
