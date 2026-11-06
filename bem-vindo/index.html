@@ -54,7 +54,7 @@
     <ol class="passos-inicio">
       <li><div><b>Hoje: seus dados</b><span>Preencha o formulário abaixo e envie pelo WhatsApp.</span></div></li>
       <li><div><b>Em até 1 dia útil: acesso às redes</b><span>Eu te mando o passo a passo para liberar o acesso ao Meta Business Suite (Instagram e Facebook). É rápido e você não precisa passar senha.</span></div></li>
-      <li><div><b>Na primeira semana: conversa e diagnóstico</b><span>Uma conversa rápida sobre o seu negócio, o diagnóstico completo do perfil e as automações de atendimento no ar.</span></div></li>
+      <li><div><b>Na primeira semana: diagnóstico e automações</b><span>O diagnóstico completo do perfil, com os números reais, e as automações de atendimento no ar. Tudo por mensagem.</span></div></li>
       <li><div><b>Em até 7 dias: calendário do mês</b><span>Você recebe o planejamento para aprovar, e as publicações começam.</span></div></li>
     </ol>
 
@@ -75,7 +75,7 @@
         <div class="campo"><label for="prazo">Prazo do contrato</label>
           <select id="prazo"><option value="3">3 meses</option><option value="6" selected>6 meses</option><option value="12">12 meses</option></select>
         </div>
-        <div class="campo inteiro"><label for="horario">Melhor dia e horário para a nossa conversa</label><input id="horario" placeholder="Ex.: terça à tarde"></div>
+        <div class="campo inteiro"><label for="horario">Próximas datas e lançamentos <span>(opcional)</span></label><input id="horario" placeholder="Ex.: coleção nova em dezembro, promoção de Natal"></div>
         <div class="campo inteiro"><label for="obs">Algo que eu precise saber? <span>(opcional)</span></label><textarea id="obs" rows="3" placeholder="Datas importantes, promoções, o que mais te incomoda hoje nas redes..."></textarea></div>
       </div>
       <div class="erro" id="erro">Preencha empresa, CNPJ ou CPF, nome, e-mail, WhatsApp e Instagram.</div>
@@ -106,6 +106,11 @@
   const plano = new URLSearchParams(location.search).get("plano") || escolha.plano;
   if (NOMES[plano]) form.plano.value = plano;
   if (escolha.prazo) form.prazo.value = String(escolha.prazo);
+  const nf = escolha.nf || {};
+  const preencher = (id, valor) => { if (valor && !form[id].value) form[id].value = valor; };
+  preencher("empresa", nf.nome); preencher("documento", nf.documento); preencher("responsavel", nf.responsavel);
+  preencher("email", nf.email); preencher("whatsapp", nf.whatsapp);
+  const enderecoNF = nf.endereco ? `${nf.endereco}, ${nf.numero}${nf.complemento ? " (" + nf.complemento + ")" : ""}, ${nf.bairro}, ${nf.cidade}/${nf.uf}, CEP ${nf.cep}` : "";
 
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
@@ -121,11 +126,13 @@
       `Responsável: ${v("responsavel")}`,
       `E-mail: ${v("email")}`,
       `WhatsApp: ${v("whatsapp")}`,
+      enderecoNF && `Endereço da nota: ${enderecoNF}`,
+      nf.inscricaoMunicipal && `Inscrição municipal: ${nf.inscricaoMunicipal}`,
       `Instagram: ${v("instagram")}`,
       v("facebook") && `Facebook: ${v("facebook")}`,
       `Plano: ${NOMES[v("plano")]} · contrato de ${v("prazo")} meses`,
       escolha.forma && `Pagamento: ${escolha.forma === "pix" ? "Pix à vista" : escolha.forma === "mensal" ? "cartão mês a mês" : "cartão parcelado"}`,
-      v("horario") && `Melhor horário para conversar: ${v("horario")}`,
+      v("horario") && `Datas e lançamentos: ${v("horario")}`,
       v("obs") && `Observações: ${v("obs")}`,
       escolha.contrato && `Aceitei o contrato (${escolha.contrato}).`
     ].filter(Boolean).join("\n");

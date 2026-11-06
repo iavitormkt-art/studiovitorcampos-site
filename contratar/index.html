@@ -244,8 +244,8 @@
   const PLANOS = [
     { id: "completo", nome: "Completo", mensal: 1597, impl: 497, det: "7 posts/sem., 4 reels e campanha sazonal",
       itens: ["7 posts no feed por semana (1 por dia)", "4 reels por mês e stories semanais", "1 campanha sazonal por mês", "Monitoramento diário", "4 comunicados urgentes por mês"] },
-    { id: "essencial-mais", nome: "Essencial+", mensal: 1197, impl: 497, tag: "MAIS ESCOLHIDO", det: "7 posts/sem., 2 reels e catálogo no Facebook",
-      itens: ["7 posts no feed por semana (1 por dia)", "2 reels por mês e stories semanais", "Catálogo de produtos no Facebook (a partir de jan/2027)", "Monitoramento diário de mensagens e comentários", "4 comunicados urgentes por mês", "App de acompanhamento"] },
+    { id: "essencial-mais", nome: "Essencial+", mensal: 1197, impl: 497, tag: "MAIS ESCOLHIDO", det: "4 a 5 posts/sem., 2 reels e monitoramento",
+      itens: ["4 a 5 posts no feed por semana", "2 reels por mês e stories semanais", "Monitoramento diário de mensagens e comentários", "4 comunicados urgentes por mês", "App de acompanhamento"] },
     { id: "essencial", nome: "Essencial", mensal: 797, impl: 497, det: "3 posts/sem. e peças exclusivas",
       itens: ["3 posts no feed por semana", "Peças exclusivas no padrão da marca", "Comente e receba no direct", "App de acompanhamento", "2 comunicados urgentes por mês"] },
     { id: "presenca", nome: "Presença", mensal: 397, impl: 297, det: "2 posts/sem. com modelos prontos",
@@ -269,9 +269,6 @@
   }
   $("planos").innerHTML = PLANOS.map((p) =>
     opcao("plano", p.id, p.nome, `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">${p.det}</span>`, p.tag)).join("");
-  // TEMPORÁRIO (contratação da Moranguinho, 04/11/2026): só os contratos de 6 e 12 meses aparecem.
-  // Para voltar o de 3 meses, apagar esta linha.
-  PRAZOS.splice(0, PRAZOS.length, ...PRAZOS.filter((z) => z.meses >= 6));
   $("prazos").innerHTML = PRAZOS.map((z) =>
     opcao("prazo", z.meses, z.nome, `<span class="det">${z.det}</span>`, z.tag)).join("");
 
