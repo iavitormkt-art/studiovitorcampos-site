@@ -191,7 +191,7 @@ def gerar_capa(p, destino):
 TOPO = """<header class="topo">
   <div class="container">
     <a class="marca" href="/">
-      <svg class="logo" viewBox="0 0 100 100" style="color:var(--ciano)"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="51" r="44"/><path d="M7 29 L30 93 L74 8"/><path d="M90 26 A31 31 0 1 0 82 85"/></g></svg>
+      <svg class="logo" viewBox="0 0 100 100" style="color:var(--ciano)"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><defs><clipPath id="vcclip"><circle cx="50" cy="51" r="44"/></clipPath></defs><circle cx="50" cy="51" r="44"/><g clip-path="url(#vcclip)"><path d="M8.22 29.12 L31.73 87.06 L75.21 7.93"/><circle cx="71.53" cy="54.09" r="29"/></g></g></svg>
       <span><small>STUDIO</small><strong>VITOR CAMPOS</strong></span>
     </a>
     <nav class="menu">
