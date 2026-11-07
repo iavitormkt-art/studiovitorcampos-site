@@ -108,7 +108,7 @@
 <header class="topo">
   <div class="container">
     <a class="marca" href="/">
-      <svg class="logo" viewBox="0 0 100 100" style="color:var(--ciano)"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="51" r="44"/><path d="M7 29 L30 93 L74 8"/><path d="M90 26 A31 31 0 1 0 82 85"/></g></svg>
+      <svg class="logo" viewBox="0 0 100 100" style="color:var(--ciano)"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><defs><clipPath id="vcclip"><circle cx="50" cy="51" r="44"/></clipPath></defs><circle cx="50" cy="51" r="44"/><g clip-path="url(#vcclip)"><path d="M8.22 29.12 L31.73 87.06 L75.21 7.93"/><circle cx="71.53" cy="54.09" r="29"/></g></g></svg>
       <span><small>STUDIO</small><strong>VITOR CAMPOS</strong></span>
     </a>
     <nav class="menu">
@@ -238,6 +238,12 @@
       mensal: { 6: "https://www.asaas.com/c/krj9j3k9kkkqvn7j", 12: "https://www.asaas.com/c/krj9j3k9kkkqvn7j" }
     }
   };
+  // Servidor do Studio (Cloudflare + API do Asaas): cadastra o cliente com os dados da nota e cria a
+  // cobrança no nome certo. Se ele falhar, o site cai nos links fixos acima (nada trava a contratação).
+  // SERVIDOR_LIGADO = true só depois que o servidor estiver em produção (chave real do Asaas).
+  const SERVIDOR_LIGADO = false;
+  const SERVIDOR = (SERVIDOR_LIGADO || new URLSearchParams(location.search).has("teste-servidor"))
+    ? "https://marketing-essencial-asaas.studiovitorcampos.workers.dev" : null;
   const WHATS = "5561992163078";
   const CONTRATO = "versão 7 de 04/11/2026";
 
@@ -462,17 +468,41 @@
 
   form.addEventListener("change", atualizar);
 
-  form.addEventListener("submit", (ev) => {
+  async function cobrancaNoServidor(dados) {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), 15000);
+    try {
+      const r = await fetch(SERVIDOR + "/contratar", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(dados), signal: ctl.signal });
+      const j = await r.json();
+      return r.ok && j.link ? j : null;
+    } catch (e) { return null; } finally { clearTimeout(t); }
+  }
+
+  form.addEventListener("submit", async (ev) => {
     ev.preventDefault();
     const { p, z, f } = escolha();
     const nf = dadosNF();
     if (!p || !z || !f || nf.falta.length || !$("nf-ok").checked || !$("aceite").checked) return;
-    // a página /bem-vindo/ (para onde o Asaas volta depois do pagamento) usa isto para vir preenchida
-    try {
-      localStorage.setItem("contratacao", JSON.stringify({ plano: p.id, prazo: z.meses, forma: f, contrato: CONTRATO, nf: nf.d, em: new Date().toISOString() }));
-    } catch (e) {}
-    const link = LINKS[p.id][f][z.meses];
-    if (link) {
+    const dados = { plano: p.id, prazo: z.meses, forma: f, contrato: CONTRATO, nf: nf.d, em: new Date().toISOString() };
+    // a página /bem-vindo/ usa isto para vir preenchida
+    const guardar = (extra) => { try { localStorage.setItem("contratacao", JSON.stringify({ ...dados, ...extra })); } catch (e) {} };
+    guardar({});
+    let link = LINKS[p.id][f][z.meses];
+    if (SERVIDOR) {
+      // a aba abre já no clique (senão o celular bloqueia) e recebe o endereço quando o servidor responder
+      const aba = window.open("", "_blank");
+      if (aba) { try { aba.document.write('<meta name="viewport" content="width=device-width"><p style="font:18px system-ui;padding:32px;color:#003346">Preparando seu pagamento seguro…</p>'); } catch (e) {} }
+      const botao = $("pagar"); botao.disabled = true; botao.textContent = "Preparando o pagamento…";
+      const r = await cobrancaNoServidor(dados);
+      if (r) { link = r.link; guardar({ id: r.id, servidor: true }); }
+      if (link) {
+        if (aba) { aba.location.href = link; window.location.href = "/bem-vindo/"; }
+        else window.location.href = link;
+        return;
+      }
+      if (aba) aba.close();
+      atualizar();
+    } else if (link) {
       // o link do Asaas não volta para o site: abre numa aba nova e esta segue para a /bem-vindo/
       const aba = window.open(link, "_blank");
       if (aba) aba.opener = null;
