@@ -223,7 +223,7 @@
   // Servidor do Studio (Cloudflare + API do Asaas): cadastra o cliente com os dados da nota e cria a
   // cobrança no nome certo. Se ele falhar, o site cai nos links fixos acima (nada trava a contratação).
   // SERVIDOR_LIGADO = true só depois que o servidor estiver em produção (chave real do Asaas).
-  const SERVIDOR_LIGADO = false;
+  const SERVIDOR_LIGADO = true; // ligado em 17/11/2026 (produção), só nesta página
   const SERVIDOR = (SERVIDOR_LIGADO || new URLSearchParams(location.search).has("teste-servidor"))
     ? "https://marketing-essencial-asaas.studiovitorcampos.workers.dev" : null;
   const WHATS = "5561992163078";
@@ -431,10 +431,10 @@
       f && nf.falta.length ? "dados da nota (" + nf.falta.join(", ") + ")" : f && !$("nf-ok").checked && "confirmar o nome da nota", !$("aceite").checked && "aceitar o contrato"].filter(Boolean);
     $("falta").textContent = falta.length ? "Falta: " + falta.join(" · ") : "";
     $("pagar").disabled = falta.length > 0;
-    const link = f && LINKS[p.id][f][z.meses];
+    const link = f && (SERVIDOR || LINKS[p.id][f][z.meses]);
     $("pagar").textContent = !f || link ? "Ir para o pagamento" : "Contratar pelo WhatsApp";
     $("r-pagamento").textContent = !f || link
-      ? "Pagamento seguro no cartão de crédito, pela plataforma Asaas."
+      ? "Pagamento seguro pela plataforma Asaas. A nota fiscal sai automaticamente a cada pagamento."
       : "Você envia a contratação pelo WhatsApp e recebe a cobrança do Pix com a nota no nome informado.";
   }
 
