@@ -70,7 +70,7 @@
         <div class="campo"><label for="instagram">Instagram</label><input id="instagram" placeholder="@suaempresa" required></div>
         <div class="campo"><label for="facebook">Página do Facebook <span>(opcional)</span></label><input id="facebook"></div>
         <div class="campo"><label for="plano">Plano</label>
-          <select id="plano"><option value="presenca">Presença</option><option value="essencial">Essencial</option><option value="essencial-mais" selected>Essencial+</option><option value="completo">Completo</option></select>
+          <select id="plano"><option value="presenca">Presença</option><option value="essencial">Essencial</option><option value="essencial-mais" selected>Essencial+</option><option value="completo">Completo</option><option value="ipe" hidden>Redes + tráfego (Ipê Acessórios)</option></select>
         </div>
         <div class="campo"><label for="prazo">Prazo do contrato</label>
           <select id="prazo"><option value="3">3 meses</option><option value="6" selected>6 meses</option><option value="12">12 meses</option></select>
@@ -97,7 +97,7 @@
 
 <script>
   const WHATS = "5561992163078";
-  const NOMES = { "presenca": "Presença", "essencial": "Essencial", "essencial-mais": "Essencial+", "completo": "Completo" };
+  const NOMES = { "presenca": "Presença", "essencial": "Essencial", "essencial-mais": "Essencial+", "completo": "Completo", "ipe": "Redes + tráfego (proposta Ipê Acessórios)" };
   const form = document.getElementById("form-inicio");
 
   // vem preenchido com o que o cliente escolheu em /contratar/ (ou ?plano= no endereço de retorno)
@@ -131,7 +131,7 @@
       `Instagram: ${v("instagram")}`,
       v("facebook") && `Facebook: ${v("facebook")}`,
       `Plano: ${NOMES[v("plano")]} · contrato de ${v("prazo")} meses`,
-      escolha.forma && `Pagamento: ${escolha.forma === "pix" ? "Pix à vista" : escolha.forma === "mensal" ? "cartão mês a mês" : "cartão parcelado"}`,
+      escolha.forma && `Pagamento: ${escolha.forma === "pixmensal" ? "Pix mês a mês" : escolha.forma === "pix" ? "Pix à vista" : escolha.forma === "mensal" ? "cartão mês a mês" : "cartão parcelado"}`,
       v("horario") && `Datas e lançamentos: ${v("horario")}`,
       v("obs") && `Observações: ${v("obs")}`,
       escolha.contrato && `Aceitei o contrato (${escolha.contrato}).`
