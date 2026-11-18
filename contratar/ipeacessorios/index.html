@@ -212,12 +212,12 @@
   // Links de pagamento (Asaas): Pix à vista com desconto, cartão parcelado sem juros e
   // cartão mês a mês (assinatura mensal, só 6 e 12 meses), um por plano, forma e prazo.
   // Vazio: a contratação segue pelo WhatsApp.
-  // Proposta da Ipê (17/11/2026): só a mensalidade, todo mês. Cartão mês a mês usa a assinatura
-  // mensal de R$ 1.197 do Asaas (a mesma do Essencial+). Pix mês a mês ainda sem link: vai pelo WhatsApp.
+  // Proposta da Ipê (17/11/2026): cartão mês a mês ou Pix à vista dos 3 meses com 5% de desconto.
+  // Com o servidor ligado, os links abaixo só valem se ele falhar.
   const LINKS = {
     "ipe": {
       mensal: { 3: "https://www.asaas.com/c/t007s62cp2ga2lai" },
-      pixmensal: { 3: "" }
+      pix: { 3: "https://www.asaas.com/c/tqyj8zq59ctsm2lv" }
     }
   };
   // Servidor do Studio (Cloudflare + API do Asaas): cadastra o cliente com os dados da nota e cria a
@@ -236,7 +236,7 @@
         "Relatório mensal das redes e dos anúncios", "Verba dos anúncios paga direto à Meta (a partir de R$ 20/dia)"] }
   ];
   const PRAZOS = [
-    { meses: 3, nome: "3 meses", desconto: 0, det: "sem taxa de implantação" }
+    { meses: 3, nome: "3 meses", desconto: 5, det: "sem taxa de implantação" }
   ];
   // valor do período em cada forma de pagamento (Anexo I do contrato)
   const cheio = (p, z) => p.mensal * z.meses;
@@ -294,10 +294,10 @@
     $("passo-forma").classList.toggle("bloqueado", !chave);
     const temMensal = true;
     $("formas").className = "opcoes duas";
-    $("forma-ajuda").innerHTML = "A mensalidade é cobrada uma vez por mês, durante os 3 meses do contrato. <b>Obrigatório.</b>";
+    $("forma-ajuda").innerHTML = "No Pix, você paga os 3 meses de uma vez com 5% de desconto. No cartão, só a mensalidade de cada mês usa o limite. <b>Obrigatório.</b>";
     $("formas").innerHTML =
       opcao("forma", "mensal", "Cartão mês a mês", `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">cobrança automática no cartão · usa só ${reais(p.mensal)} do limite</span>`, "MAIS PRÁTICO") +
-      opcao("forma", "pixmensal", "Pix mês a mês", `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">você recebe a cobrança do Pix todo mês</span>`);
+      opcao("forma", "pix", "Pix à vista", `<span class="valor">${reais(pix(p, z))}</span><span class="eco">Economia de ${reais(cheio(p, z) - pix(p, z))} · 3 meses pagos de uma vez</span>`, `${z.desconto}% OFF`);
     if (chave && marcada) form.forma.value = marcada;
   }
 
