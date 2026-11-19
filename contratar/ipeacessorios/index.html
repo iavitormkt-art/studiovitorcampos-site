@@ -227,7 +227,7 @@
   const SERVIDOR = (SERVIDOR_LIGADO || new URLSearchParams(location.search).has("teste-servidor"))
     ? "https://marketing-essencial-asaas.studiovitorcampos.workers.dev" : null;
   const WHATS = "5561992163078";
-  const CONTRATO = "contrato Ipê Acessórios de 17/11/2026";
+  const CONTRATO = "contrato Ipê Acessórios de 19/11/2026";
 
   const PLANOS = [
     { id: "ipe", nome: "Redes + tráfego", mensal: 1197, impl: 0, det: "proposta de 17/11/2026",
@@ -296,7 +296,7 @@
     $("formas").className = "opcoes duas";
     $("forma-ajuda").innerHTML = "No Pix, você paga os 3 meses de uma vez com 5% de desconto. No cartão, só a mensalidade de cada mês usa o limite. <b>Obrigatório.</b>";
     $("formas").innerHTML =
-      opcao("forma", "mensal", "Cartão mês a mês", `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">cobrança automática no cartão · usa só ${reais(p.mensal)} do limite</span>`, "MAIS PRÁTICO") +
+      opcao("forma", "mensal", "Cartão mês a mês", `<span class="valor">${reais(p.mensal)}<small>/mês</small></span><span class="det">cobrança automática no cartão · 3 cobranças · usa só ${reais(p.mensal)} do limite</span>`, "MAIS PRÁTICO") +
       opcao("forma", "pix", "Pix à vista", `<span class="valor">${reais(pix(p, z))}</span><span class="eco">Economia de ${reais(cheio(p, z) - pix(p, z))} · 3 meses pagos de uma vez</span>`, `${z.desconto}% OFF`);
     if (chave && marcada) form.forma.value = marcada;
   }
