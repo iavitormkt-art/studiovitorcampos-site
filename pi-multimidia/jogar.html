@@ -30,6 +30,83 @@
   jogo.src = "jogos/" + pasta + "/index.html";
   jogo.addEventListener("load", () => jogo.focus());
   document.getElementById("tela").onclick = () => document.documentElement.requestFullscreen?.();
+
+  /* ---------- Controle (gamepad) ----------
+     O controle vira teclado: os jogos não precisam de nenhum evento a mais.
+     Analógico/direcional = setas · X = pular · Quadrado = atacar (tecla X e Enter)
+     Options (ou X nas telas com botão) = clicar o botão da tela */
+  const TECLAS = {
+    37: ["ArrowLeft", "ArrowLeft"], 38: ["ArrowUp", "ArrowUp"], 39: ["ArrowRight", "ArrowRight"],
+    40: ["ArrowDown", "ArrowDown"], 32: [" ", "Space"], 88: ["x", "KeyX"], 13: ["Enter", "Enter"]
+  };
+  const CONFIG = {
+    padrao: { pular: [38, 32], atacar: [88, 13], toques: [] },
+    thuiza: { pular: [32] },                                   // seta para cima = escada
+    maya:   { toques: [[639 / 1280, 552 / 720], [643 / 1280, 608 / 720]] } // Start / StartAgain
+  };
+  const cfg = Object.assign({}, CONFIG.padrao, CONFIG[pasta.toLowerCase()] || {});
+  const apertadas = new Set();
+  let antes = {};
+
+  function tecla(tipo, cod) {
+    const w = jogo.contentWindow, d = jogo.contentDocument; if (!w || !d) return;
+    const [key, code] = TECLAS[cod];
+    const ev = new w.KeyboardEvent(tipo, { key, code, bubbles: true, cancelable: true });
+    Object.defineProperty(ev, "keyCode", { get: () => cod });
+    Object.defineProperty(ev, "which", { get: () => cod });
+    (d.activeElement && d.activeElement !== d.body ? d.activeElement : d).dispatchEvent(ev);
+  }
+  function clicarBotao() {
+    const d = jogo.contentDocument; if (!d) return false;
+    const b = [...d.querySelectorAll("button, input[type=button], input[type=submit]")]
+      .find(el => el.offsetParent !== null && getComputedStyle(el).visibility !== "hidden" && !el.disabled);
+    if (b) { b.click(); return true; }
+    return false;
+  }
+  function tocar() {
+    const w = jogo.contentWindow, d = jogo.contentDocument; if (!d) return;
+    const c = d.querySelector("canvas"); if (!c) return;
+    const r = c.getBoundingClientRect();
+    cfg.toques.forEach(([fx, fy], i) => setTimeout(() => {
+      const o = { clientX: r.left + fx * r.width, clientY: r.top + fy * r.height, bubbles: true, cancelable: true,
+                  pointerId: 7, pointerType: "mouse", isPrimary: true, button: 0, buttons: 1 };
+      c.dispatchEvent(new w.PointerEvent("pointerdown", o));
+      setTimeout(() => c.dispatchEvent(new w.PointerEvent("pointerup", Object.assign({}, o, { buttons: 0 }))), 60);
+    }, i * 150));
+  }
+  function confirmar() { if (!clicarBotao()) tocar(); }
+
+  function lerControle() {
+    let pads = [];
+    try { pads = (jogo.contentWindow?.navigator || navigator).getGamepads?.() || []; } catch (e) {}
+    const p = [...pads].find(Boolean);
+    if (p) {
+      const bt = i => !!p.buttons[i]?.pressed;
+      const ax = i => p.axes[i] || 0;
+      const agora = {
+        esq: bt(14) || ax(0) < -0.5, dir: bt(15) || ax(0) > 0.5,
+        cima: bt(12) || ax(1) < -0.5, baixo: bt(13) || ax(1) > 0.5,
+        pular: bt(0), atacar: bt(2) || bt(1), menu: bt(9) || bt(8)
+      };
+      const desejo = new Set();
+      if (agora.esq) desejo.add(37);
+      if (agora.dir) desejo.add(39);
+      if (agora.cima) desejo.add(38);
+      if (agora.baixo) desejo.add(40);
+      if (agora.pular) cfg.pular.forEach(k => desejo.add(k));
+      if (agora.atacar) cfg.atacar.forEach(k => desejo.add(k));
+      if ((agora.menu && !antes.menu) || (agora.pular && !antes.pular)) {
+        if (agora.menu) confirmar(); else clicarBotao() || (cfg.toques.length && tocar());
+      }
+      for (const k of desejo) if (!apertadas.has(k)) { apertadas.add(k); tecla("keydown", k); }
+      for (const k of [...apertadas]) if (!desejo.has(k)) { apertadas.delete(k); tecla("keyup", k); }
+      antes = agora;
+    } else if (apertadas.size) {
+      for (const k of apertadas) tecla("keyup", k); apertadas.clear(); antes = {};
+    }
+    requestAnimationFrame(lerControle);
+  }
+  requestAnimationFrame(lerControle);
 </script>
 </body>
 </html>
