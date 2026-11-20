@@ -16,12 +16,13 @@
   body { font-family:"Montserrat",system-ui,sans-serif; color:var(--branco); min-height:100vh;
     background:radial-gradient(110% 70% at 80% 0%, #0a5a73 0%, var(--petroleo) 40%, var(--fundo) 100%) fixed; }
   .container { width:min(1180px, 100% - 32px); margin-inline:auto; }
-  .banner { width:min(1180px, 100% - 32px); margin:32px auto 40px; border-radius:var(--raio); overflow:hidden;
-    box-shadow:0 20px 50px rgba(0,0,0,.35); }
-  .banner img { display:block; width:100%; aspect-ratio:3/1; object-fit:cover; }
+  .banner { width:100%; margin:0 0 40px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.35); }
+  .banner img { display:block; width:100%; height:clamp(200px, 33.3vw, 480px); object-fit:cover; object-position:center; }
   .banner img[hidden] { display:none; }
-  .banner.vazio { aspect-ratio:3/1; display:grid; place-items:center; text-align:center; box-shadow:none;
-    border:2px dashed rgba(0,255,249,.45); background:rgba(255,255,255,.04); color:var(--ciano); }
+  .banner.vazio { height:clamp(200px, 33.3vw, 480px); display:grid; place-items:center; text-align:center; box-shadow:none;
+    border-bottom:2px dashed rgba(0,255,249,.45); background:rgba(255,255,255,.04); color:var(--ciano); position:relative; }
+  .banner.vazio::before { content:""; position:absolute; top:50%; left:50%; width:min(1200px, 100%); aspect-ratio:3/1; max-height:100%;
+    transform:translate(-50%,-50%); border:1px dashed rgba(255,255,255,.25); }
   .banner.vazio strong { display:block; font-size:clamp(18px, 3vw, 30px); font-weight:800; }
   .banner.vazio span { font-size:14px; opacity:.7; color:var(--branco); }
   header { padding:64px 0 36px; text-align:center; }
@@ -55,7 +56,7 @@
   <img src="banner.jpg" alt="Projeto Integrador · Técnico em Multimídia" hidden
        onload="this.hidden=false; this.parentNode.classList.remove('vazio'); this.nextElementSibling.remove()"
        onerror="this.remove()">
-  <div><strong>Espaço para o banner da turma</strong><span>1920 × 640 px · JPG</span></div>
+  <div><strong>Espaço para o banner da turma</strong><span>1920 × 640 px · JPG · título e personagens no centro (faixa tracejada)</span></div>
 </div>
 
 
