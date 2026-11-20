@@ -19,6 +19,11 @@
   .banner { width:min(1180px, 100% - 32px); margin:32px auto 40px; border-radius:var(--raio); overflow:hidden;
     box-shadow:0 20px 50px rgba(0,0,0,.35); }
   .banner img { display:block; width:100%; aspect-ratio:3/1; object-fit:cover; }
+  .banner img[hidden] { display:none; }
+  .banner.vazio { aspect-ratio:3/1; display:grid; place-items:center; text-align:center; box-shadow:none;
+    border:2px dashed rgba(0,255,249,.45); background:rgba(255,255,255,.04); color:var(--ciano); }
+  .banner.vazio strong { display:block; font-size:clamp(18px, 3vw, 30px); font-weight:800; }
+  .banner.vazio span { font-size:14px; opacity:.7; color:var(--branco); }
   header { padding:64px 0 36px; text-align:center; }
   header[hidden] { display:none; }
   header small { display:inline-block; font-size:13px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--ciano); }
@@ -45,11 +50,12 @@
 </style>
 </head>
 <body>
-<!-- Banner: arte da turma em pi-multimidia/banner.jpg (1920 x 640). Sem o arquivo, aparece o título em texto. -->
-<div class="banner" id="banner" hidden>
-  <img src="banner.jpg" alt="Projeto Integrador · Técnico em Multimídia"
-       onload="document.getElementById('banner').hidden=false; document.getElementById('titulo').hidden=true"
-       onerror="this.parentNode.remove()">
+<!-- Banner: arte da turma em pi-multimidia/banner.jpg (1920 x 640, proporção 3:1). Sem o arquivo, aparece o espaço reservado. -->
+<div class="banner vazio" id="banner">
+  <img src="banner.jpg" alt="Projeto Integrador · Técnico em Multimídia" hidden
+       onload="this.hidden=false; this.parentNode.classList.remove('vazio'); this.nextElementSibling.remove(); document.getElementById('titulo').hidden=true"
+       onerror="this.remove()">
+  <div><strong>Espaço para o banner da turma</strong><span>1920 × 640 px · JPG</span></div>
 </div>
 
 <header class="container" id="titulo">
