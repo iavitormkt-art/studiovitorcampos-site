@@ -50,19 +50,14 @@
 </style>
 </head>
 <body>
-<!-- Banner: arte da turma em pi-multimidia/banner.jpg (1920 x 640, proporção 3:1). Sem o arquivo, aparece o espaço reservado. -->
+<!-- Banner: arte da turma em pi-multimidia/banner.jpg (1920 x 640, proporção 3:1), no lugar do título. Sem o arquivo, aparece o espaço reservado. -->
 <div class="banner vazio" id="banner">
   <img src="banner.jpg" alt="Projeto Integrador · Técnico em Multimídia" hidden
-       onload="this.hidden=false; this.parentNode.classList.remove('vazio'); this.nextElementSibling.remove(); document.getElementById('titulo').hidden=true"
+       onload="this.hidden=false; this.parentNode.classList.remove('vazio'); this.nextElementSibling.remove()"
        onerror="this.remove()">
   <div><strong>Espaço para o banner da turma</strong><span>1920 × 640 px · JPG</span></div>
 </div>
 
-<header class="container" id="titulo">
-  <small>Projeto Integrador · Técnico em Multimídia</small>
-  <h1>Escolha um jogo</h1>
-  <p>Seis jogos, seis alunos. Clique em um para jogar: dá para usar o teclado ou um controle de videogame.</p>
-</header>
 
 <main class="container grade" id="grade"></main>
 
