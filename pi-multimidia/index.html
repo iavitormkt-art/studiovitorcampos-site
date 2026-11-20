@@ -16,7 +16,11 @@
   body { font-family:"Montserrat",system-ui,sans-serif; color:var(--branco); min-height:100vh;
     background:radial-gradient(110% 70% at 80% 0%, #0a5a73 0%, var(--petroleo) 40%, var(--fundo) 100%) fixed; }
   .container { width:min(1180px, 100% - 32px); margin-inline:auto; }
+  .banner { width:min(1180px, 100% - 32px); margin:32px auto 40px; border-radius:var(--raio); overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,.35); }
+  .banner img { display:block; width:100%; aspect-ratio:3/1; object-fit:cover; }
   header { padding:64px 0 36px; text-align:center; }
+  header[hidden] { display:none; }
   header small { display:inline-block; font-size:13px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--ciano); }
   header h1 { font-size:clamp(34px, 6vw, 64px); font-weight:900; line-height:1.05; margin:14px 0 12px; }
   header p { font-size:18px; opacity:.8; }
@@ -29,6 +33,11 @@
   .info h2 { font-size:22px; font-weight:800; }
   .info .aluno { font-size:15px; font-weight:700; color:var(--manteiga); }
   .info .desc { font-size:14px; opacity:.75; line-height:1.5; }
+  .ficha { display:grid; grid-template-columns:auto 1fr; gap:4px 12px; margin-top:8px; padding-top:12px;
+    border-top:1px solid rgba(255,255,255,.12); font-size:13px; }
+  .ficha:empty { display:none; }
+  .ficha dt { font-weight:700; color:var(--ciano); }
+  .ficha dd { opacity:.85; }
   .jogar { margin-top:auto; padding-top:14px; font-weight:800; font-size:15px; color:var(--ciano); }
   .card.breve { pointer-events:none; opacity:.45; }
   .card.breve .jogar { color:rgba(255,255,255,.6); }
@@ -36,10 +45,17 @@
 </style>
 </head>
 <body>
-<header class="container">
+<!-- Banner: arte da turma em pi-multimidia/banner.jpg (1920 x 640). Sem o arquivo, aparece o título em texto. -->
+<div class="banner" id="banner" hidden>
+  <img src="banner.jpg" alt="Projeto Integrador · Técnico em Multimídia"
+       onload="document.getElementById('banner').hidden=false; document.getElementById('titulo').hidden=true"
+       onerror="this.parentNode.remove()">
+</div>
+
+<header class="container" id="titulo">
   <small>Projeto Integrador · Técnico em Multimídia</small>
   <h1>Escolha um jogo</h1>
-  <p>Seis jogos, seis alunos. Clique em um para jogar.</p>
+  <p>Seis jogos, seis alunos. Clique em um para jogar: dá para usar o teclado ou um controle de videogame.</p>
 </header>
 
 <main class="container grade" id="grade"></main>
@@ -49,13 +65,26 @@
 <script>
   // Para cada jogo: pasta = nome da pasta em pi-multimidia/jogos/ (export Web/HTML5 do Construct 3)
   // capa = imagem opcional em pi-multimidia/capas/ (16:9). Sem pasta, o card aparece como "em breve".
+  // Ficha técnica (opcional, some se vazia): genero, fases, controles. desc = resumo de 1 a 2 frases.
   const JOGOS = [
-    { titulo: "Projeto Final", aluno: "Thuiza", desc: "", pasta: "thuiza", capa: "" },
-    { titulo: "THRILLER", aluno: "Aluno 2", desc: "", pasta: "", capa: "" },
-    { titulo: "Jogo 3", aluno: "Aluno 3", desc: "", pasta: "", capa: "" },
-    { titulo: "Jogo 4", aluno: "Aluno 4", desc: "", pasta: "", capa: "" },
-    { titulo: "Jogo 5", aluno: "Aluno 5", desc: "", pasta: "", capa: "" },
-    { titulo: "Jogo 6", aluno: "Aluno 6", desc: "", pasta: "", capa: "" },
+    { titulo: "Graffiti Run", aluno: "Thuiza",
+      desc: "Pelas ruas e estações de metrô de uma cidade grafitada, a personagem coleta latas de spray, sobe escadas, pula sobre os inimigos e desvia de serras e da água para chegar ao fim das 4 fases.", pasta: "thuiza", capa: "thuiza.jpg",
+      genero: "Plataforma 2D", fases: "4", controles: "← → andar · espaço pular · ↑ ↓ subir e descer escadas" },
+    { titulo: "THRILLER: 44th Anniversary", aluno: "Johnatan Soares de Oliveira", pasta: "thriller", capa: "thriller.jpg",
+      desc: "Inspirado no clipe Thriller, o jogador atravessa uma floresta macabra e cemitérios, derrota zumbis com bolas de energia e pega a chave que abre a porta de cada fase, até fazer o sol nascer.",
+      genero: "Plataforma 2D e ação", fases: "3", controles: "← → andar · espaço pular (2× pulo duplo) · X poder" },
+    { titulo: "Jovem Aventureira", aluno: "Adriana Gomes", pasta: "adriana", capa: "adriana.jpg",
+      desc: "Numa ilha tropical cercada de rios, uma jovem aventureira salta sobre a água, dispara esferas de bomba nos inimigos e coleta moedas até a placa de saída.",
+      genero: "Plataforma 2D e ação", fases: "2", controles: "← → andar · ↑ pular · Enter atirar" },
+    { titulo: "O Jovem Estudante", aluno: "Hugo Moura Rodrigues", pasta: "hugo", capa: "hugo.jpg",
+      desc: "Da sala de aula ao auditório, o estudante coleta livros e desvia de celulares, provas e da ansiedade, que ficam mais rápidos a cada fase.",
+      genero: "Plataforma 2D", fases: "3", controles: "← → andar · ↑ pular (2× pulo duplo)" },
+    { titulo: "Maya, a Guerreira: Caminho dos Elementos", aluno: "Vanessa Rodrigues da Silva", pasta: "maya", capa: "maya.jpg",
+      desc: "Uma guerreira atravessa floresta, cerrado, caverna e ruínas, desviando de água, lava e lanças, até escapar do chefão no castelo e resgatar a bandeira do reino.",
+      genero: "Plataforma 2D", fases: "5", controles: "← → andar · espaço pular (2× pulo duplo)" },
+    { titulo: "A Aventura das Moedas", aluno: "Igor Moreira", pasta: "igor", capa: "igor.jpg",
+      desc: "Um aventureiro explora floresta, caverna, ruínas, montanhas e castelo atrás da chave que abre a saída, fugindo de slimes, morcegos e espinhos.",
+      genero: "Plataforma 2D", fases: "5", controles: "← → ou A D andar · espaço ou ↑ pular" },
   ];
 
   const grade = document.getElementById("grade");
@@ -70,11 +99,19 @@
         <span class="aluno"></span>
         <h2></h2>
         <p class="desc"></p>
+        <dl class="ficha"></dl>
         <span class="jogar">${j.pasta ? "▶ Jogar" : "Em breve"}</span>
       </div>`;
     a.querySelector(".aluno").textContent = j.aluno;
     a.querySelector("h2").textContent = j.titulo;
     a.querySelector(".desc").textContent = j.desc;
+    const ficha = a.querySelector(".ficha");
+    [["Gênero", j.genero], ["Fases", j.fases], ["Controles", j.controles]].forEach(([k, v]) => {
+      if (!v) return;
+      const dt = document.createElement("dt"); dt.textContent = k;
+      const dd = document.createElement("dd"); dd.textContent = v;
+      ficha.append(dt, dd);
+    });
     grade.appendChild(a);
   });
 </script>

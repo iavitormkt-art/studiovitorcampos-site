@@ -1475,6 +1475,11 @@ self.C3_ExpressionFuncs = [
 		() => 0,
 		() => 5,
 		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0(n1.ExpObject());
+		},
+		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
 			return () => and((and("Pontos: ", v0.GetValue()) + "     Vidas: "), v1.GetValue());
@@ -1500,18 +1505,30 @@ self.C3_ExpressionFuncs = [
 		() => "hurt",
 		() => "",
 		() => 1,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => ((((v0.GetValue()) > (0) ? 1 : 0)) ? (0) : (v1.GetValue()));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => ((((v0.GetValue()) <= (0) ? 1 : 0)) ? ("GameOver") : (f1()));
+		},
 		() => -400,
 		() => 100,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
+		() => "MusicaFase",
 		() => 0.6,
-		() => "Fase1song",
 		() => 2,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => ((((f0()) === ("Fase1") ? 1 : 0)) ? ("Fase2") : ("Fim"));
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => ((((f0()) === ("Fase1") ? 1 : 0)) ? ("Fase2") : (((((f1()) === ("Fase2") ? 1 : 0)) ? ("Fase3") : (((((f2()) === ("Fase3") ? 1 : 0)) ? ("Fase4") : ("Fim"))))));
 		}
 ];
 
