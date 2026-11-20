@@ -15,6 +15,29 @@
   .barra a, .barra button { border:0; border-radius:99px; padding:9px 16px; font:700 13px "Montserrat",sans-serif;
     background:rgba(0,51,70,.9); color:#fff; text-decoration:none; cursor:pointer; }
   .barra a:hover, .barra button:hover { background:#00fff9; color:#003346; }
+  /* Controles na tela (só em telas de toque) */
+  .toque { display:none; }
+  @media (pointer: coarse) {
+    .toque { display:block; position:fixed; inset:auto 0 0 0; z-index:6; pointer-events:none;
+      padding:0 max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left)); }
+    .toque .lado { position:absolute; bottom:max(18px, env(safe-area-inset-bottom)); display:flex; gap:12px; align-items:flex-end; }
+    .toque .esq { left:max(18px, env(safe-area-inset-left)); }
+    .toque .dir { right:max(18px, env(safe-area-inset-right)); }
+    .toque button { pointer-events:auto; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
+      width:68px; height:68px; border-radius:50%; border:2px solid rgba(255,255,255,.45); background:rgba(0,51,70,.45);
+      color:#fff; font:800 24px "Montserrat",sans-serif; backdrop-filter:blur(2px); }
+    .toque button.on { background:rgba(0,255,249,.55); border-color:#00fff9; color:#003346; }
+    .toque .pular { width:84px; height:84px; font-size:15px; }
+    .toque .atacar { font-size:13px; }
+    .toque .vert { display:flex; flex-direction:column; gap:10px; }
+    .toque .vert button { width:52px; height:52px; font-size:18px; }
+    .girar { display:none; }
+  }
+  @media (pointer: coarse) and (orientation: portrait) {
+    .girar { display:grid; place-items:center; position:fixed; inset:0; z-index:9; background:rgba(2,28,38,.94); color:#fff;
+      text-align:center; padding:30px; font:700 18px/1.5 "Montserrat",sans-serif; }
+    .girar b { display:block; font-size:54px; margin-bottom:10px; }
+  }
 </style>
 </head>
 <body>
@@ -23,6 +46,18 @@
   <button id="tela">⛶ Tela cheia</button>
 </div>
 <iframe id="jogo" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+<div class="toque" id="toque">
+  <div class="lado esq">
+    <button data-k="37" aria-label="Esquerda">◀</button>
+    <button data-k="39" aria-label="Direita">▶</button>
+    <div class="vert" id="escada" hidden><button data-k="38" aria-label="Subir">▲</button><button data-k="40" aria-label="Descer">▼</button></div>
+  </div>
+  <div class="lado dir">
+    <button class="atacar" data-acao="atacar" aria-label="Atacar">ATACAR</button>
+    <button class="pular" data-acao="pular" aria-label="Pular">PULAR</button>
+  </div>
+</div>
+<div class="girar"><div><b>⟳</b>Gire o celular para jogar na horizontal</div></div>
 <script>
   const pasta = new URLSearchParams(location.search).get("j") || "";
   if (!/^[a-z0-9-]+$/i.test(pasta)) location.replace("./");
@@ -41,7 +76,7 @@
   };
   const CONFIG = {
     padrao: { pular: [38, 32], atacar: [88, 13], toques: [] },
-    thuiza: { pular: [32] },                                   // seta para cima = escada
+    thuiza: { pular: [32], escada: true },                                   // seta para cima = escada
     maya:   { toques: [[639 / 1280, 552 / 720], [643 / 1280, 608 / 720]] } // Start / StartAgain
   };
   const cfg = Object.assign({}, CONFIG.padrao, CONFIG[pasta.toLowerCase()] || {});
@@ -76,10 +111,27 @@
   }
   function confirmar() { if (!clicarBotao()) tocar(); }
 
+  /* ---------- Controles na tela (celular/tablet) ---------- */
+  const toqueTeclas = new Map();   // pointerId -> [teclas]
+  if (cfg.escada) document.getElementById("escada").hidden = false;
+  document.querySelectorAll("#toque button").forEach(b => {
+    const teclas = () => b.dataset.k ? [+b.dataset.k] : cfg[b.dataset.acao] || [];
+    const solta = e => { if (toqueTeclas.delete(e.pointerId)) b.classList.remove("on"); };
+    b.addEventListener("pointerdown", e => {
+      e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch (_) {}
+      toqueTeclas.set(e.pointerId, teclas()); b.classList.add("on");
+      if (b.dataset.acao === "pular") { clicarBotao() || (cfg.toques.length && tocar()); }
+    });
+    ["pointerup", "pointercancel", "lostpointercapture"].forEach(t => b.addEventListener(t, solta));
+    b.addEventListener("contextmenu", e => e.preventDefault());
+  });
+  const teclasDoToque = () => { const s = new Set(); toqueTeclas.forEach(ks => ks.forEach(k => s.add(k))); return s; };
+
   function lerControle() {
     let pads = [];
     try { pads = (jogo.contentWindow?.navigator || navigator).getGamepads?.() || []; } catch (e) {}
     const p = [...pads].find(Boolean);
+    const desejo = teclasDoToque();
     if (p) {
       const bt = i => !!p.buttons[i]?.pressed;
       const ax = i => p.axes[i] || 0;
@@ -88,7 +140,6 @@
         cima: bt(12) || ax(1) < -0.5, baixo: bt(13) || ax(1) > 0.5,
         pular: bt(0), atacar: bt(2) || bt(1), menu: bt(9) || bt(8)
       };
-      const desejo = new Set();
       if (agora.esq) desejo.add(37);
       if (agora.dir) desejo.add(39);
       if (agora.cima) desejo.add(38);
@@ -98,12 +149,10 @@
       if ((agora.menu && !antes.menu) || (agora.pular && !antes.pular)) {
         if (agora.menu) confirmar(); else clicarBotao() || (cfg.toques.length && tocar());
       }
-      for (const k of desejo) if (!apertadas.has(k)) { apertadas.add(k); tecla("keydown", k); }
-      for (const k of [...apertadas]) if (!desejo.has(k)) { apertadas.delete(k); tecla("keyup", k); }
       antes = agora;
-    } else if (apertadas.size) {
-      for (const k of apertadas) tecla("keyup", k); apertadas.clear(); antes = {};
-    }
+    } else antes = {};
+    for (const k of desejo) if (!apertadas.has(k)) { apertadas.add(k); tecla("keydown", k); }
+    for (const k of [...apertadas]) if (!desejo.has(k)) { apertadas.delete(k); tecla("keyup", k); }
     requestAnimationFrame(lerControle);
   }
   requestAnimationFrame(lerControle);
