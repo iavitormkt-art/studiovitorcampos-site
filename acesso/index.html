@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Como dar acesso ao Studio na Meta · Studio Vitor Campos</title>
+<meta name="description" content="Passo a passo para adicionar o Studio Vitor Campos como parceiro no portfólio empresarial da Meta, sem compartilhar senha.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#021C26">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<style>
+/* Guia de acesso (20/11/2026): identidade do Studio. Telas da Meta DESENHADAS (ilustrativas), com o clique destacado em coral. */
+:root{
+  --petroleo:#003346; --petroleo-escuro:#021C26;
+  --ciano:#00FFF9; --ciano-texto:#0A8FA3;
+  --manteiga:#FFC94D; --coral:#FF6A3D; --verde:#16a34a;
+  --creme:#F3EDE2; --cinza:#5A6E77; --branco:#FFFFFF; --texto:#0b2430;
+  --borda-clara:#E1D8C8; --meta:#0866FF;
+  --font:'Montserrat', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);color:var(--texto);background:var(--creme);line-height:1.55;font-size:17px}
+section{padding:48px max(20px, env(safe-area-inset-left, 0px))}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.escuro{background:var(--petroleo);color:var(--branco)}
+.mais-escuro{background:var(--petroleo-escuro);color:var(--branco)}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(32px, 8vw, 52px)}
+h2{font-size:clamp(24px, 6vw, 34px)}
+h3{font-size:19px;font-weight:800}
+p{margin:0}
+.lead{font-size:18px;opacity:.92}
+.selo{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ciano)}
+.topo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.vc{width:34px;height:34px;border-radius:9px;background:var(--ciano);color:var(--petroleo-escuro);display:grid;place-items:center;font-weight:900;font-size:15px}
+
+/* avisos */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.card .ic{font-size:24px;line-height:1}
+.card b{display:block;color:var(--manteiga)}
+.card span{font-size:15px;opacity:.9}
+
+/* ID para copiar */
+.idbox{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:var(--branco);color:var(--texto);border-radius:14px;padding:14px 16px}
+.idbox small{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza)}
+.idbox code{font-family:var(--font);font-size:clamp(22px,6vw,28px);font-weight:900;letter-spacing:.04em}
+.btn{appearance:none;border:0;border-radius:999px;padding:12px 20px;font:800 15px var(--font);cursor:pointer;background:var(--coral);color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.zap{background:#25D366;color:#063}
+.btn.sec{background:var(--petroleo);color:var(--ciano)}
+
+/* passos */
+.passo{background:var(--branco);border:1px solid var(--borda-clara);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.passo .cab{display:flex;gap:14px;align-items:center}
+.n{flex:none;width:44px;height:44px;border-radius:12px;background:var(--petroleo);color:var(--ciano);display:grid;place-items:center;font-weight:900;font-size:20px}
+.passo ol,.passo ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.dica{background:#FFF6DB;border-left:4px solid var(--manteiga);border-radius:10px;padding:10px 14px;font-size:15px}
+.alerta{background:#FFE9E1;border-left:4px solid var(--coral);border-radius:10px;padding:10px 14px;font-size:15px}
+a{color:var(--ciano-texto);font-weight:700}
+.escuro a,.mais-escuro a{color:var(--ciano)}
+.clique{color:var(--coral);font-weight:800}
+
+/* ===== telas desenhadas ===== */
+.tela{border:1px solid #cfd6dd;border-radius:12px;overflow:hidden;background:#F0F2F5;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:13px;color:#1c1e21;user-select:none}
+.tela .barra{display:flex;align-items:center;gap:6px;background:#e4e6eb;padding:7px 10px}
+.tela .barra i{width:9px;height:9px;border-radius:50%;background:#c4c8ce;display:block}
+.tela .url{flex:1;margin-left:8px;background:#fff;border-radius:999px;padding:3px 12px;font-size:12px;color:#65676b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tela .corpo{display:grid;grid-template-columns:minmax(120px,34%) 1fr;min-height:190px}
+.tela .lado{background:#fff;border-right:1px solid #dadde1;padding:10px 8px;display:flex;flex-direction:column;gap:2px}
+.tela .lado .t{font-weight:700;font-size:12px;color:#65676b;padding:6px 8px 2px}
+.tela .item{padding:6px 8px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tela .item.sub{padding-left:20px}
+.tela .item.ativo{background:#EBF5FF;color:var(--meta);font-weight:700}
+.tela .main{padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tela .main .h{font-weight:800;font-size:15px}
+.tela .linha{background:#fff;border:1px solid #dadde1;border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;min-width:0}
+.tela .linha .av{width:22px;height:22px;border-radius:50%;background:#d8dadf;flex:none}
+.tela .linha .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tela .bt{background:var(--meta);color:#fff;border-radius:6px;padding:6px 12px;font-weight:700;white-space:nowrap;display:inline-block}
+.tela .bt.cinza{background:#e4e6eb;color:#1c1e21}
+.tela .campo{background:#fff;border:1px solid #bcc0c4;border-radius:6px;padding:8px 10px;color:#1c1e21}
+.tela .tog{width:30px;height:17px;border-radius:999px;background:var(--meta);position:relative;flex:none}
+.tela .tog::after{content:"";position:absolute;right:2px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff}
+.tela .tog.off{background:#bcc0c4}.tela .tog.off::after{right:auto;left:2px}
+.tela .modal{background:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:12px;display:flex;flex-direction:column;gap:8px;margin:4px auto;width:100%;max-width:420px}
+.tela .so{padding:14px;display:flex;justify-content:center}
+.foco{outline:3px solid var(--coral);outline-offset:2px;border-radius:6px;position:relative;animation:pulso 1.6s infinite}
+@keyframes pulso{0%,100%{box-shadow:0 0 0 0 rgba(255,106,61,.55)}60%{box-shadow:0 0 0 8px rgba(255,106,61,0)}}
+@media (prefers-reduced-motion:reduce){.foco{animation:none}}
+.leg{font-size:13px;color:var(--cinza);text-align:center;margin-top:-4px}
+@media (max-width:480px){.tela{font-size:12px}.tela .corpo{grid-template-columns:40% 1fr!important}.tela .item{white-space:normal;line-height:1.25}.tela .main .bt{padding:5px 8px}.tela .linha .nm{white-space:normal}}
+
+footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--cinza)}
+</style>
+</head>
+<body>
+
+<section class="mais-escuro">
+  <div class="wrap">
+    <div class="topo"><span class="vc">VC</span> Studio Vitor Campos</div>
+    <span class="selo">Passo a passo · uns 10 minutos</span>
+    <h1>Como dar acesso ao Studio no seu Instagram e Facebook</h1>
+    <p class="lead">Você adiciona o Studio como <b>parceiro</b> no seu portfólio empresarial da Meta. Assim a gente cuida das publicações e dos anúncios <b>sem você precisar passar nenhuma senha</b>, e você pode tirar o acesso quando quiser.</p>
+  </div>
+</section>
+
+<section class="escuro">
+  <div class="wrap">
+    <h2>Antes de começar</h2>
+    <div class="cards">
+      <div class="card"><span class="ic">💻</span><div><b>Use o computador</b><span>Pelo celular as telas da Meta ficam escondidas e confusas. No computador é bem mais fácil.</span></div></div>
+      <div class="card"><span class="ic">👤</span><div><b>Entre com o seu Facebook</b><span>O mesmo perfil que administra a página e o Instagram da sua marca.</span></div></div>
+      <div class="card"><span class="ic">📋</span><div><b>Tenha este número à mão</b><span>É o ID do portfólio do Studio. Você vai colar no passo 4.</span></div></div>
+    </div>
+    <div class="idbox">
+      <div><small>ID do portfólio do Studio</small><code id="bmid">353123935554576</code></div>
+      <button class="btn" id="copiar" type="button">Copiar número</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <!-- PASSO 1 -->
+    <div class="passo">
+      <div class="cab"><span class="n">1</span><h3>Abra as configurações do seu portfólio</h3></div>
+      <p>No computador, abra o link abaixo. Ele leva direto para as <b>Configurações do portfólio empresarial</b>.</p>
+      <p><a class="btn sec" href="https://business.facebook.com/settings" target="_blank" rel="noopener">Abrir business.facebook.com/settings ↗</a></p>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings</span></div>
+        <div class="so"><div class="modal">
+          <div class="h" style="font-weight:800">Selecione um portfólio empresarial</div>
+          <div class="linha foco"><span class="av"></span><span class="nm"><b>Sua marca</b> · portfólio empresarial</span>›</div>
+          <div class="linha"><span class="av"></span><span class="nm">Outro portfólio</span>›</div>
+        </div></div>
+      </div>
+      <p class="leg">Ilustração: as telas da Meta mudam um pouco de conta para conta.</p>
+      <div class="dica">Se aparecer uma lista de portfólios, <span class="clique">clique no da sua marca</span>. Se não aparecer lista nenhuma e abrir direto, ótimo, siga para o passo 2.</div>
+      <div class="alerta">Apareceu algo como "Crie um portfólio empresarial"? Então a sua marca ainda não tem portfólio. Veja <a href="#problemas">Deu algum problema?</a> no fim da página.</div>
+    </div>
+
+    <!-- PASSO 2 -->
+    <div class="passo">
+      <div class="cab"><span class="n">2</span><h3>Confira se a página, o Instagram e a conta de anúncios estão no portfólio</h3></div>
+      <p>No menu da esquerda, abra <b>Contas</b> e clique em cada item abaixo, conferindo se a sua marca aparece na lista:</p>
+      <ul>
+        <li><b>Páginas</b> → a página do Facebook da marca</li>
+        <li><b>Contas do Instagram</b> → o @ da marca</li>
+        <li><b>Contas de anúncios</b> → a conta onde os anúncios são pagos</li>
+      </ul>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings</span></div>
+        <div class="corpo">
+          <div class="lado">
+            <div class="t">Usuários</div><div class="item">Pessoas</div><div class="item">Parceiros</div>
+            <div class="t">Contas</div><div class="item ativo foco">Páginas</div><div class="item">Contas de anúncios</div><div class="item">Contas do Instagram</div>
+          </div>
+          <div class="main">
+            <div class="h">Páginas</div>
+            <div class="linha"><span class="av"></span><span class="nm"><b>Sua marca</b></span></div>
+            <span class="bt cinza" style="align-self:flex-start">+ Adicionar</span>
+          </div>
+        </div>
+      </div>
+      <div class="dica">Está tudo lá? Siga para o passo 3. Se algum <b>não aparecer</b>, clique em <b>+ Adicionar</b> naquela tela e escolha <b>Adicionar uma Página</b> (ou conta do Instagram / conta de anúncios) para trazer o item para o portfólio.</div>
+    </div>
+
+    <!-- PASSO 3 -->
+    <div class="passo">
+      <div class="cab"><span class="n">3</span><h3>Vá em Usuários → Parceiros → Adicionar</h3></div>
+      <ol>
+        <li>No menu da esquerda, em <b>Usuários</b>, clique em <span class="clique">Parceiros</span>.</li>
+        <li>Clique no botão azul <span class="clique">+ Adicionar</span>.</li>
+        <li>Escolha <span class="clique">Conceder a um parceiro acesso aos seus ativos</span>.</li>
+      </ol>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings/partners</span></div>
+        <div class="corpo">
+          <div class="lado">
+            <div class="t">Usuários</div><div class="item">Pessoas</div><div class="item ativo foco">Parceiros</div>
+            <div class="t">Contas</div><div class="item">Páginas</div><div class="item">Contas de anúncios</div><div class="item">Contas do Instagram</div>
+          </div>
+          <div class="main">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px"><div class="h">Parceiros</div><span class="bt foco">+ Adicionar</span></div>
+            <div class="modal" style="margin:0">
+              <div class="linha foco"><span class="nm"><b>Conceder a um parceiro acesso aos seus ativos</b></span></div>
+              <div class="linha"><span class="nm">Solicitar a um parceiro acesso aos ativos dele</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alerta">Atenção: é <b>"Conceder… acesso aos seus ativos"</b> (a primeira opção). A outra opção pede acesso às contas do Studio, que não é o caso.</div>
+    </div>
+
+    <!-- PASSO 4 -->
+    <div class="passo">
+      <div class="cab"><span class="n">4</span><h3>Cole o ID do Studio</h3></div>
+      <p>Na janela que abrir, cole o número <b>353123935554576</b> no campo <b>ID do portfólio empresarial do parceiro</b> e clique em <span class="clique">Avançar</span>.</p>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings/partners</span></div>
+        <div class="so"><div class="modal">
+          <div style="font-weight:800">Adicionar um novo parceiro</div>
+          <div style="color:#65676b">ID do portfólio empresarial do parceiro</div>
+          <div class="campo foco">353123935554576</div>
+          <div style="display:flex;justify-content:flex-end;gap:8px"><span class="bt cinza">Cancelar</span><span class="bt foco">Avançar</span></div>
+        </div></div>
+      </div>
+      <p><button class="btn" type="button" data-copiar>Copiar o ID de novo</button></p>
+      <div class="dica">Deve aparecer o nome <b>Studio Vitor Campos</b>. Se aparecer "ID inválido", confira se colou o número inteiro, sem espaços.</div>
+    </div>
+
+    <!-- PASSO 5 -->
+    <div class="passo">
+      <div class="cab"><span class="n">5</span><h3>Escolha a página e ligue as permissões</h3></div>
+      <ol>
+        <li>À esquerda, em <b>Tipo de ativo</b>, clique em <span class="clique">Páginas</span>.</li>
+        <li>No meio, marque a <span class="clique">página da sua marca</span>.</li>
+        <li>À direita, <b>ligue</b> estas chaves: <b>Conteúdo</b>, <b>Mensagens</b>, <b>Anúncios</b> e <b>Insights</b>.</li>
+      </ol>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings/partners</span></div>
+        <div class="corpo" style="grid-template-columns:28% 1fr">
+          <div class="lado">
+            <div class="t">Tipo de ativo</div><div class="item ativo foco">Páginas</div><div class="item">Contas de anúncios</div><div class="item">Contas do Instagram</div>
+          </div>
+          <div class="main">
+            <div class="linha foco"><input type="checkbox" checked disabled><span class="nm"><b>Sua marca</b></span></div>
+            <div class="modal" style="margin:0;max-width:none">
+              <div style="font-weight:800">Acesso parcial</div>
+              <div class="linha"><span class="nm">Conteúdo</span><span class="tog"></span></div>
+              <div class="linha"><span class="nm">Mensagens</span><span class="tog"></span></div>
+              <div class="linha"><span class="nm">Anúncios</span><span class="tog"></span></div>
+              <div class="linha"><span class="nm">Insights</span><span class="tog"></span></div>
+              <div class="linha"><span class="nm">Controle total (todas as tarefas)</span><span class="tog off"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dica">Não precisa ligar o <b>Controle total</b>. Com essas quatro a gente consegue publicar, responder e anunciar.</div>
+    </div>
+
+    <!-- PASSO 6 -->
+    <div class="passo">
+      <div class="cab"><span class="n">6</span><h3>Faça o mesmo com o Instagram e com a conta de anúncios</h3></div>
+      <p>Ainda na mesma janela, sem salvar ainda:</p>
+      <ul>
+        <li>Clique em <span class="clique">Contas do Instagram</span>, marque o <b>@ da sua marca</b> e ligue <b>Conteúdo</b>, <b>Mensagens</b>, <b>Anúncios</b> e <b>Insights</b>.</li>
+        <li>Clique em <span class="clique">Contas de anúncios</span>, marque a <b>conta da sua marca</b> e ligue <b>Gerenciar campanhas</b> e <b>Ver desempenho</b>.</li>
+      </ul>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings/partners</span></div>
+        <div class="corpo" style="grid-template-columns:28% 1fr">
+          <div class="lado">
+            <div class="t">Tipo de ativo</div><div class="item">Páginas</div><div class="item ativo foco">Contas de anúncios</div><div class="item">Contas do Instagram</div>
+          </div>
+          <div class="main">
+            <div class="linha"><input type="checkbox" checked disabled><span class="nm"><b>Conta de anúncios da marca</b></span></div>
+            <div class="modal" style="margin:0;max-width:none">
+              <div style="font-weight:800">Acesso parcial</div>
+              <div class="linha"><span class="nm">Gerenciar campanhas</span><span class="tog"></span></div>
+              <div class="linha"><span class="nm">Ver desempenho</span><span class="tog"></span></div>
+              <div class="linha"><span class="nm">Gerenciar públicos-alvo</span><span class="tog off"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dica">O Studio <b>não</b> tem acesso ao seu cartão nem à forma de pagamento. A verba dos anúncios continua sendo paga por você, direto para a Meta.</div>
+    </div>
+
+    <!-- PASSO 7 -->
+    <div class="passo">
+      <div class="cab"><span class="n">7</span><h3>Salve e me avise</h3></div>
+      <ol>
+        <li>Clique em <span class="clique">Salvar alterações</span> (ou <b>Atribuir ativos</b>) e depois em <b>Concluído</b>.</li>
+        <li>Em <b>Parceiros</b>, o <b>Studio Vitor Campos</b> vai aparecer na lista.</li>
+        <li>Me mande um <b>"pronto!"</b> no WhatsApp que eu confiro do meu lado.</li>
+      </ol>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i><span class="url">business.facebook.com/settings/partners</span></div>
+        <div class="corpo">
+          <div class="lado">
+            <div class="t">Usuários</div><div class="item">Pessoas</div><div class="item ativo">Parceiros</div>
+          </div>
+          <div class="main">
+            <div class="h">Parceiros</div>
+            <div class="linha foco"><span class="av" style="background:var(--petroleo)"></span><span class="nm"><b>Studio Vitor Campos</b> · ID 353123935554576</span>✓</div>
+          </div>
+        </div>
+      </div>
+      <p><a class="btn zap" href="https://wa.me/5561992163078?text=Pronto!%20Adicionei%20o%20Studio%20como%20parceiro%20no%20portf%C3%B3lio." target="_blank" rel="noopener">Avisar no WhatsApp</a></p>
+    </div>
+
+  </div>
+</section>
+
+<section class="escuro" id="problemas">
+  <div class="wrap">
+    <h2>Deu algum problema?</h2>
+    <div class="passo" style="color:var(--texto)">
+      <h3>"Não tenho portfólio empresarial"</h3>
+      <p>Tudo bem, é comum. Me avise no WhatsApp: eu te mando o link para criar um (leva 2 minutos) ou te explico outro caminho.</p>
+    </div>
+    <div class="passo" style="color:var(--texto)">
+      <h3>"A página ou o Instagram não aparecem no portfólio"</h3>
+      <p>Volte ao <b>passo 2</b> e use o <b>+ Adicionar</b>. Se a Meta disser que a página pertence a outro portfólio, me avise que eu vejo com você.</p>
+    </div>
+    <div class="passo" style="color:var(--texto)">
+      <h3>"Não aparece o botão Adicionar" ou "não tenho permissão"</h3>
+      <p>Você precisa ser <b>administradora</b> do portfólio. Se outra pessoa criou o portfólio, peça a ela para seguir este passo a passo ou para te dar controle total.</p>
+    </div>
+    <div class="passo" style="color:var(--texto)">
+      <h3>"Estou só com o celular"</h3>
+      <p>No iPhone, abra o link do passo 1 no <b>Safari</b>, toque em <b>aA</b> na barra de endereço e escolha <b>Solicitar site para computador</b>. No Android (Chrome), use os <b>três pontinhos → Site para computador</b>. Funciona, mas no computador é mais fácil.</p>
+    </div>
+    <p class="lead">Travou em qualquer passo? Me chama, que eu te ajudo a terminar.</p>
+    <p><a class="btn zap" href="https://wa.me/5561992163078?text=Oi%2C%20Vitor!%20Travei%20no%20passo%20a%20passo%20do%20acesso." target="_blank" rel="noopener">Falar no WhatsApp</a></p>
+  </div>
+</section>
+
+<footer>Studio Vitor Campos · VC Consultoria em Marketing Ltda · contato@studiovitorcampos.com.br<br>As telas desta página são ilustrações; os nomes dos botões podem variar um pouco na sua conta.</footer>
+
+<script>
+  const id = "353123935554576";
+  const copiar = async (bt) => {
+    try { await navigator.clipboard.writeText(id); }
+    catch { const t = document.createElement("textarea"); t.value = id; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); }
+    const txt = bt.textContent; bt.textContent = "Copiado ✓"; setTimeout(() => (bt.textContent = txt), 1800);
+  };
+  document.querySelectorAll("#copiar,[data-copiar]").forEach((b) => b.addEventListener("click", () => copiar(b)));
+</script>
+</body>
+</html>
