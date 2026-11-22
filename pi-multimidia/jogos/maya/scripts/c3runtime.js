@@ -1559,6 +1559,11 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("Pontos: ", v0.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => ((f0() === "Fase 5 - Castelo") ? n1.ExpObject() : -100000);
 		}
 ];
 
