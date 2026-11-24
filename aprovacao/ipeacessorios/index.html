@@ -118,7 +118,7 @@ const pad = (x) => String(x).padStart(2, "0");
 const lista = document.getElementById("lista");
 PECAS.forEach((p, i) => {
   const id = i + 1;
-  const imgs = Array.from({ length: p.n }, (_, k) => `<img src="img/${pad(id)}-${k + 1}.jpg?v=8" alt="${p.t}, imagem ${k + 1}" loading="${i < 2 ? "eager" : "lazy"}">`).join("");
+  const imgs = Array.from({ length: p.n }, (_, k) => `<img src="img/${pad(id)}-${k + 1}.jpg?v=9" alt="${p.t}, imagem ${k + 1}" loading="${i < 2 ? "eager" : "lazy"}">`).join("");
   const el = document.createElement("article");
   el.className = "peca"; el.id = "p" + id;
   el.innerHTML = `
