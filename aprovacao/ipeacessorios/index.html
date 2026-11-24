@@ -84,7 +84,7 @@ main{padding:24px 16px}
         <li>No fim, toque em <b>Enviar</b> e mande a mensagem pronta no WhatsApp.</li>
       </ol>
     </div>
-    <p style="font-size:14px;opacity:.85">Os preços <b style="color:var(--manteiga)">"por"</b> aparecem como R$ 000 e entram quando você mandar a lista. Os preços "de" são os do site hoje.</p>
+    <p style="font-size:14px;opacity:.85">Os preços <b style="color:var(--manteiga)">"de" e "por"</b> já estão com a lista que você mandou.</p>
   </div>
 </header>
 
@@ -118,7 +118,7 @@ const pad = (x) => String(x).padStart(2, "0");
 const lista = document.getElementById("lista");
 PECAS.forEach((p, i) => {
   const id = i + 1;
-  const imgs = Array.from({ length: p.n }, (_, k) => `<img src="img/${pad(id)}-${k + 1}.jpg" alt="${p.t}, imagem ${k + 1}" loading="${i < 2 ? "eager" : "lazy"}">`).join("");
+  const imgs = Array.from({ length: p.n }, (_, k) => `<img src="img/${pad(id)}-${k + 1}.jpg?v=2" alt="${p.t}, imagem ${k + 1}" loading="${i < 2 ? "eager" : "lazy"}">`).join("");
   const el = document.createElement("article");
   el.className = "peca"; el.id = "p" + id;
   el.innerHTML = `
