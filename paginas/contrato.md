@@ -1,6 +1,6 @@
 ---
 titulo: Contrato de prestação de serviços: Marketing Essencial
-descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 7, de 04/11/2026.
+descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultoria em Marketing Ltda). Versão 8, de 27/11/2026.
 ---
 ## Partes
 
@@ -18,7 +18,7 @@ descricao: Contrato do Marketing Essencial, do Studio Vitor Campos (VC Consultor
 
 2.1. O contrato tem o prazo escolhido na contratação: **3 (três), 6 (seis) ou 12 (doze) meses**, contados da data da confirmação do pagamento (no cartão mês a mês, da primeira mensalidade).
 
-2.2. **Renovação:** até 30 (trinta) dias antes do fim do prazo, a CONTRATADA envia a proposta de renovação. A CONTRATANTE pode renovar por um novo período de 3, 6 ou 12 meses, com as condições de pagamento da Cláusula 3. Se não renovar por um novo período nem avisar que não quer continuar, o contrato segue **mês a mês**, pela mensalidade cheia do plano, cobrada todo mês por Pix ou cartão de crédito, até que uma das partes avise, com pelo menos **30 (trinta) dias** de antecedência, que não quer continuar.
+2.2. **Renovação:** até 30 (trinta) dias antes do fim do prazo, a CONTRATADA envia a proposta de renovação. A CONTRATANTE pode renovar por um novo período de 3, 6 ou 12 meses, com as condições de pagamento da Cláusula 3. Se não renovar por um novo período nem avisar que não quer continuar, o contrato segue **mês a mês**, pela mensalidade cheia do plano, cobrada todo mês por Pix ou cartão de crédito, até que uma das partes avise, com pelo menos **10 (dez) dias** de antecedência, que não quer continuar.
 
 ## Cláusula 3: Preço e pagamento
 
@@ -39,9 +39,9 @@ A forma de pagamento escolhida **não muda o prazo do contrato** (Cláusula 2) n
 
 3.5. **Cobrança mensal recusada (cartão mês a mês):** se o banco recusar uma cobrança mensal, a CONTRATADA avisa a CONTRATANTE por e-mail ou WhatsApp. A CONTRATANTE tem **5 (cinco) dias úteis** para atualizar o cartão na plataforma de pagamento ou pagar a mensalidade por Pix. Depois desse prazo, a mensalidade fica em atraso e valem as regras da Cláusula 3.3. Se a CONTRATANTE cancelar o cartão ou a cobrança automática diretamente no banco, isso não encerra o contrato: as mensalidades que faltam continuam devidas e passam a ser cobradas por Pix.
 
-## Cláusula 4: Garantia de 30 dias
+## Cláusula 4: Garantia de 10 dias
 
-4.1. A CONTRATANTE pode cancelar este contrato em até **30 (trinta) dias** depois da confirmação do pagamento, por qualquer motivo, e recebe de volta **100% do valor pago**, sem multa.
+4.1. A CONTRATANTE pode cancelar este contrato em até **10 (dez) dias** depois da confirmação do pagamento, por qualquer motivo, e recebe de volta **100% do valor pago**, sem multa.
 
 4.2. Condições da garantia:
 - Vale **uma única vez por CNPJ ou CPF**.
