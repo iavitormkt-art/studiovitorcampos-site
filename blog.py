@@ -198,7 +198,7 @@ TOPO = """<header class="topo">
       <a href="/#inclui">O que inclui</a>
       <a href="/#planos">Planos</a>
       <a href="/blog/">Blog</a>
-      <a class="botao botao-ciano" href="/#diagnostico">Diagnóstico grátis</a>
+      <a class="botao botao-ciano" href="/#form-diagnostico">Diagnóstico grátis</a>
     </nav>
   </div>
 </header>"""
@@ -218,7 +218,7 @@ RODAPE = f"""<footer>
 CHAMADA = """<aside class="chamada">
   <h2>Quer saber como está o seu perfil?</h2>
   <p>Peça um diagnóstico gratuito. Eu analiso o seu Instagram, o seu Facebook e o seu site e mostro onde você está perdendo clientes.</p>
-  <a class="botao botao-coral" href="/#diagnostico">Quero o diagnóstico gratuito</a>
+  <a class="botao botao-coral" href="/#form-diagnostico">Quero o diagnóstico gratuito</a>
 </aside>"""
 
 

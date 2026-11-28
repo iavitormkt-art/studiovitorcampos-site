@@ -46,6 +46,8 @@
   .menu { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
   .menu a { text-decoration: none; opacity: .85; }
   .menu a:hover { opacity: 1; color: var(--ciano); }
+  .menu a.botao, .menu a.botao:hover, .menu a.botao:active, .menu a.botao:focus { color: var(--petroleo); opacity: 1; }
+  #form-diagnostico { scroll-margin-top: 96px; }
   .botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 99px; padding: 14px 26px; font: 700 16px "Montserrat", sans-serif; text-decoration: none; cursor: pointer; transition: transform .15s, box-shadow .15s; }
   .botao:hover { transform: translateY(-2px); }
   .botao-ciano { background: var(--ciano); color: var(--petroleo); box-shadow: 0 10px 30px rgba(0, 255, 249, .25); }
@@ -311,7 +313,7 @@
       <a href="#planos">Planos</a>
       <a href="#perguntas">Dúvidas</a>
       <a href="/blog/">Blog</a>
-      <a class="botao botao-ciano" href="#diagnostico">Diagnóstico grátis</a>
+      <a class="botao botao-ciano" href="#form-diagnostico">Diagnóstico grátis</a>
     </nav>
   </div>
 </header>
@@ -540,7 +542,7 @@
         </ul>
         <p class="implantacao">Implantação: R$ 497 (grátis a partir de 6 meses) · até 15% off no Pix</p>
         <a class="botao botao-contorno" href="/contratar/?plano=completo">Contratar</a>
-        <a class="link-diag" href="#diagnostico">ou peça um diagnóstico grátis</a>
+        <a class="link-diag" href="#form-diagnostico">ou peça um diagnóstico grátis</a>
       </div>
       <div class="plano destaque">
         <span class="tag">MAIS ESCOLHIDO</span>
@@ -558,7 +560,7 @@
         </ul>
         <p class="implantacao">Implantação: R$ 497 (grátis a partir de 6 meses) · até 15% off no Pix</p>
         <a class="botao botao-ciano" href="/contratar/?plano=essencial-mais">Contratar</a>
-        <a class="link-diag" href="#diagnostico">ou peça um diagnóstico grátis</a>
+        <a class="link-diag" href="#form-diagnostico">ou peça um diagnóstico grátis</a>
       </div>
       <div class="plano">
         <h3>Essencial</h3>
@@ -577,7 +579,7 @@
         </ul>
         <p class="implantacao">Implantação: R$ 497 (grátis a partir de 6 meses) · até 15% off no Pix</p>
         <a class="botao botao-contorno" href="/contratar/?plano=essencial">Contratar</a>
-        <a class="link-diag" href="#diagnostico">ou peça um diagnóstico grátis</a>
+        <a class="link-diag" href="#form-diagnostico">ou peça um diagnóstico grátis</a>
       </div>
       <div class="plano">
         <h3>Presença</h3>
@@ -595,7 +597,7 @@
         </ul>
         <p class="implantacao">Implantação: R$ 297 (grátis a partir de 6 meses) · até 15% off no Pix</p>
         <a class="botao botao-contorno" href="/contratar/?plano=presenca">Contratar</a>
-        <a class="link-diag" href="#diagnostico">ou peça um diagnóstico grátis</a>
+        <a class="link-diag" href="#form-diagnostico">ou peça um diagnóstico grátis</a>
       </div>
     </div>
 
@@ -629,7 +631,7 @@
       <h2>Prazer, eu sou o Vitor</h2>
       <p>Sou formado em marketing, filmmaker e instrutor de marketing e design. Há anos ajudo empresas a se comunicarem melhor, com peças bonitas e, principalmente, que vendem.</p>
       <p>No Marketing Essencial, junto o olhar de quem cria com a agilidade da tecnologia. Você tem um time de comunicação completo, com uma pessoa só para conversar.</p>
-      <p style="margin-top:28px"><a class="botao botao-coral" href="#diagnostico">Quero o diagnóstico gratuito</a></p>
+      <p style="margin-top:28px"><a class="botao botao-coral" href="#form-diagnostico">Quero o diagnóstico gratuito</a></p>
     </div>
   </div>
 </section>
@@ -656,7 +658,7 @@
     <div class="chamada">
       <h2>Descubra onde o seu perfil está perdendo clientes</h2>
       <p>Leva menos de 1 minuto para pedir. O diagnóstico é gratuito e sem compromisso.</p>
-      <a class="botao" href="#diagnostico">Solicitar diagnóstico gratuito</a>
+      <a class="botao" href="#form-diagnostico">Solicitar diagnóstico gratuito</a>
     </div>
   </div>
 </section>
